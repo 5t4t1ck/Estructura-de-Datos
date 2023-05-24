@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Lic. Diego Medardo Saavedra García Mg. Sc.">
-  <meta name="dcterms.date" content="2023-05-19">
-  <title>Unidad 1: Pilas - Estructura de Datos</title>
+  <meta name="dcterms.date" content="2023-05-23">
+  <title>Unidad 1: Colas - Estructura de Datos</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -394,7 +394,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Unidad 1: Pilas - Estructura de Datos</h1>
+  <h1 class="title">Unidad 1: Colas - Estructura de Datos</h1>
   <p class="subtitle">Introducción a la Lógica</p>
 
 <div class="quarto-title-authors">
@@ -405,62 +405,88 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 </div>
 </div>
 
-  <p class="date">2023-05-19</p>
+  <p class="date">2023-05-23</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Tabla de contenidos</h2>
 <ul>
-<li><a href="#/pilas" id="/toc-pilas">Pilas</a>
+<li><a href="#/colas" id="/toc-colas">Colas</a>
 <ul>
-<li><a href="#/introducción-a-pilas" id="/toc-introducción-a-pilas">Introducción a Pilas</a></li>
-<li><a href="#/cómo-funcionan-las-pilas" id="/toc-cómo-funcionan-las-pilas">¿Cómo funcionan las Pilas?</a></li>
+<li><a href="#/introducción-a-colas." id="/toc-introducción-a-colas.">Introducción a Colas.</a></li>
+<li><a href="#/representación-en-memoria-estática-y-dinámica." id="/toc-representación-en-memoria-estática-y-dinámica.">Representación en Memoria Estática y Dinámica.</a></li>
+<li><a href="#/tipos-de-colas" id="/toc-tipos-de-colas">Tipos de Colas</a></li>
+<li><a href="#/operaciones-con-colas" id="/toc-operaciones-con-colas">Operaciones con Colas</a></li>
+<li><a href="#/aplicaciones-colas-de-prioridad" id="/toc-aplicaciones-colas-de-prioridad">Aplicaciones: Colas de Prioridad</a></li>
 <li><a href="#/implementación-en-c" id="/toc-implementación-en-c">Implementación en C++</a></li>
 <li><a href="#/implementación-en-python" id="/toc-implementación-en-python">Implementación en Python</a></li>
-<li><a href="#/implementación-en-java." id="/toc-implementación-en-java.">Implementación en Java.</a></li>
-<li><a href="#/ejercicios-con-pilas" id="/toc-ejercicios-con-pilas">Ejercicios con Pilas</a></li>
-<li><a href="#/conclusión." id="/toc-conclusión.">Conclusión.</a></li>
-<li><a href="#/section" id="/toc-section"></a></li>
-</ul></li>
+<li><a href="#/implementación-en-java" id="/toc-implementación-en-java">Implementación en Java</a></li>
+<li><a href="#/conclusión" id="/toc-conclusión">Conclusión</a></li>
+<li><a href="#/gracias" id="/toc-gracias">¡Gracias!</a></li>
 <li><a href="#/bibliografía" id="/toc-bibliografía">Bibliografía</a></li>
+</ul></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="pilas" class="title-slide slide level1 center">
-<h1>Pilas</h1>
+<section id="colas" class="title-slide slide level1 center">
+<h1>Colas</h1>
 
 </section>
-<section id="introducción-a-pilas" class="slide level2">
-<h2>Introducción a Pilas</h2>
+<section id="introducción-a-colas." class="slide level2">
+<h2>Introducción a Colas.</h2>
 <ul>
-<li>Las Pilas son una estructura de datos lineal.</li>
-<li>Siguen el principio de LIFO (Last In, First Out).</li>
-<li>Útiles para llevar un seguimiento ordenado de elementos.</li>
+<li>Las colas son una estructura de datos lineal.</li>
+<li>Siguen el principio FIFO)First In, Fist Out). Siguen el principio de FIFO (First In, First Out). Elementos se agregan por un extremo, llamado “final” de la cola, y se eliminan por el otro extremo, llamado “frente” de la cola.</li>
 </ul>
 </section>
-<section id="cómo-funcionan-las-pilas" class="slide level2">
-<h2>¿Cómo funcionan las Pilas?</h2>
+<section id="representación-en-memoria-estática-y-dinámica." class="slide level2">
+<h2>Representación en Memoria Estática y Dinámica.</h2>
 <ul>
-<li>Imagina una pila de platos: el último plato apilado es el primero en ser retirado.</li>
-<li>Elementos se agregan y eliminan por un extremo, llamado “tope” de la pila.</li>
-<li>Acceso rápido al elemento más reciente y operaciones en orden inverso.</li>
+<li>Las colas pueden ser representadas en memoria estática utilizando arreglos de tamaño fijo.</li>
+<li>También se pueden representar en memoria dinámica utilizando estructuras enlazadas, como listas enlazadas.</li>
+</ul>
+</section>
+<section id="tipos-de-colas" class="slide level2">
+<h2>Tipos de Colas</h2>
+<ul>
+<li>Cola estándar: Agregar elementos al final y eliminar del frente.</li>
+<li>Cola de prioridad: Los elementos tienen una prioridad asociada y se manejan en función de ella.</li>
+<li>Cola circular: Los extremos de la cola están conectados, permitiendo un ciclo continuo de operaciones de encolar y desencolar.</li>
+</ul>
+</section>
+<section id="operaciones-con-colas" class="slide level2">
+<h2>Operaciones con Colas</h2>
+<ul>
+<li>Enqueue (Encolar): Agregar elementos al final de la cola.</li>
+<li>Dequeue (Desencolar): Eliminar el elemento del frente de la cola.</li>
+<li>Front (Frente): Obtener el elemento del frente sin eliminarlo.</li>
+<li>IsEmpty (Está vacía): Verificar si la cola está vacía.</li>
+<li>Size (Tamaño): Obtener el número de elementos en la cola.</li>
+</ul>
+</section>
+<section id="aplicaciones-colas-de-prioridad" class="slide level2">
+<h2>Aplicaciones: Colas de Prioridad</h2>
+<ul>
+<li>Planificación de procesos en un sistema operativo.</li>
+<li>Gestión de interrupciones en tiempo real.</li>
+<li>Algoritmos de búsqueda y ordenamiento.</li>
 </ul>
 </section>
 <section id="implementación-en-c" class="slide level2">
 <h2>Implementación en C++</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {c++} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>#include &lt;iostream&gt;</span>
-<span id="cb1-2"><a href="#cb1-2"></a>#include &lt;stack&gt;</span>
+<span id="cb1-2"><a href="#cb1-2"></a>#include &lt;queue&gt;</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>int main() {</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    std::stack&lt;int&gt; pila;</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    std::queue&lt;int&gt; cola;</span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    pila.push(10);</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    pila.push(20);</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    pila.push(30);</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    cola.push(10);</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    cola.push(20);</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    cola.push(30);</span>
 <span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>    while (!pila.empty()) {</span>
-<span id="cb1-12"><a href="#cb1-12"></a>        std::cout &lt;&lt; pila.top() &lt;&lt; " ";</span>
-<span id="cb1-13"><a href="#cb1-13"></a>        pila.pop();</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    while (!cola.empty()) {</span>
+<span id="cb1-12"><a href="#cb1-12"></a>        std::cout &lt;&lt; cola.front() &lt;&lt; " ";</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        cola.pop();</span>
 <span id="cb1-14"><a href="#cb1-14"></a>    }</span>
 <span id="cb1-15"><a href="#cb1-15"></a></span>
 <span id="cb1-16"><a href="#cb1-16"></a>    return 0;</span>
@@ -468,74 +494,72 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 </section>
 <section id="implementación-en-python" class="slide level2">
 <h2>Implementación en Python</h2>
-<div class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>30 20 10 </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>cola <span class="op">=</span> []</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>cola.append(<span class="dv">10</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>cola.append(<span class="dv">20</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>cola.append(<span class="dv">30</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="cf">while</span> <span class="bu">len</span>(cola) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="bu">print</span>(cola[<span class="dv">0</span>], end<span class="op">=</span><span class="st">" "</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    cola.pop(<span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
 </section>
-<section id="implementación-en-java." class="slide level2">
-<h2>Implementación en Java.</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {java} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>import java.util.Stack;</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>public class PilaExample {</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    public static void main(String[] args) {</span>
-<span id="cb3-5"><a href="#cb3-5"></a>        Stack&lt;Integer&gt; pila = new Stack&lt;&gt;();</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>        pila.push(10);</span>
-<span id="cb3-8"><a href="#cb3-8"></a>        pila.push(20);</span>
-<span id="cb3-9"><a href="#cb3-9"></a>        pila.push(30);</span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a>        while (!pila.empty()) {</span>
-<span id="cb3-12"><a href="#cb3-12"></a>            System.out.print(pila.peek() + " ");</span>
-<span id="cb3-13"><a href="#cb3-13"></a>            pila.pop();</span>
-<span id="cb3-14"><a href="#cb3-14"></a>        }</span>
-<span id="cb3-15"><a href="#cb3-15"></a>    }</span>
-<span id="cb3-16"><a href="#cb3-16"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="implementación-en-java" class="slide level2">
+<h2>Implementación en Java</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {java} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>import java.util.Queue;</span>
+<span id="cb3-2"><a href="#cb3-2"></a>import java.util.LinkedList;</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>public class ColaExample {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    public static void main(String[] args) {</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        Queue&lt;Integer&gt; cola = new LinkedList&lt;&gt;();</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>        cola.add(10);</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        cola.add(20);</span>
+<span id="cb3-10"><a href="#cb3-10"></a>        cola.add(30);</span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a>        while (!cola.isEmpty()) {</span>
+<span id="cb3-13"><a href="#cb3-13"></a>            System.out.print(cola.peek() + " ");</span>
+<span id="cb3-14"><a href="#cb3-14"></a>            cola.remove();</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        }</span>
+<span id="cb3-16"><a href="#cb3-16"></a>    }</span>
+<span id="cb3-17"><a href="#cb3-17"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="ejercicios-con-pilas" class="slide level2">
-<h2>Ejercicios con Pilas</h2>
-<ol type="1">
-<li>Verificar si una expresión de paréntesis está balanceada.</li>
-<li>Convertir un número decimal a binario.</li>
-<li>Revertir el contenido de una pila.</li>
-<li>Evaluar una expresión postfija.</li>
-<li>Implementar una pila con capacidad limitada.</li>
-</ol>
-</section>
-<section id="conclusión." class="slide level2">
-<h2>Conclusión.</h2>
+<section id="conclusión" class="slide level2">
+<h2>Conclusión</h2>
 <ul>
-<li>Las Pilas son una estructura de datos importante en Estructura de Datos.</li>
-<li>Útiles para aplicaciones como verificación de balanceo de paréntesis y conversiones de números.</li>
-<li>Permite un acceso rápido al elemento más reciente y operaciones en orden inverso.</li>
+<li>Las colas son una estructura de datos importante en Estructura de Datos.</li>
+<li>Sigue el principio de FIFO y permite un manejo ordenado de elementos.</li>
+<li>Existen diferentes tipos de colas y operaciones que se pueden realizar.</li>
+<li>Las colas de prioridad son útiles en situaciones donde senecesita establecer un orden basado en la prioridad de los elementos.</li>
+</ul>
+<p>Recapitulación</p>
+<ul>
+<li>Las colas son estructuras de datos lineales con el principio FIFO.</li>
+<li>Pueden ser representadas en memoria estática o dinámica.</li>
+<li>Existen diferentes tipos de colas, como la cola estándar y la cola de prioridad.</li>
+<li>Las operaciones comunes en colas incluyen encolar, desencolar, obtener el frente, verificar si está vacía y obtener el tamaño.</li>
+<li>Las colas de prioridad son especialmente útiles cuando se necesita establecer un orden basado en prioridades.</li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="gracias" class="slide level2">
+<h2>¡Gracias!</h2>
+<ul>
+<li>Esperamos que esta presentación haya sido útil para comprender las colas en la asignatura de Estructura de Datos.</li>
+<li>¡Explora más sobre las colas y disfruta de su aplicación en el desarrollo de software!</li>
+<li>¿Tienes alguna pregunta?</li>
+</ul>
+</section>
+<section id="bibliografía" class="slide level2">
+<h2>Bibliografía</h2>
+<p>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (Año de publicación). Introduction to Algorithms (3rd ed.). The MIT Press. Tutorialspoint. (s. f.). Data Structures and Algorithms - Queue. Recuperado el día de mes de año, de [enlace URL] GeeksforGeeks. (s. f.). Queue Data Structure. Recuperado el día de mes de año, de [enlace URL]</p>
 <p>¡Gracias por su atención!</p>
-</section></section>
-<section id="bibliografía" class="title-slide slide level1 center">
-<h1>Bibliografía</h1>
-<ul>
-<li>Libro:</li>
-</ul>
-<p>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2009). Introduction to Algorithms (3rd ed.). The MIT Press.</p>
-<ul>
-<li>Artículos:</li>
-</ul>
-<p>Smith, J. (2018). Stack Data Structure: Explained with Examples. Towards Data Science. https://towardsdatascience.com/stack-data-structure-explained-with-examples-3c669960b574</p>
-<p>Gupta, S. (2020). Postfix to Infix Expression Conversion Using Stack. GeeksforGeeks. https://www.geeksforgeeks.org/postfix-to-infix/</p>
-<ul>
-<li>Sitios web:</li>
-</ul>
-<p>Tutorialspoint. (s. f.). Data Structures and Algorithms - Stack. Recuperado el 19 de mayo de 2023, de https://www.tutorialspoint.com/data_structures_algorithms/stack_algorithm.htm</p>
-<p>W3schools. (s. f.). Python Lists. Recuperado el 19 de mayo de 2023, de https://www.w3schools.com/python/python_lists.asp</p>
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://espe.edu.ec" class="uri">https://espe.edu.ec</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
