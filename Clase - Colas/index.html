@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Lic. Diego Medardo Saavedra García Mg. Sc.">
-  <meta name="dcterms.date" content="2023-05-23">
+  <meta name="dcterms.date" content="2023-05-24">
   <title>Unidad 1: Colas - Estructura de Datos</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -405,7 +405,7 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 </div>
 </div>
 
-  <p class="date">2023-05-23</p>
+  <p class="date">2023-05-24</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Tabla de contenidos</h2>
@@ -420,9 +420,23 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 <li><a href="#/implementación-en-c" id="/toc-implementación-en-c">Implementación en C++</a></li>
 <li><a href="#/implementación-en-python" id="/toc-implementación-en-python">Implementación en Python</a></li>
 <li><a href="#/implementación-en-java" id="/toc-implementación-en-java">Implementación en Java</a></li>
+</ul></li>
+<li><a href="#/ejercicios." id="/toc-ejercicios.">Ejercicios.</a>
+<ul>
+<li><a href="#/ejercicio-1-sumar-los-elementos-de-una-lista." id="/toc-ejercicio-1-sumar-los-elementos-de-una-lista.">Ejercicio 1: Sumar los elementos de una lista.</a></li>
+<li><a href="#/ejercicio-2-verificar-si-una-palabra-es-un-palíndromo" id="/toc-ejercicio-2-verificar-si-una-palabra-es-un-palíndromo">Ejercicio 2: Verificar si una palabra es un palíndromo</a></li>
+<li><a href="#/ejercicio-3-invertir-una-lista-utilizando-una-pila." id="/toc-ejercicio-3-invertir-una-lista-utilizando-una-pila.">Ejercicio 3: Invertir una lista utilizando una pila.</a></li>
+<li><a href="#/ejercicio-4-convertir-una-expresión-infija-a-postfija." id="/toc-ejercicio-4-convertir-una-expresión-infija-a-postfija.">Ejercicio 4: Convertir una expresión infija a postfija.</a></li>
+<li><a href="#/ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada" id="/toc-ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada">Ejercicio 5: Verificar si una expresión con paréntesis está balanceada</a></li>
+<li><a href="#/ejercicio-6-implementar-una-cola-utilizando-dos-pilas" id="/toc-ejercicio-6-implementar-una-cola-utilizando-dos-pilas">Ejercicio 6: Implementar una cola utilizando dos pilas</a></li>
+<li><a href="#/ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola" id="/toc-ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola">Ejercicio 7: Verificar si una lista es simétrica utilizando una cola</a></li>
+<li><a href="#/ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola" id="/toc-ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola">Ejercicio 8: Eliminar elementos duplicados de una lista utilizando una cola</a></li>
+<li><a href="#/ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria." id="/toc-ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria.">Ejercicio 10: Realizar una búsqueda en una lista ordenada utilizando búsqueda binaria.</a></li>
 <li><a href="#/conclusión" id="/toc-conclusión">Conclusión</a></li>
+<li><a href="#/recapitulación" id="/toc-recapitulación">Recapitulación</a></li>
 <li><a href="#/gracias" id="/toc-gracias">¡Gracias!</a></li>
 <li><a href="#/bibliografía" id="/toc-bibliografía">Bibliografía</a></li>
+<li><a href="#/tarea-listas-pilas-y-colas" id="/toc-tarea-listas-pilas-y-colas">Tarea: Listas, Pilas y Colas</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -525,6 +539,229 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 <span id="cb3-15"><a href="#cb3-15"></a>        }</span>
 <span id="cb3-16"><a href="#cb3-16"></a>    }</span>
 <span id="cb3-17"><a href="#cb3-17"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="ejercicios." class="title-slide slide level1 center">
+<h1>Ejercicios.</h1>
+<p>A continuación se presenta algunos ejemplos del uso de código python para la aplicación de listas, pilas y colas.</p>
+</section>
+<section id="ejercicio-1-sumar-los-elementos-de-una-lista." class="slide level2">
+<h2>Ejercicio 1: Sumar los elementos de una lista.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> sumar_elementos(lista):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    suma <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
+<span id="cb4-4"><a href="#cb4-4"></a>        suma <span class="op">+=</span> elemento</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> suma</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb4-9"><a href="#cb4-9"></a>resultado <span class="op">=</span> sumar_elementos(lista)</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: 15</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> Este ejercicio muestra cómo sumar todos los elementos de una lista utilizando un bucle for y la operación de acumulación.</p>
+</section>
+<section id="ejercicio-2-verificar-si-una-palabra-es-un-palíndromo" class="slide level2">
+<h2>Ejercicio 2: Verificar si una palabra es un palíndromo</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> es_palindromo(palabra):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    palabra <span class="op">=</span> palabra.lower()</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    lista <span class="op">=</span> <span class="bu">list</span>(palabra)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    pila <span class="op">=</span> []</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="cf">for</span> letra <span class="kw">in</span> lista:</span>
+<span id="cb5-7"><a href="#cb5-7"></a>        <span class="cf">if</span> letra.isalpha():</span>
+<span id="cb5-8"><a href="#cb5-8"></a>            pila.append(letra)</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    inversa <span class="op">=</span> <span class="st">''</span>.join(pila[::<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">return</span> palabra <span class="op">==</span> inversa</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>palabra <span class="op">=</span> <span class="st">"reconocer"</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>resultado <span class="op">=</span> es_palindromo(palabra)</span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se crea una función que verifica si una palabra es un palíndromo. Se utiliza una pila para almacenar las letras de la palabra y luego se compara con su inversa.</p>
+</section>
+<section id="ejercicio-3-invertir-una-lista-utilizando-una-pila." class="slide level2">
+<h2>Ejercicio 3: Invertir una lista utilizando una pila.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> invertir_lista(lista):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    pila <span class="op">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        pila.append(elemento)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a>    lista_invertida <span class="op">=</span> []</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="cf">while</span> pila:</span>
+<span id="cb6-8"><a href="#cb6-8"></a>        lista_invertida.append(pila.pop())</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="cf">return</span> lista_invertida</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb6-14"><a href="#cb6-14"></a>resultado <span class="op">=</span> invertir_lista(lista)</span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: [5, 4, 3, 2, 1]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se utiliza una pila para invertir una lista. Se añaden los elementos de la lista a una pila y luego se van extrayendo de la pila para construir una nueva lista invertida.</p>
+</section>
+<section id="ejercicio-4-convertir-una-expresión-infija-a-postfija." class="slide level2">
+<h2>Ejercicio 4: Convertir una expresión infija a postfija.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> infija_a_postfija(expresion):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    precedencia <span class="op">=</span> {<span class="st">'+'</span>: <span class="dv">1</span>, <span class="st">'-'</span>: <span class="dv">1</span>, <span class="st">'*'</span>: <span class="dv">2</span>, <span class="st">'/'</span>: <span class="dv">2</span>, <span class="st">'^'</span>: <span class="dv">3</span>}</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    pila <span class="op">=</span> []</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    resultado <span class="op">=</span> []</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="cf">for</span> caracter <span class="kw">in</span> expresion:</span>
+<span id="cb7-7"><a href="#cb7-7"></a>        <span class="cf">if</span> caracter.isalnum():</span>
+<span id="cb7-8"><a href="#cb7-8"></a>            resultado.append(caracter)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">'('</span>:</span>
+<span id="cb7-10"><a href="#cb7-10"></a>            pila.append(caracter)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">')'</span>:</span>
+<span id="cb7-12"><a href="#cb7-12"></a>            <span class="cf">while</span> pila <span class="kw">and</span> pila[<span class="op">-</span><span class="dv">1</span>] <span class="op">!=</span> <span class="st">'('</span>:</span>
+<span id="cb7-13"><a href="#cb7-13"></a>                resultado.append(pila.pop())</span>
+<span id="cb7-14"><a href="#cb7-14"></a>            pila.pop()</span>
+<span id="cb7-15"><a href="#cb7-15"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-16"><a href="#cb7-16"></a>            <span class="cf">while</span> pila <span class="kw">and</span> precedencia.get(caracter, <span class="dv">0</span>) <span class="op">&lt;=</span> precedencia.get(pila[<span class="op">-</span><span class="dv">1</span>], <span class="dv">0</span>):</span>
+<span id="cb7-17"><a href="#cb7-17"></a>                resultado.append(pila.pop())</span>
+<span id="cb7-18"><a href="#cb7-18"></a>            pila.append(caracter)</span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>    <span class="cf">while</span> pila:</span>
+<span id="cb7-21"><a href="#cb7-21"></a>        resultado.append(pila.pop())</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="cf">return</span> <span class="st">''</span>.join(resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En este código, se define un diccionario llamado precedencia que asigna a cada operador su nivel de precedencia. Luego, se crea una pila vacía pila y una lista vacía resultado que almacenará la expresión postfija.</p>
+<p>A continuación, se recorre cada caracter de la expresión de entrada. Si el caracter es un alfanumérico, es decir, un dígito o una letra, se agrega directamente al resultado. Si el caracter es un paréntesis de apertura ‘(’, se añade a la pila.</p>
+<p>Si el caracter es un paréntesis de cierre ‘)’, se extraen los operadores de la pila y se agregan al resultado hasta encontrar un paréntesis de apertura en la pila.</p>
+<p>Si el caracter es un operador, se compara su precedencia con la del operador en el tope de la pila. Si la precedencia del operador en la pila es mayor o igual, se extrae de la pila y se agrega al resultado. Luego, se agrega el operador actual a la pila.</p>
+<p>Después de recorrer todos los caracteres de la expresión, se extraen los operadores restantes de la pila y se agregan al resultado.</p>
+<p>Finalmente, se retorna el resultado como una cadena de caracteres que representa la expresión en notación postfija.</p>
+</section>
+<section id="ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada" class="slide level2">
+<h2>Ejercicio 5: Verificar si una expresión con paréntesis está balanceada</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> verificar_balance(expresion):</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    pila <span class="op">=</span> []</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">for</span> caracter <span class="kw">in</span> expresion:</span>
+<span id="cb8-5"><a href="#cb8-5"></a>        <span class="cf">if</span> caracter <span class="op">==</span> <span class="st">'('</span>:</span>
+<span id="cb8-6"><a href="#cb8-6"></a>            pila.append(caracter)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">')'</span>:</span>
+<span id="cb8-8"><a href="#cb8-8"></a>            <span class="cf">if</span> <span class="kw">not</span> pila:</span>
+<span id="cb8-9"><a href="#cb8-9"></a>                <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>            pila.pop()</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="cf">return</span> <span class="bu">len</span>(pila) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>expresion <span class="op">=</span> <span class="st">"(a + b) * (c - d)"</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>resultado <span class="op">=</span> verificar_balance(expresion)</span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se utiliza una pila para verificar si una expresión con paréntesis está balanceada. Se recorre la expresión y se añaden los paréntesis de apertura a la pila. Si se encuentra un paréntesis de cierre y la pila no está vacía, se retira un paréntesis de apertura de la pila. Al final, se verifica si la pila está vacía para determinar si la expresión está balanceada.</p>
+</section>
+<section id="ejercicio-6-implementar-una-cola-utilizando-dos-pilas" class="slide level2">
+<h2>Ejercicio 6: Implementar una cola utilizando dos pilas</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> ColaConPilas:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.pila_entrada <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4"></a>        <span class="va">self</span>.pila_salida <span class="op">=</span> []</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="kw">def</span> encolar(<span class="va">self</span>, elemento):</span>
+<span id="cb9-7"><a href="#cb9-7"></a>        <span class="va">self</span>.pila_entrada.append(elemento)</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="kw">def</span> desencolar(<span class="va">self</span>):</span>
+<span id="cb9-10"><a href="#cb9-10"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.pila_salida:</span>
+<span id="cb9-11"><a href="#cb9-11"></a>            <span class="cf">while</span> <span class="va">self</span>.pila_entrada:</span>
+<span id="cb9-12"><a href="#cb9-12"></a>                <span class="va">self</span>.pila_salida.append(<span class="va">self</span>.pila_entrada.pop())</span>
+<span id="cb9-13"><a href="#cb9-13"></a></span>
+<span id="cb9-14"><a href="#cb9-14"></a>        <span class="cf">if</span> <span class="va">self</span>.pila_salida:</span>
+<span id="cb9-15"><a href="#cb9-15"></a>            <span class="cf">return</span> <span class="va">self</span>.pila_salida.pop()</span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a>    <span class="kw">def</span> esta_vacia(<span class="va">self</span>):</span>
+<span id="cb9-18"><a href="#cb9-18"></a>        <span class="cf">return</span> <span class="kw">not</span> <span class="va">self</span>.pila_entrada <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.pila_salida</span>
+<span id="cb9-19"><a href="#cb9-19"></a></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a>cola <span class="op">=</span> ColaConPilas()</span>
+<span id="cb9-22"><a href="#cb9-22"></a>cola.encolar(<span class="dv">1</span>)</span>
+<span id="cb9-23"><a href="#cb9-23"></a>cola.encolar(<span class="dv">2</span>)</span>
+<span id="cb9-24"><a href="#cb9-24"></a>cola.encolar(<span class="dv">3</span>)</span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="bu">print</span>(cola.desencolar())  <span class="co"># Salida: 1</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="bu">print</span>(cola.desencolar())  <span class="co"># Salida: 2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se implementa una cola utilizando dos pilas. Los elementos se añaden a la pila de entrada y se desencolan de la pila de salida. Si la pila de salida está vacía, se transfieren los elementos de la pila de entrada a la pila de salida en orden inverso.</p>
+</section>
+<section id="ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola" class="slide level2">
+<h2>Ejercicio 7: Verificar si una lista es simétrica utilizando una cola</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> es_simetrica(lista):</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    cola <span class="op">=</span> []</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
+<span id="cb10-4"><a href="#cb10-4"></a>        cola.append(elemento)</span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">while</span> <span class="bu">len</span>(cola) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb10-7"><a href="#cb10-7"></a>        <span class="cf">if</span> cola.pop(<span class="dv">0</span>) <span class="op">!=</span> cola.pop():</span>
+<span id="cb10-8"><a href="#cb10-8"></a>            <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a>    <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb10-14"><a href="#cb10-14"></a>resultado <span class="op">=</span> es_simetrica(lista)</span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se utiliza una cola para verificar si una lista es simétrica. Los elementos de la lista se añaden a la cola y luego se comparan los elementos del frente de la cola con los del final. Si en algún momento no coinciden, la lista no es simétrica.</p>
+</section>
+<section id="ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola" class="slide level2">
+<h2>Ejercicio 8: Eliminar elementos duplicados de una lista utilizando una cola</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> eliminar_duplicados(lista):</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    cola <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    lista_resultado <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
+<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">if</span> elemento <span class="kw">not</span> <span class="kw">in</span> cola:</span>
+<span id="cb11-7"><a href="#cb11-7"></a>            cola.append(elemento)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>            lista</span>
+<span id="cb11-9"><a href="#cb11-9"></a>            </span>
+<span id="cb11-10"><a href="#cb11-10"></a>    <span class="cf">return</span> lista_resultado</span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#Ejemplo de uso</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a></span>
+<span id="cb11-13"><a href="#cb11-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb11-14"><a href="#cb11-14"></a>resultado <span class="op">=</span> eliminar_duplicados(lista)</span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="bu">print</span>(resultado) <span class="co"># Salida: [1, 2, 3, 4, 5]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se implementa una cola de prioridad utilizando la biblioteca heapq. Los elementos se encolan con un valor de prioridad y un contador único. La biblioteca heapq se encarga de mantener la cola ordenada por prioridad, permitiendo extraer siempre el elemento de mayor prioridad.</p>
+</section>
+<section id="ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria." class="slide level2">
+<h2>Ejercicio 10: Realizar una búsqueda en una lista ordenada utilizando búsqueda binaria.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> busqueda_binaria(lista, elemento):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    izquierda <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>    derecha <span class="op">=</span> <span class="bu">len</span>(lista) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="cf">while</span> izquierda <span class="op">&lt;=</span> derecha:</span>
+<span id="cb12-6"><a href="#cb12-6"></a>        medio <span class="op">=</span> (izquierda <span class="op">+</span> derecha) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a></span>
+<span id="cb12-8"><a href="#cb12-8"></a>        <span class="cf">if</span> lista[medio] <span class="op">==</span> elemento:</span>
+<span id="cb12-9"><a href="#cb12-9"></a>            <span class="cf">return</span> medio</span>
+<span id="cb12-10"><a href="#cb12-10"></a>        <span class="cf">elif</span> lista[medio] <span class="op">&lt;</span> elemento:</span>
+<span id="cb12-11"><a href="#cb12-11"></a>            izquierda <span class="op">=</span> medio <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>        <span class="cf">else</span>:</span>
+<span id="cb12-13"><a href="#cb12-13"></a>            derecha <span class="op">=</span> medio <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a></span>
+<span id="cb12-15"><a href="#cb12-15"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb12-16"><a href="#cb12-16"></a></span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb12-18"><a href="#cb12-18"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb12-19"><a href="#cb12-19"></a>elemento <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb12-20"><a href="#cb12-20"></a>indice <span class="op">=</span> busqueda_binaria(lista, elemento)</span>
+<span id="cb12-21"><a href="#cb12-21"></a><span class="bu">print</span>(indice)  <span class="co"># Salida: 2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explicación:</strong> En este ejercicio, se realiza una búsqueda binaria en una lista ordenada para encontrar un elemento específico. La búsqueda se realiza dividiendo el rango de búsqueda a la mitad en cada iteración, comparando el elemento medio con el objetivo y ajustando los límites de búsqueda en consecuencia.</p>
 </section>
 <section id="conclusión" class="slide level2">
 <h2>Conclusión</h2>
@@ -534,7 +771,9 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 <li>Existen diferentes tipos de colas y operaciones que se pueden realizar.</li>
 <li>Las colas de prioridad son útiles en situaciones donde senecesita establecer un orden basado en la prioridad de los elementos.</li>
 </ul>
-<p>Recapitulación</p>
+</section>
+<section id="recapitulación" class="slide level2">
+<h2>Recapitulación</h2>
 <ul>
 <li>Las colas son estructuras de datos lineales con el principio FIFO.</li>
 <li>Pueden ser representadas en memoria estática o dinámica.</li>
@@ -555,6 +794,30 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 <h2>Bibliografía</h2>
 <p>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (Año de publicación). Introduction to Algorithms (3rd ed.). The MIT Press. Tutorialspoint. (s. f.). Data Structures and Algorithms - Queue. Recuperado el día de mes de año, de [enlace URL] GeeksforGeeks. (s. f.). Queue Data Structure. Recuperado el día de mes de año, de [enlace URL]</p>
 <p>¡Gracias por su atención!</p>
+</section>
+<section id="tarea-listas-pilas-y-colas" class="slide level2">
+<h2>Tarea: Listas, Pilas y Colas</h2>
+<ol type="1">
+<li><strong>Ejercicio 1:</strong> Verificar si una lista está ordenada de forma ascendente</li>
+</ol>
+<p>1.1. <strong>Explicación:</strong> En este ejercicio, se recorre la lista y se compara cada elemento con el siguiente. Si en algún momento se encuentra un elemento mayor que su siguiente, la lista no está ordenada de forma ascendente.</p>
+<ol start="2" type="1">
+<li><strong>Ejercicio 2:</strong> Implementar una pila utilizando una lista</li>
+</ol>
+<p>2.1. <strong>Explicación:</strong> En este ejercicio, se implementa una pila utilizando una lista. Los elementos se añaden al final de la lista y se retiran del final utilizando el método pop().</p>
+<ol start="3" type="1">
+<li><strong>Ejercicio 3:</strong> Verificar si una palabra es un palíndromo utilizando una pila</li>
+</ol>
+<p>3.1. <strong>Explicación:</strong> En este ejercicio, se utiliza una pila para invertir una palabra y luego se compara con la palabra original para determinar si es un palíndromo.</p>
+<ol start="4" type="1">
+<li><strong>Ejercicio 4:</strong> Implementar una cola utilizando una lista</li>
+</ol>
+<p>4.1. <strong>Explicación:</strong> En este ejercicio, se implementa una cola utilizando una lista. Los elementos se añaden al final de la lista utilizando el método append() y se retiran del inicio utilizando el método pop(0).</p>
+<ol start="5" type="1">
+<li><strong>Ejercicio 5:</strong> Verificar si una lista es simétrica</li>
+</ol>
+<p>5.1. <strong>Explicación:</strong> En este ejercicio, se utiliza una pila para comparar los elementos de la primera mitad de la lista con los elementos de la segunda mitad. Si los elementos coinciden en orden inverso, la lista es simétrica.</p>
+<p><strong>¡Estos ejercicios te ayudarán a reforzar tus conocimientos sobre listas, pilas y colas en Python! Puedes modificar los ejercicios para practicar aún más y explorar diferentes escenarios. ¡Diviértete programando!</strong></p>
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://espe.edu.ec" class="uri">https://espe.edu.ec</a></p>
