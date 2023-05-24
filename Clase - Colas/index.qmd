@@ -1,0 +1,168 @@
+---
+title: "Unidad 1: Colas - Estructura de Datos"
+subtitle: "Introducción a la Lógica"
+date: "today"
+author: "Lic. Diego Medardo Saavedra García Mg. Sc."
+lang: "es"
+format:
+  revealjs:
+    #chalkboard: 
+      #buttons: false
+    toc: true
+    incremental: false
+    slide-number: true
+    preview-links: auto
+    logo: img/logo.png
+    footer: <https://espe.edu.ec>
+    theme: dark
+    makeindex: true
+    multiplex: true
+    transition: fade
+    chalkboard: true #Pizarra
+    auto-stretch: false
+    smaller: false
+    scrollable: true
+    #presentation-title-slide-text-alig: left
+    presentation-slide-text-align: center
+    menu: true
+    codeBlock: {data-trim: true}
+    execute: false
+    executeCode: true
+  #html: 
+    
+    #code-fold: true
+    #html-math-method: katex
+    #multiplex: true
+    #transition: fade
+    #auto-stretch: false
+bibliography: Bibliografia.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Colas
+
+## Introducción a Colas.
+
+- Las colas son una estructura de datos lineal.
+- Siguen el principio FIFO)First In, Fist Out).
+    Siguen el principio de FIFO (First In, First Out).
+    Elementos se agregan por un extremo, llamado "final" de la cola, y se eliminan por el otro extremo, llamado "frente" de la cola.
+
+## Representación en Memoria Estática y Dinámica.
+
+- Las colas pueden ser representadas en memoria estática utilizando arreglos de tamaño fijo.
+- También se pueden representar en memoria dinámica utilizando estructuras enlazadas, como listas enlazadas.
+
+## Tipos de Colas
+
+- Cola estándar: Agregar elementos al final y eliminar del frente.
+- Cola de prioridad: Los elementos tienen una prioridad asociada y se manejan en función de ella.
+- Cola circular: Los extremos de la cola están conectados, permitiendo un ciclo continuo de operaciones de encolar y desencolar.
+
+## Operaciones con Colas
+
+- Enqueue (Encolar): Agregar elementos al final de la cola.
+- Dequeue (Desencolar): Eliminar el elemento del frente de la cola.
+- Front (Frente): Obtener el elemento del frente sin eliminarlo.
+- IsEmpty (Está vacía): Verificar si la cola está vacía.
+- Size (Tamaño): Obtener el número de elementos en la cola.
+
+## Aplicaciones: Colas de Prioridad
+
+- Planificación de procesos en un sistema operativo.
+- Gestión de interrupciones en tiempo real.
+- Algoritmos de búsqueda y ordenamiento.
+
+## Implementación en C++
+
+```{c++}
+#include <iostream>
+#include <queue>
+
+int main() {
+    std::queue<int> cola;
+
+    cola.push(10);
+    cola.push(20);
+    cola.push(30);
+
+    while (!cola.empty()) {
+        std::cout << cola.front() << " ";
+        cola.pop();
+    }
+
+    return 0;
+}
+```
+
+## Implementación en Python
+
+```{python}
+#| echo: true
+
+cola = []
+
+cola.append(10)
+cola.append(20)
+cola.append(30)
+
+while len(cola) > 0:
+    print(cola[0], end=" ")
+    cola.pop(0)
+
+```
+
+## Implementación en Java
+
+```{java}
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class ColaExample {
+    public static void main(String[] args) {
+        Queue<Integer> cola = new LinkedList<>();
+
+        cola.add(10);
+        cola.add(20);
+        cola.add(30);
+
+        while (!cola.isEmpty()) {
+            System.out.print(cola.peek() + " ");
+            cola.remove();
+        }
+    }
+}
+
+```
+
+
+## Conclusión
+
+- Las colas son una estructura de datos importante en Estructura de Datos.
+- Sigue el principio de FIFO y permite un manejo ordenado de elementos.
+- Existen diferentes tipos de colas y operaciones que se pueden realizar.
+- Las colas de prioridad son útiles en situaciones donde senecesita establecer un orden basado en la prioridad de los elementos.
+
+Recapitulación
+
+- Las colas son estructuras de datos lineales con el principio FIFO.
+- Pueden ser representadas en memoria estática o dinámica.
+- Existen diferentes tipos de colas, como la cola estándar y la cola de prioridad.
+- Las operaciones comunes en colas incluyen encolar, desencolar, obtener el frente, verificar si está vacía y obtener el tamaño.
+- Las colas de prioridad son especialmente útiles cuando se necesita establecer un orden basado en prioridades.
+
+## ¡Gracias!
+
+- Esperamos que esta presentación haya sido útil para comprender las colas en la asignatura de Estructura de Datos.
+- ¡Explora más sobre las colas y disfruta de su aplicación en el desarrollo de software!
+- ¿Tienes alguna pregunta?
+
+## Bibliografía
+
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (Año de publicación). Introduction to Algorithms (3rd ed.). The MIT Press.
+Tutorialspoint. (s. f.). Data Structures and Algorithms - Queue. Recuperado el día de mes de año, de [enlace URL]
+GeeksforGeeks. (s. f.). Queue Data Structure. Recuperado el día de mes de año, de [enlace URL]
+
+¡Gracias por su atención!
