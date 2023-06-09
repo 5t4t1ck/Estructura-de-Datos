@@ -1,0 +1,447 @@
+---
+title: "Unidad 1: Colas - Estructura de Datos"
+subtitle: "Introducción a la Lógica"
+date: "today"
+author: "Lic. Diego Medardo Saavedra García Mg. Sc."
+lang: "es"
+format:
+  revealjs:
+    #chalkboard: 
+      #buttons: false
+    toc: true
+    incremental: false
+    slide-number: true
+    preview-links: auto
+    logo: img/logo.png
+    footer: <https://espe.edu.ec>
+    theme: dark
+    makeindex: true
+    multiplex: true
+    transition: fade
+    chalkboard: true #Pizarra
+    auto-stretch: false
+    smaller: false
+    scrollable: true
+    #presentation-title-slide-text-alig: left
+    presentation-slide-text-align: center
+    menu: true
+    codeBlock: {data-trim: true}
+    execute: false
+    executeCode: true
+  #html: 
+    
+    #code-fold: true
+    #html-math-method: katex
+    #multiplex: true
+    #transition: fade
+    #auto-stretch: false
+bibliography: Bibliografia.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Colas
+
+## Introducción a Colas.
+
+- Las colas son una estructura de datos lineal.
+- Siguen el principio FIFO)First In, Fist Out).
+    Siguen el principio de FIFO (First In, First Out).
+    Elementos se agregan por un extremo, llamado "final" de la cola, y se eliminan por el otro extremo, llamado "frente" de la cola.
+
+## Representación en Memoria Estática y Dinámica.
+
+- Las colas pueden ser representadas en memoria estática utilizando arreglos de tamaño fijo.
+- También se pueden representar en memoria dinámica utilizando estructuras enlazadas, como listas enlazadas.
+
+## Tipos de Colas
+
+- Cola estándar: Agregar elementos al final y eliminar del frente.
+- Cola de prioridad: Los elementos tienen una prioridad asociada y se manejan en función de ella.
+- Cola circular: Los extremos de la cola están conectados, permitiendo un ciclo continuo de operaciones de encolar y desencolar.
+
+## Operaciones con Colas
+
+- Enqueue (Encolar): Agregar elementos al final de la cola.
+- Dequeue (Desencolar): Eliminar el elemento del frente de la cola.
+- Front (Frente): Obtener el elemento del frente sin eliminarlo.
+- IsEmpty (Está vacía): Verificar si la cola está vacía.
+- Size (Tamaño): Obtener el número de elementos en la cola.
+
+## Aplicaciones: Colas de Prioridad
+
+- Planificación de procesos en un sistema operativo.
+- Gestión de interrupciones en tiempo real.
+- Algoritmos de búsqueda y ordenamiento.
+
+## Implementación en C++
+
+```{c++}
+#include <iostream>
+#include <queue>
+
+int main() {
+    std::queue<int> cola;
+
+    cola.push(10);
+    cola.push(20);
+    cola.push(30);
+
+    while (!cola.empty()) {
+        std::cout << cola.front() << " ";
+        cola.pop();
+    }
+
+    return 0;
+}
+```
+
+## Implementación en Python
+
+```{python}
+#| echo: true
+
+cola = []
+
+cola.append(10)
+cola.append(20)
+cola.append(30)
+
+while len(cola) > 0:
+    print(cola[0], end=" ")
+    cola.pop(0)
+
+```
+
+## Implementación en Java
+
+```{java}
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class ColaExample {
+    public static void main(String[] args) {
+        Queue<Integer> cola = new LinkedList<>();
+
+        cola.add(10);
+        cola.add(20);
+        cola.add(30);
+
+        while (!cola.isEmpty()) {
+            System.out.print(cola.peek() + " ");
+            cola.remove();
+        }
+    }
+}
+
+```
+# Ejercicios.
+
+A continuación se presenta algunos ejemplos del uso de código python para la aplicación de listas, pilas y colas.
+
+## Ejercicio 1: Sumar los elementos de una lista.
+
+```{python}
+#| echo: true
+
+def sumar_elementos(lista):
+    suma = 0
+    for elemento in lista:
+        suma += elemento
+    return suma
+
+# Ejemplo de uso
+lista = [1, 2, 3, 4, 5]
+resultado = sumar_elementos(lista)
+print(resultado)  # Salida: 15
+
+```
+**Explicación:** Este ejercicio muestra cómo sumar todos los elementos de una lista utilizando un bucle for y la operación de acumulación.
+
+## Ejercicio 2: Verificar si una palabra es un palíndromo
+
+```{python}
+#| echo: true
+
+def es_palindromo(palabra):
+    palabra = palabra.lower()
+    lista = list(palabra)
+    pila = []
+
+    for letra in lista:
+        if letra.isalpha():
+            pila.append(letra)
+
+    inversa = ''.join(pila[::-1])
+
+    return palabra == inversa
+
+# Ejemplo de uso
+palabra = "reconocer"
+resultado = es_palindromo(palabra)
+print(resultado)  # Salida: True
+```
+
+**Explicación:** En este ejercicio, se crea una función que verifica si una palabra es un palíndromo. Se utiliza una pila para almacenar las letras de la palabra y luego se compara con su inversa.
+
+
+## Ejercicio 3: Invertir una lista utilizando una pila.
+
+```{python}
+#| echo: true
+
+def invertir_lista(lista):
+    pila = []
+    for elemento in lista:
+        pila.append(elemento)
+
+    lista_invertida = []
+    while pila:
+        lista_invertida.append(pila.pop())
+
+    return lista_invertida
+
+# Ejemplo de uso
+lista = [1, 2, 3, 4, 5]
+resultado = invertir_lista(lista)
+print(resultado)  # Salida: [5, 4, 3, 2, 1]
+```
+
+**Explicación:** En este ejercicio, se utiliza una pila para invertir una lista. Se añaden los elementos de la lista a una pila y luego se van extrayendo de la pila para construir una nueva lista invertida.
+
+## Ejercicio 4: Convertir una expresión infija a postfija.
+
+```{python}
+#| echo: true
+
+def infija_a_postfija(expresion):
+    precedencia = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+    pila = []
+    resultado = []
+
+    for caracter in expresion:
+        if caracter.isalnum():
+            resultado.append(caracter)
+        elif caracter == '(':
+            pila.append(caracter)
+        elif caracter == ')':
+            while pila and pila[-1] != '(':
+                resultado.append(pila.pop())
+            pila.pop()
+        else:
+            while pila and precedencia.get(caracter, 0) <= precedencia.get(pila[-1], 0):
+                resultado.append(pila.pop())
+            pila.append(caracter)
+
+    while pila:
+        resultado.append(pila.pop())
+
+    return ''.join(resultado)
+```
+
+En este código, se define un diccionario llamado precedencia que asigna a cada operador su nivel de precedencia. Luego, se crea una pila vacía pila y una lista vacía resultado que almacenará la expresión postfija.
+
+A continuación, se recorre cada caracter de la expresión de entrada. Si el caracter es un alfanumérico, es decir, un dígito o una letra, se agrega directamente al resultado. Si el caracter es un paréntesis de apertura '(', se añade a la pila.
+
+Si el caracter es un paréntesis de cierre ')', se extraen los operadores de la pila y se agregan al resultado hasta encontrar un paréntesis de apertura en la pila.
+
+Si el caracter es un operador, se compara su precedencia con la del operador en el tope de la pila. Si la precedencia del operador en la pila es mayor o igual, se extrae de la pila y se agrega al resultado. Luego, se agrega el operador actual a la pila.
+
+Después de recorrer todos los caracteres de la expresión, se extraen los operadores restantes de la pila y se agregan al resultado.
+
+Finalmente, se retorna el resultado como una cadena de caracteres que representa la expresión en notación postfija.
+
+## Ejercicio 5: Verificar si una expresión con paréntesis está balanceada
+
+```{python}
+#| echo: true
+
+def verificar_balance(expresion):
+    pila = []
+
+    for caracter in expresion:
+        if caracter == '(':
+            pila.append(caracter)
+        elif caracter == ')':
+            if not pila:
+                return False
+            pila.pop()
+
+    return len(pila) == 0
+
+# Ejemplo de uso
+expresion = "(a + b) * (c - d)"
+resultado = verificar_balance(expresion)
+print(resultado)  # Salida: True
+```
+
+**Explicación:** En este ejercicio, se utiliza una pila para verificar si una expresión con paréntesis está balanceada. Se recorre la expresión y se añaden los paréntesis de apertura a la pila. Si se encuentra un paréntesis de cierre y la pila no está vacía, se retira un paréntesis de apertura de la pila. Al final, se verifica si la pila está vacía para determinar si la expresión está balanceada.
+
+## Ejercicio 6: Implementar una cola utilizando dos pilas
+
+```{python}
+#| echo: true
+
+class ColaConPilas:
+    def __init__(self):
+        self.pila_entrada = []
+        self.pila_salida = []
+
+    def encolar(self, elemento):
+        self.pila_entrada.append(elemento)
+
+    def desencolar(self):
+        if not self.pila_salida:
+            while self.pila_entrada:
+                self.pila_salida.append(self.pila_entrada.pop())
+
+        if self.pila_salida:
+            return self.pila_salida.pop()
+
+    def esta_vacia(self):
+        return not self.pila_entrada and not self.pila_salida
+
+# Ejemplo de uso
+cola = ColaConPilas()
+cola.encolar(1)
+cola.encolar(2)
+cola.encolar(3)
+print(cola.desencolar())  # Salida: 1
+print(cola.desencolar())  # Salida: 2
+```
+
+**Explicación:** En este ejercicio, se implementa una cola utilizando dos pilas. Los elementos se añaden a la pila de entrada y se desencolan de la pila de salida. Si la pila de salida está vacía, se transfieren los elementos de la pila de entrada a la pila de salida en orden inverso.
+
+## Ejercicio 7: Verificar si una lista es simétrica utilizando una cola
+
+```{python}
+#| echo: true
+
+def es_simetrica(lista):
+    cola = []
+    for elemento in lista:
+        cola.append(elemento)
+
+    while len(cola) > 1:
+        if cola.pop(0) != cola.pop():
+            return False
+
+    return True
+
+# Ejemplo de uso
+lista = [1, 2, 3, 2, 1]
+resultado = es_simetrica(lista)
+print(resultado)  # Salida: True
+```
+
+**Explicación:** En este ejercicio, se utiliza una cola para verificar si una lista es simétrica. Los elementos de la lista se añaden a la cola y luego se comparan los elementos del frente de la cola con los del final. Si en algún momento no coinciden, la lista no es simétrica.
+
+## Ejercicio 8: Eliminar elementos duplicados de una lista utilizando una cola
+
+```{python}
+#| echo: true
+
+def eliminar_duplicados(lista):
+    cola = []
+    lista_resultado = []
+
+    for elemento in lista:
+        if elemento not in cola:
+            cola.append(elemento)
+            lista
+            
+    return lista_resultado
+#Ejemplo de uso
+
+lista = [1, 2, 2, 3, 4, 4, 5]
+resultado = eliminar_duplicados(lista)
+print(resultado) # Salida: [1, 2, 3, 4, 5]
+
+```
+
+**Explicación:** En este ejercicio, se implementa una cola de prioridad utilizando la biblioteca heapq. Los elementos se encolan con un valor de prioridad y un contador único. La biblioteca heapq se encarga de mantener la cola ordenada por prioridad, permitiendo extraer siempre el elemento de mayor prioridad.
+
+## Ejercicio 10: Realizar una búsqueda en una lista ordenada utilizando búsqueda binaria.
+
+```{python}
+#| echo: true
+
+def busqueda_binaria(lista, elemento):
+    izquierda = 0
+    derecha = len(lista) - 1
+
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+
+        if lista[medio] == elemento:
+            return medio
+        elif lista[medio] < elemento:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+
+    return -1
+
+# Ejemplo de uso
+lista = [1, 2, 3, 4, 5]
+elemento = 3
+indice = busqueda_binaria(lista, elemento)
+print(indice)  # Salida: 2
+
+```
+
+**Explicación:** En este ejercicio, se realiza una búsqueda binaria en una lista ordenada para encontrar un elemento específico. La búsqueda se realiza dividiendo el rango de búsqueda a la mitad en cada iteración, comparando el elemento medio con el objetivo y ajustando los límites de búsqueda en consecuencia.
+
+## Conclusión
+
+- Las colas son una estructura de datos importante en Estructura de Datos.
+- Sigue el principio de FIFO y permite un manejo ordenado de elementos.
+- Existen diferentes tipos de colas y operaciones que se pueden realizar.
+- Las colas de prioridad son útiles en situaciones donde senecesita establecer un orden basado en la prioridad de los elementos.
+
+## Recapitulación
+
+- Las colas son estructuras de datos lineales con el principio FIFO.
+- Pueden ser representadas en memoria estática o dinámica.
+- Existen diferentes tipos de colas, como la cola estándar y la cola de prioridad.
+- Las operaciones comunes en colas incluyen encolar, desencolar, obtener el frente, verificar si está vacía y obtener el tamaño.
+- Las colas de prioridad son especialmente útiles cuando se necesita establecer un orden basado en prioridades.
+
+## ¡Gracias!
+
+- Esperamos que esta presentación haya sido útil para comprender las colas en la asignatura de Estructura de Datos.
+- ¡Explora más sobre las colas y disfruta de su aplicación en el desarrollo de software!
+- ¿Tienes alguna pregunta?
+
+## Bibliografía
+
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (Año de publicación). Introduction to Algorithms (3rd ed.). The MIT Press.
+Tutorialspoint. (s. f.). Data Structures and Algorithms - Queue. Recuperado el día de mes de año, de [enlace URL]
+GeeksforGeeks. (s. f.). Queue Data Structure. Recuperado el día de mes de año, de [enlace URL]
+
+¡Gracias por su atención!
+
+## Tarea: Listas, Pilas y Colas
+
+1. **Ejercicio 1:** Verificar si una lista está ordenada de forma ascendente
+
+1.1. **Explicación:** En este ejercicio, se recorre la lista y se compara cada elemento con el siguiente. Si en algún momento se encuentra un elemento mayor que su siguiente, la lista no está ordenada de forma ascendente.
+
+2. **Ejercicio 2:** Implementar una pila utilizando una lista
+
+2.1. **Explicación:** En este ejercicio, se implementa una pila utilizando una lista. Los elementos se añaden al final de la lista y se retiran del final utilizando el método pop().
+
+3. **Ejercicio 3:** Verificar si una palabra es un palíndromo utilizando una pila
+
+3.1. **Explicación:** En este ejercicio, se utiliza una pila para invertir una palabra y luego se compara con la palabra original para determinar si es un palíndromo.
+
+4. **Ejercicio 4:** Implementar una cola utilizando una lista
+
+4.1. **Explicación:** En este ejercicio, se implementa una cola utilizando una lista. Los elementos se añaden al final de la lista utilizando el método append() y se retiran del inicio utilizando el método pop(0).
+
+5. **Ejercicio 5:** Verificar si una lista es simétrica
+
+5.1. **Explicación:** En este ejercicio, se utiliza una pila para comparar los elementos de la primera mitad de la lista con los elementos de la segunda mitad. Si los elementos coinciden en orden inverso, la lista es simétrica.
+
+**¡Estos ejercicios te ayudarán a reforzar tus conocimientos sobre listas, pilas y colas en Python! Puedes modificar los ejercicios para practicar aún más y explorar diferentes escenarios. ¡Diviértete programando!**

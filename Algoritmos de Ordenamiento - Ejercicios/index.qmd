@@ -1,0 +1,1288 @@
+---
+title: "Algoritmos de Ordenamiento"
+subtitle: "Introducción a la Lógica"
+date: "today"
+author: "Lic. Diego Medardo Saavedra García Mg. Sc."
+lang: "es"
+format:
+  revealjs:
+    #chalkboard: 
+      #buttons: false
+    toc: true
+    incremental: false
+    slide-number: true
+    preview-links: auto
+    logo: img/logo.png
+    footer: <https://espe.edu.ec>
+    theme: dark
+    makeindex: true
+    multiplex: true
+    transition: fade
+    chalkboard: true #Pizarra
+    auto-stretch: false
+    smaller: false
+    scrollable: true
+    #presentation-title-slide-text-alig: left
+    presentation-slide-text-align: center
+    menu: true
+    codeBlock: {data-trim: true}
+    execute: true
+    executeCode: true
+  #html: 
+    
+    #code-fold: true
+    #html-math-method: katex
+    #multiplex: true
+    #transition: fade
+    #auto-stretch: false
+bibliography: Bibliografia.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Algoritmos de Ordenamiento.
+
+## Burbuja
+
+**Ejemplo de ejercicio:** Implementaremos el algoritmo de ordenación Burbuja en Python. El algoritmo Burbuja compara pares de elementos adyacentes y los intercambia si están en el orden incorrecto. Continúa haciendo esto hasta que la lista esté ordenada.
+
+## Código de ejemplo en Python:
+
+``` python
+def bubble_sort(arr): 
+  n = len(arr)
+
+for i in range(n):
+    for j in range(0, n-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+```
+
+**Ejemplo de uso**
+
+``` python
+array = [64, 34, 25, 12, 22, 11, 90] 
+bubble_sort(array) 
+print("Array ordenado:")
+print(array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada bubble_sort que toma un arreglo como parámetro.
+
+2.  Obtenemos la longitud del arreglo utilizando len(arr), que almacenamos en la variable n.
+
+3.  Utilizamos un bucle for para iterar sobre el arreglo arr, que ejecutará n veces.
+
+4.  Dentro del bucle for, utilizamos otro bucle for anidado para iterar sobre los elementos del arreglo.
+
+5.  Comparamos cada par de elementos adyacentes arr\[j\] y arr\[j+1\]. Si están en el orden incorrecto (el elemento actual es mayor que el siguiente), los intercambiamos utilizando la sintaxis arr\[j\], arr\[j+1\] = arr\[j+1\], arr\[j\].
+
+6.  Repetimos este proceso hasta que todo el arreglo esté ordenado.
+
+7.  Después de que los bucles finalicen, el arreglo estará ordenado y podemos imprimirlo en la consola.
+
+**Ejercicio de práctica:**
+
+Implementaremos la búsqueda binaria en Python. La búsqueda binaria es un algoritmo eficiente para encontrar un elemento específico en una lista ordenada.
+
+``` python
+def binary_search(arr, target):
+    left = 0
+    right = len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1
+
+# Ejemplo de uso
+array = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+target = 12
+result = binary_search(array, target)
+
+if result != -1:
+    print("El elemento", target, "se encuentra en la posición", result)
+else:
+    print("El elemento", target, "no se encontró en el arreglo.")
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `binary_search` que toma un arreglo ordenado `arr` y un objetivo `target` como parámetros.
+
+2.  Inicializamos dos variables, `left` y `right`, para marcar el rango de búsqueda inicial. `left` se establece en el índice 0 y `right` se establece en el índice final del arreglo (`len(arr) - 1`).
+
+3.  Utilizamos un bucle `while` que se ejecuta mientras `left` sea menor o igual que `right`.
+
+4.  En cada iteración del bucle, calculamos el índice medio del rango actual utilizando la fórmula `(left + right) // 2`. Lo almacenamos en la variable `mid`.
+
+5.  Comparamos el valor en `arr[mid]` con el objetivo `target`. Si son iguales, hemos encontrado el elemento y devolvemos `mid`.
+
+6.  Si `arr[mid]` es menor que `target`, ajustamos `left` a `mid + 1` para buscar en la mitad derecha del rango.
+
+7.  Si `arr[mid]` es mayor que `target`, ajustamos `right` a `mid - 1` para buscar en la mitad izquierda del rango.
+
+8.  Repetimos los pasos 4-7 hasta que encontremos el objetivo o hasta que `left` sea mayor que `right`, lo que indica que el objetivo no está presente en el arreglo.
+
+9.  Si salimos del bucle y no hemos encontrado el objetivo, devolvemos `-1` para indicar que no se encontró.
+
+10. En el ejemplo de uso, creamos un arreglo ordenado y un objetivo. Llamamos a la función `binary_search` con el arreglo y el objetivo, y almacenamos el resultado en la variable `result`.
+
+11. Comprobamos si el resultado es diferente de `-1`. Si es así, imprimimos un mensaje indicando que se encontró el elemento y su posición. De lo contrario, imprimimos un mensaje indicando que el elemento no se encontró en el arreglo.
+
+## **Intercambio**
+
+**Ejemplo de ejercicio:** Implementaremos el algoritmo de ordenación por intercambio en Python. Este algoritmo compara cada elemento con los elementos restantes y realiza intercambios si es necesario hasta que el arreglo esté ordenado.
+
+**Código de ejemplo en Python:**
+
+``` python
+def exchange_sort(arr):
+    n = len(arr)
+    
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if arr[i] > arr[j]:
+                arr[i], arr[j] = arr[j], arr[i]
+
+# Ejemplo de uso
+array = [64, 34, 25, 12, 22, 11, 90]
+exchange_sort(array)
+print("Array ordenado:")
+print(array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `exchange_sort` que toma un arreglo como parámetro.
+
+2.  Obtenemos la longitud del arreglo utilizando `len(arr)`, que almacenamos en la variable `n`.
+
+3.  Utilizamos un bucle `for` para iterar sobre el arreglo `arr` hasta el penúltimo elemento, ya que en cada iteración comparamos con los elementos restantes.
+
+4.  Dentro del primer bucle `for`, utilizamos otro bucle `for` anidado para iterar sobre los elementos restantes en el arreglo.
+
+5.  Comparamos el elemento actual `arr[i]` con cada elemento restante `arr[j]`. Si el elemento actual es mayor que el elemento restante, realizamos un intercambio utilizando la sintaxis `arr[i], arr[j] = arr[j], arr[i]`.
+
+6.  Repetimos este proceso hasta que se haya comparado el elemento actual con todos los elementos restantes.
+
+7.  Después de que los bucles finalicen, el arreglo estará ordenado y podemos imprimirlo en la consola.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo de ordenación por intercambio en Python utilizando una función llamada `exchange_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de intercambio.
+
+**Código de práctica en Python:**
+
+``` python
+def exchange_sort(arr):
+    n = len(arr)
+    
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if arr[i] > arr[j]:
+                arr[i], arr[j] = arr[j], arr[i]
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo de intercambio
+exchange_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `exchange_sort` que toma un arreglo como parámetro. Esta función implementa el algoritmo de ordenación por intercambio, que hemos explicado en el ejemplo anterior.
+
+2.  Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+3.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+4.  Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+5.  Llamamos a la función `exchange_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo de intercambio.
+
+6.  Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(numbers)`.
+
+## **Quicksort**
+
+**Ejemplo de ejercicio:** Implementaremos el algoritmo Quicksort en Python. Quicksort es un algoritmo de ordenación eficiente que utiliza la técnica de "divide y vencerás". Divide el arreglo en dos subarreglos alrededor de un pivote y luego ordena recursivamente los subarreglos.
+
+**Código de ejemplo en Python:**
+
+``` python
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quicksort(left) + middle + quicksort(right)
+
+# Ejemplo de uso
+array = [64, 34, 25, 12, 22, 11, 90]
+sorted_array = quicksort(array)
+print("Array ordenado:")
+print(sorted_array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `quicksort` que toma un arreglo como parámetro.
+
+2.  En el caso base, si la longitud del arreglo es menor o igual a 1, simplemente lo devolvemos tal cual.
+
+3.  Si el arreglo tiene más de un elemento, seleccionamos un elemento del arreglo como pivote. En este ejemplo, elegimos el elemento en la posición `len(arr) // 2` como pivote.
+
+4.  Creamos tres listas vacías: `left`, `middle` y `right`.
+
+5.  Iteramos sobre cada elemento `x` en el arreglo. Si `x` es menor que el pivote, lo agregamos a la lista `left`. Si `x` es igual al pivote, lo agregamos a la lista `middle`. Si `x` es mayor que el pivote, lo agregamos a la lista `right`.
+
+6.  Luego, realizamos llamadas recursivas a la función `quicksort` con las listas `left` y `right` para ordenarlos de manera recursiva.
+
+7.  Finalmente, concatenamos `quicksort(left)`, `middle` y `quicksort(right)` para obtener el arreglo ordenado completo y lo devolvemos.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo Quicksort en Python utilizando una función llamada `quicksort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo Quicksort.
+
+**Código de práctica en Python:**
+
+``` python
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quicksort(left) + middle + quicksort(right)
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo Quicksort
+sorted_numbers = quicksort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(sorted_numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `quicksort` que toma un arreglo como parámetro. Esta función implementa el algoritmo Quicksort, que hemos explicado en el ejemplo anterior.
+
+2.  Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+3.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+4.  Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+5.  Llamamos a la función `quicksort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo Quicksort.
+
+6.  Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(sorted_numbers)`.
+
+## **ShellSort**
+
+Ejemplo de ejercicio: Implementaremos el algoritmo ShellSort en Python. ShellSort es un algoritmo de ordenación que mejora el algoritmo de inserción directa al comparar y mover elementos distantes en lugar de adyacentes, utilizando una secuencia incremental de brechas.
+
+**Código de ejemplo en Python:**
+
+``` python
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2
+    
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            
+            arr[j] = temp
+        
+        gap //= 2
+
+# Ejemplo de uso
+array = [64, 34, 25, 12, 22, 11, 90]
+shell_sort(array)
+print("Array ordenado:")
+print(array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `shell_sort` que toma un arreglo como parámetro.
+
+2.  Obtenemos la longitud del arreglo utilizando `len(arr)`, que almacenamos en la variable `n`.
+
+3.  Inicializamos la brecha `gap` como la mitad del tamaño del arreglo utilizando `n // 2`.
+
+4.  Utilizamos un bucle `while` que se ejecuta mientras `gap` sea mayor que 0.
+
+5.  Dentro del bucle `while`, utilizamos un bucle `for` para iterar sobre los elementos desde `gap` hasta `n`.
+
+6.  Almacenamos el valor del elemento actual en la variable `temp`.
+
+7.  Inicializamos la variable `j` con el valor del índice actual `i`.
+
+8.  Utilizamos un bucle `while` que se ejecuta mientras `j` sea mayor o igual que `gap` y el elemento en la posición `j - gap` sea mayor que `temp`.
+
+9.  En cada iteración del bucle `while`, movemos los elementos hacia adelante en la brecha utilizando `arr[j] = arr[j - gap]` y disminuimos el valor de `j` en `gap`.
+
+10. Después de salir del bucle `while`, asignamos el valor de `temp` al elemento en la posición `j`.
+
+11. Reducimos la brecha `gap` dividiéndola por 2 utilizando `gap //= 2`.
+
+12. Repetimos los pasos 4-11 hasta que `gap` sea igual a 0, lo que indica que hemos realizado una pasada completa por todas las brechas posibles.
+
+13. Después de que el bucle `while` finalice, el arreglo estará ordenado y podemos imprimirlo en la consola.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo ShellSort en Python utilizando una función llamada `shell_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo ShellSort.
+
+**Código de práctica en Python:**
+
+``` python
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2
+    
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            
+            arr[j] = temp
+        
+        gap //= 2
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo ShellSort
+shell_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `shell_sort` que toma un arreglo como parámetro. Esta función implementa el algoritmo ShellSort, que hemos explicado en el ejemplo anterior.
+
+2.  Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+3.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+4.  Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+5.  Llamamos a la función `shell_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo ShellSort.
+
+6.  Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(numbers)`.
+
+## Ordenación por Distribución.
+
+Ejemplo de ejercicio: Implementaremos el algoritmo de Ordenación por Distribución en Python. La Ordenación por Distribución es un algoritmo de ordenación que distribuye los elementos en diferentes baldes o cubetas según ciertos criterios y luego los combina para obtener la lista ordenada.
+
+**Código de ejemplo en Python:**
+
+``` python
+def distribution_sort(arr):
+    min_val = min(arr)
+    max_val = max(arr)
+    range_val = max_val - min_val + 1
+
+    count = [0] * range_val
+
+    for num in arr:
+        count[num - min_val] += 1
+
+    output = []
+    for i in range(range_val):
+        output.extend([i + min_val] * count[i])
+
+    return output
+
+# Ejemplo de uso
+array = [9, 5, 2, 8, 1, 6, 3]
+sorted_array = distribution_sort(array)
+print("Array ordenado:")
+print(sorted_array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `distribution_sort` que toma un arreglo como parámetro.
+
+2.  Encontramos el valor mínimo y máximo en el arreglo utilizando `min(arr)` y `max(arr)`, respectivamente, y los almacenamos en las variables `min_val` y `max_val`.
+
+3.  Calculamos el rango de valores sumando 1 al resultado de la diferencia entre `max_val` y `min_val`, y lo almacenamos en la variable `range_val`.
+
+4.  Creamos un arreglo de conteo `count` de tamaño `range_val`, inicializado con ceros.
+
+5.  Utilizamos un bucle `for` para iterar sobre los elementos del arreglo `arr` y contamos la frecuencia de cada elemento en el arreglo `count`, ajustando el índice utilizando `num - min_val`.
+
+6.  Creamos una lista vacía `output`.
+
+7.  Utilizamos otro bucle `for` para iterar sobre los índices en el rango `range_val`.
+
+8.  Extendemos la lista `output` con elementos repetidos `i + min_val` según la frecuencia almacenada en `count[i]`.
+
+9.  Retornamos la lista `output`, que contiene los elementos ordenados.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo de Ordenación por Distribución en Python utilizando una función llamada `distribution_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Ordenación por Distribución.
+
+**Código de práctica en Python:**
+
+``` python
+def distribution_sort(arr):
+    min_val = min(arr)
+    max_val = max(arr)
+    range_val = max_val - min_val + 1
+
+    count = [0] * range_val
+
+    for num in arr:
+        count[num - min_val] += 1
+
+    output = []
+    for i in range(range_val):
+        output.extend([i + min_val] * count[i])
+
+    return output
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo de Ordenación por Distribución
+sorted_numbers = distribution_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(sorted_numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `distribution_sort` que toma un arreglo como parámetro.
+
+2.  Encontramos el valor mínimo y máximo en el arreglo utilizando `min(arr)` y `max(arr)`, respectivamente, y los almacenamos en las variables `min_val` y `max_val`.
+
+3.  Calculamos el rango de valores sumando 1 al resultado de la diferencia entre `max_val` y `min_val`, y lo almacenamos en la variable `range_val`.
+
+4.  Creamos un arreglo de conteo `count` de tamaño `range_val`, inicializado con ceros.
+
+5.  Utilizamos un bucle `for` para iterar sobre los elementos del arreglo `arr` y contamos la frecuencia de cada elemento en el arreglo `count`, ajustando el índice utilizando `num - min_val`.
+
+6.  Creamos una lista vacía `output`.
+
+7.  Utilizamos otro bucle `for` para iterar sobre los índices en el rango `range_val`.
+
+8.  Extendemos la lista `output` con elementos repetidos `i + min_val` según la frecuencia almacenada en `count[i]`.
+
+9.  Retornamos la lista `output`, que contiene los elementos ordenados.
+
+10. Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+11. Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+12. Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+13. Llamamos a la función `distribution_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Ordenación por Distribución.
+
+14. Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(sorted_numbers)`.
+
+## **Ordenación por Radix**
+
+Ejemplo de ejercicio: Implementaremos el algoritmo de Ordenación por Radix en Python. La Ordenación por Radix es un algoritmo de ordenación que utiliza la representación en base de los elementos para realizar comparaciones y distribuirlos en diferentes baldes o cubetas. Se realiza una serie de pasadas basadas en la cantidad de dígitos del número más grande.
+
+**Código de ejemplo en Python:**
+
+``` python
+def counting_sort(arr, exp):
+    n = len(arr)
+    output = [0] * n
+    count = [0] * 10
+
+    for i in range(n):
+        index = arr[i] // exp
+        count[index % 10] += 1
+
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    i = n - 1
+    while i >= 0:
+        index = arr[i] // exp
+        output[count[index % 10] - 1] = arr[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    for i in range(n):
+        arr[i] = output[i]
+
+
+def radix_sort(arr):
+    max_num = max(arr)
+    exp = 1
+
+    while max_num // exp > 0:
+        counting_sort(arr, exp)
+        exp *= 10
+
+# Ejemplo de uso
+array = [170, 45, 75, 90, 802, 24, 2, 66]
+radix_sort(array)
+print("Array ordenado:")
+print(array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `counting_sort` que toma un arreglo y un exponente `exp` como parámetros. Esta función implementa el algoritmo de ordenación por conteo para un dígito específico del número.
+
+2.  Creamos un arreglo de salida `output` con el mismo tamaño que el arreglo de entrada `arr` y un arreglo de conteo `count` de tamaño 10, inicializado con ceros.
+
+3.  Utilizamos un bucle `for` para iterar sobre el arreglo `arr` y contar la frecuencia de cada dígito en el arreglo `count`.
+
+4.  Utilizamos otro bucle `for` para calcular las posiciones finales de cada dígito en el arreglo de salida `output` utilizando el arreglo `count`.
+
+5.  Utilizamos un bucle `while` para distribuir los elementos en el arreglo de salida `output` de acuerdo a las posiciones calculadas y actualizamos el arreglo `count`.
+
+6.  Finalmente, copiamos los elementos del arreglo de salida `output` al arreglo de entrada `arr`.
+
+7.  Creamos una función llamada `radix_sort` que toma un arreglo como parámetro. Esta función implementa el algoritmo de Ordenación por Radix, que hemos explicado en el ejemplo anterior.
+
+8.  Encontramos el número máximo en el arreglo `arr` utilizando `max(arr)` y lo almacenamos en la variable `max_num`.
+
+9.  Inicializamos el exponente `exp` como 1.
+
+10. Utilizamos un bucle `while` que se ejecuta mientras `max_num // exp` sea mayor que 0.
+
+11. En cada iteración del bucle `while`, llamamos a la función `counting_sort` pasando el arreglo `arr` y el exponente `exp` para ordenar los elementos según el dígito correspondiente.
+
+12. Multiplicamos el exponente `exp` por 10 en cada iteración para mover al siguiente dígito.
+
+13. Después de salir del bucle `while`, el arreglo estará ordenado y podemos imprimirlo en la consola.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo de Ordenación por Radix en Python utilizando una función llamada `radix_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Ordenación por Radix.
+
+**Código de práctica en Python:**
+
+``` python
+def counting_sort(arr, exp):
+    n = len(arr)
+    output = [0] * n
+    count = [0] * 10
+
+    for i in range(n):
+        index = arr[i] // exp
+        count[index % 10] += 1
+
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    i = n - 1
+    while i >= 0:
+        index = arr[i] // exp
+        output[count[index % 10] - 1] = arr[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    for i in range(n):
+        arr[i] = output[i]
+
+
+def radix_sort(arr):
+    max_num = max(arr)
+    exp = 1
+
+    while max_num // exp > 0:
+        counting_sort(arr, exp)
+        exp *= 10
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo de Ordenación por Radix
+radix_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `counting_sort` que toma un arreglo y un exponente `exp` como parámetros. Esta función implementa el algoritmo de ordenación por conteo para un dígito específico del número. Esta función es similar a la explicada en el ejemplo anterior.
+
+2.  Creamos una función llamada `radix_sort` que toma un arreglo como parámetro. Esta función implementa el algoritmo de Ordenación por Radix, que hemos explicado en el ejemplo anterior.
+
+3.  Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+4.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+5.  Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+6.  Llamamos a la función `radix_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Ordenación por Radix.
+
+7.  Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(numbers)`.
+
+# Algoritmos de Ordenación Externa. 
+
+## **Mezcla Directa**
+
+**Ejemplo de ejercicio:** Implementaremos el algoritmo de Mezcla Directa en Python. La Mezcla Directa es un algoritmo de ordenación externa que divide el archivo original en subarchivos más pequeños, los ordena y luego los combina para obtener el archivo ordenado final.
+
+**Código de ejemplo en Python:**
+
+``` python
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+
+# Ejemplo de uso
+array = [9, 5, 2, 8, 1, 6, 3]
+merge_sort(array)
+print("Array ordenado:")
+print(array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `merge_sort` que toma un arreglo como parámetro.
+
+2.  Verificamos si la longitud del arreglo es mayor que 1. Si es así, dividimos el arreglo en mitades llamadas `left_half` y `right_half`.
+
+3.  Llamamos recursivamente a la función `merge_sort` para ordenar cada mitad del arreglo.
+
+4.  Inicializamos tres variables `i`, `j` y `k` como índices para las sublistas `left_half`, `right_half` y el arreglo original `arr`, respectivamente.
+
+5.  Utilizamos un bucle `while` para comparar y fusionar los elementos de `left_half` y `right_half` en el arreglo `arr`. Comparamos los elementos correspondientes en ambas sublistas y colocamos el menor en el arreglo `arr`. Luego, incrementamos los índices correspondientes y el índice `k` del arreglo final.
+
+6.  Si hay elementos restantes en `left_half` o `right_half` después de que se haya completado la fusión, los colocamos en el arreglo `arr`.
+
+7.  Una vez que se completa el proceso de mezcla, el arreglo `arr` estará ordenado.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo de Mezcla Directa en Python utilizando una función llamada `merge_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Mezcla Directa.
+
+**Código de práctica en Python:**
+
+``` python
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo de Mezcla Directa
+merge_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `merge_sort` que toma un arreglo como parámetro.
+
+2.  Verificamos si la longitud del arreglo es mayor que 1. Si es así, dividimos el arreglo en mitades llamadas `left_half` y `right_half`.
+
+3.  Llamamos recursivamente a la función `merge_sort` para ordenar cada mitad del arreglo.
+
+4.  Inicializamos tres variables `i`, `j` y `k` como índices para las sublistas `left_half`, `right_half` y el arreglo original `arr`, respectivamente.
+
+5.  Utilizamos un bucle `while` para comparar y fusionar los elementos de `left_half` y `right_half` en el arreglo `arr`. Comparamos los elementos correspondientes en ambas sublistas y colocamos el menor en el arreglo `arr`. Luego, incrementamos los índices correspondientes y el índice `k` del arreglo final.
+
+6.  Si hay elementos restantes en `left_half` o `right_half` después de que se haya completado la fusión, los colocamos en el arreglo `arr`.
+
+7.  Una vez que se completa el proceso de mezcla, el arreglo `arr` estará ordenado.
+
+8.  Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+9.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+10. Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+11. Llamamos a la función `merge_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Mezcla Directa.
+
+12. Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(numbers)`.
+
+## **Mezcla Natural**
+
+Ejemplo de ejercicio: Implementaremos el algoritmo de Mezcla Natural en Python. La Mezcla Natural es un algoritmo de ordenación externa que combina la funcionalidad de la Mezcla Directa y la Mezcla Equilibrada para ordenar un archivo.
+
+**Código de ejemplo en Python:**
+
+``` python
+def merge(arr, left, mid, right):
+    n1 = mid - left + 1
+    n2 = right - mid
+
+    left_half = [0] * n1
+    right_half = [0] * n2
+
+    for i in range(n1):
+        left_half[i] = arr[left + i]
+
+    for j in range(n2):
+        right_half[j] = arr[mid + 1 + j]
+
+    i = j = 0
+    k = left
+
+    while i < n1 and j < n2:
+        if left_half[i] <= right_half[j]:
+            arr[k] = left_half[i]
+            i += 1
+        else:
+            arr[k] = right_half[j]
+            j += 1
+        k += 1
+
+    while i < n1:
+        arr[k] = left_half[i]
+        i += 1
+        k += 1
+
+    while j < n2:
+        arr[k] = right_half[j]
+        j += 1
+        k += 1
+
+
+def natural_merge_sort(arr):
+    size = len(arr)
+    left = 0
+    right = size - 1
+    temp_arr = arr.copy()
+
+    while True:
+        mid = -1
+        for i in range(left, right):
+            if arr[i] > arr[i + 1]:
+                mid = i
+                break
+
+        if mid == -1:
+            break
+
+        for i in range(mid + 1, right):
+            if arr[i] > arr[i + 1]:
+                right = i
+
+        merge(arr, left, mid, right)
+
+        if temp_arr == arr:
+            break
+
+    return arr
+
+
+# Ejemplo de uso
+array = [9, 5, 2, 8, 1, 6, 3]
+sorted_array = natural_merge_sort(array)
+print("Array ordenado:")
+print(sorted_array)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `merge` que toma un arreglo, los índices de las subarreglos izquierdo (`left`), medio (`mid`) y derecho (`right`).
+
+2.  Calculamos el tamaño de los subarreglos izquierdo y derecho utilizando las variables `n1` y `n2`, respectivamente.
+
+3.  Creamos los subarreglos `left_half` y `right_half` de tamaño `n1` y `n2` respectivamente, para almacenar temporalmente los elementos correspondientes.
+
+4.  Copiamos los elementos del arreglo original `arr` a los subarreglos `left_half` y `right_half`.
+
+5.  Utilizamos índices (`i`, `j`) y un índice general (`k`) para realizar la mezcla de los subarreglos `left_half` y `right_half` en el arreglo original `arr`. Comparamos los elementos correspondientes de los subarreglos y colocamos el menor en el arreglo original.
+
+6.  Si hay elementos restantes en `left_half` o `right_half` después de que se haya completado la fusión, los colocamos en el arreglo original `arr`.
+
+7.  Creamos una función llamada `natural_merge_sort` que toma un arreglo como parámetro.
+
+8.  Inicializamos las variables `size`, `left` y `right` con el tamaño del arreglo, y creamos una copia temporal del arreglo original llamada `temp_arr`.
+
+9.  Iteramos hasta que no haya inversiones en el arreglo.
+
+10. Encontramos el índice medio (`mid`) donde se produce la primera inversión en el arreglo y actualizamos el valor de `right` al índice donde termina la segunda secuencia ordenada.
+
+11. Llamamos a la función `merge` para fusionar las dos secuencias ordenadas en el arreglo original.
+
+12. Comprobamos si el arreglo original `arr` es igual a la copia temporal `temp_arr`. Si son iguales, significa que el arreglo está completamente ordenado y podemos salir del bucle.
+
+13. Retornamos el arreglo ordenado `arr`.
+
+**Ejercicio de práctica:**
+
+Implementaremos el algoritmo de Mezcla Natural en Python utilizando una función llamada `natural_merge_sort`. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Mezcla Natural.
+
+**Código de práctica en Python:**
+
+``` python
+def merge(arr, left, mid, right):
+    n1 = mid - left + 1
+    n2 = right - mid
+
+    left_half = [0] * n1
+    right_half = [0] * n2
+
+    for i in range(n1):
+        left_half[i] = arr[left + i]
+
+    for j in range(n2):
+        right_half[j] = arr[mid + 1 + j]
+
+    i = j = 0
+    k = left
+
+    while i < n1 and j < n2:
+        if left_half[i] <= right_half[j]:
+            arr[k] = left_half[i]
+            i += 1
+        else:
+            arr[k] = right_half[j]
+            j += 1
+        k += 1
+
+    while i < n1:
+        arr[k] = left_half[i]
+        i += 1
+        k += 1
+
+    while j < n2:
+        arr[k] = right_half[j]
+        j += 1
+        k += 1
+
+
+def natural_merge_sort(arr):
+    size = len(arr)
+    left = 0
+    right = size - 1
+    temp_arr = arr.copy()
+
+    while True:
+        mid = -1
+        for i in range(left, right):
+            if arr[i] > arr[i + 1]:
+                mid = i
+                break
+
+        if mid == -1:
+            break
+
+        for i in range(mid + 1, right):
+            if arr[i] > arr[i + 1]:
+                right = i
+
+        merge(arr, left, mid, right)
+
+        if temp_arr == arr:
+            break
+
+    return arr
+
+
+# Solicitar al usuario una lista de números
+numbers = input("Ingresa una lista de números separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Ordenar la lista utilizando el algoritmo de Mezcla Natural
+sorted_numbers = natural_merge_sort(numbers)
+
+# Imprimir la lista ordenada
+print("Lista ordenada:")
+print(sorted_numbers)
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `merge` que toma un arreglo, los índices de las subarreglos izquierdo (`left`), medio (`mid`) y derecho (`right`), y realiza la mezcla de los subarreglos.
+
+2.  Creamos los subarreglos `left_half` y `right_half` para almacenar temporalmente los elementos correspondientes de los subarreglos izquierdo y derecho.
+
+3.  Copiamos los elementos del arreglo original `arr` a los subarreglos `left_half` y `right_half`.
+
+4.  Utilizamos índices (`i`, `j`) y un índice general (`k`) para realizar la mezcla de los subarreglos `left_half` y `right_half` en el arreglo original `arr`. Comparamos los elementos correspondientes de los subarreglos y colocamos el menor en el arreglo original.
+
+5.  Si hay elementos restantes en `left_half` o `right_half` después de que se haya completado la fusión, los colocamos en el arreglo original `arr`.
+
+6.  Creamos una función llamada `natural_merge_sort` que toma un arreglo como parámetro.
+
+7.  Inicializamos las variables `size`, `left` y `right` con el tamaño del arreglo, y creamos una copia temporal del arreglo original llamada `temp_arr`.
+
+8.  Iteramos hasta que no haya inversiones en el arreglo.
+
+9.  Encontramos el índice medio (`mid`) donde se produce la primera inversión en el arreglo y actualizamos el valor de `right` al índice donde termina la segunda secuencia ordenada.
+
+10. Llamamos a la función `merge` para fusionar las dos secuencias ordenadas en el arreglo original.
+
+11. Comprobamos si el arreglo original `arr` es igual a la copia temporal `temp_arr`. Si son iguales, significa que el arreglo está completamente ordenado y podemos salir del bucle.
+
+12. Retornamos el arreglo ordenado `arr`.
+
+13. Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando `input("Ingresa una lista de números separados por espacios: ")`.
+
+14. Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+15. Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+16. Llamamos a la función `natural_merge_sort` pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Mezcla Natural.
+
+17. Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(sorted_numbers)`.
+
+# Algoritmos de Búsqueda.
+
+## **Búsqueda Binaria.**
+
+Ejemplo de ejercicio: Implementaremos el algoritmo de Búsqueda Binaria en Python. La Búsqueda Binaria es un algoritmo de búsqueda eficiente que encuentra la posición de un elemento en una lista ordenada dividiendo repetidamente a la mitad la porción de la lista donde podría encontrarse el elemento.
+
+**Código de ejemplo en Python:**
+
+``` python
+def binary_search(arr, target):
+    left = 0
+    right = len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+
+# Ejemplo de uso
+array = [1, 3, 5, 7, 9, 11, 13]
+target = 7
+
+result = binary_search(array, target)
+
+if result != -1:
+    print("El elemento", target, "se encuentra en la posición", result)
+else:
+    print("El elemento", target, "no se encuentra en la lista.")
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una función llamada `binary_search` que toma una lista ordenada `arr` y un objetivo `target` como parámetros.
+
+2.  Inicializamos los índices `left` y `right` para representar el rango de búsqueda en la lista. `left` se establece al principio de la lista (índice 0) y `right` se establece al final de la lista (índice `len(arr) - 1`).
+
+3.  Utilizamos un bucle `while` que se ejecuta mientras `left` sea menor o igual a `right`, lo que significa que aún hay elementos en el rango de búsqueda.
+
+4.  Calculamos el índice medio (`mid`) utilizando la fórmula `(left + right) // 2`.
+
+5.  Comparamos el elemento en la posición `mid` de la lista con el objetivo `target`.
+
+6.  Si son iguales, significa que hemos encontrado el elemento y retornamos el índice `mid`.
+
+7.  Si el elemento en `arr[mid]` es menor que el objetivo `target`, actualizamos `left` a `mid + 1`, ya que el objetivo debe estar en la mitad derecha de la lista.
+
+8.  Si el elemento en `arr[mid]` es mayor que el objetivo `target`, actualizamos `right` a `mid - 1`, ya que el objetivo debe estar en la mitad izquierda de la lista.
+
+9.  Si el objetivo no se encuentra en la lista, es decir, el bucle `while` termina sin encontrar una coincidencia, retornamos `-1` para indicar que el elemento no se encontró.
+
+10. En el ejemplo de uso, creamos una lista ordenada `array` y establecemos un objetivo `target` como 7.
+
+11. Llamamos a la función `binary_search` pasando la lista y el objetivo como argumentos.
+
+12. Verificamos si el resultado no es `-1`, lo que significa que se encontró el elemento. En ese caso, imprimimos un mensaje indicando la posición en la que se encuentra el elemento.
+
+13. Si el resultado es `-1`, imprimimos un mensaje indicando que el elemento no se encuentra en la lista.
+
+Este fue un ejemplo de ejercicio que muestra cómo implementar y utilizar la Búsqueda Binaria en Python.
+
+Ahora, pasemos al ejercicio de práctica. Implementaremos un programa que solicite al usuario ingresar una lista de números ordenados y un número objetivo, y luego utilice la Búsqueda Binaria para determinar si el número objetivo se encuentra en la lista y en qué posición.
+
+**Código de práctica en Python:**
+
+``` python
+def binary_search(arr, target):
+    left = 0
+    right = len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+
+# Solicitar al usuario una lista de números ordenados
+numbers = input("Ingresa una lista de números ordenados separados por espacios: ").split()
+numbers = [int(num) for num in numbers]
+
+# Solicitar al usuario un número objetivo
+target = int(input("Ingresa un número objetivo: "))
+
+# Realizar la búsqueda binaria
+result = binary_search(numbers, target)
+
+if result != -1:
+    print("El número", target, "se encuentra en la posición", result)
+else:
+    print("El número", target, "no se encuentra en la lista.")
+```
+
+**Explicación paso a paso:**
+
+1.  Utilizamos la función `binary_search` que implementamos previamente para realizar la Búsqueda Binaria.
+
+2.  Solicitamos al usuario que ingrese una lista de números ordenados separados por espacios utilizando `input("Ingresa una lista de números ordenados separados por espacios: ")`.
+
+3.  Utilizamos el método `split()` para dividir la cadena ingresada en una lista de cadenas.
+
+4.  Utilizamos una comprensión de lista `[int(num) for num in numbers]` para convertir cada cadena de números en la lista en un entero.
+
+5.  Solicitamos al usuario que ingrese un número objetivo utilizando `int(input("Ingresa un número objetivo: "))`.
+
+6.  Llamamos a la función `binary_search` pasando la lista de números y el número objetivo como argumentos para realizar la búsqueda binaria.
+
+7.  Verificamos si el resultado no es `-1`, lo que significa que se encontró el número objetivo. En ese caso, imprimimos un mensaje indicando la posición en la que se encuentra el número objetivo.
+
+8.  Si el resultado es `-1`, imprimimos un mensaje indicando que el número objetivo no se encuentra en la lista.
+
+## **Búsqueda Hash**
+
+**Ejemplo de ejercicio:** Implementaremos el algoritmo de búsqueda Hash en Python. La búsqueda Hash es un algoritmo eficiente que utiliza una función hash para mapear claves a índices de una tabla hash, lo que permite una búsqueda rápida de valores asociados a esas claves.
+
+**Código de ejemplo en Python:**
+
+``` python
+class HashTable:
+    def __init__(self, size):
+        self.size = size
+        self.table = [None] * size
+
+    def hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        self.table[index] = value
+
+    def search(self, key):
+        index = self.hash_function(key)
+        if self.table[index] is not None:
+            return self.table[index]
+        else:
+            return None
+
+
+# Ejemplo de uso
+hash_table = HashTable(10)
+
+hash_table.insert(5, "Manzana")
+hash_table.insert(10, "Naranja")
+hash_table.insert(15, "Plátano")
+
+print(hash_table.search(10))  # Imprime "Naranja"
+print(hash_table.search(20))  # Imprime None
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos una clase llamada `HashTable` que representa una tabla hash.
+
+2.  En el método `__init__`, inicializamos la tabla con un tamaño específico y llenamos cada posición con `None`.
+
+3.  Definimos una función de hash llamada `hash_function` que toma una clave como parámetro y devuelve el índice correspondiente en la tabla hash utilizando una función hash simple.
+
+4.  En el método `insert`, calculamos el índice utilizando la función de hash y asignamos el valor asociado a la clave en esa posición de la tabla.
+
+5.  En el método `search`, calculamos el índice utilizando la función de hash y verificamos si el valor en esa posición de la tabla no es `None`. Si es así, retornamos el valor asociado a la clave. De lo contrario, retornamos `None`.
+
+6.  En el ejemplo de uso, creamos una instancia de `HashTable` con un tamaño de 10.
+
+7.  Utilizamos el método `insert` para agregar pares clave-valor a la tabla hash.
+
+8.  Utilizamos el método `search` para buscar valores en la tabla hash utilizando las claves.
+
+9.  Imprimimos los resultados de las búsquedas.
+
+Este fue un ejemplo de ejercicio que muestra cómo implementar y utilizar la búsqueda Hash en Python.
+
+Ahora, pasemos al ejercicio de práctica. Implementaremos un programa que solicite al usuario ingresar una serie de claves y valores, y luego permita realizar búsquedas en la tabla hash utilizando esas claves.
+
+**Código de práctica en Python:**
+
+``` python
+class HashTable:
+    def __init__(self, size):
+        self.size = size
+        self.table = [None] * size
+
+    def hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        self.table[index] = value
+
+    def search(self, key):
+        index = self.hash_function(key)
+        if self.table[index] is not None:
+            return self.table[index]
+        else:
+            return None
+
+
+# Solicitar al usuario el tamaño de la tabla hash
+table_size = int(input("Ingresa el tamaño de la tabla hash: "))
+hash_table = HashTable(table_size)
+
+# Solicitar al usuario ingresar claves y valores
+while True:
+    key = input("Ingresa una clave (o 'salir' para terminar): ")
+    if key == "salir":
+        break
+
+    value = input("Ingresa un valor: ")
+    hash_table.insert(int(key), value)
+
+# Solicitar al usuario una clave para realizar la búsqueda
+search_key = int(input("Ingresa una clave para buscar en la tabla hash: "))
+
+# Realizar la búsqueda
+result = hash_table.search(search_key)
+
+if result is not None:
+    print("El valor asociado a la clave", search_key, "es", result)
+else:
+    print("La clave", search_key, "no se encuentra en la tabla hash.")
+```
+
+**Explicación paso a paso:**
+
+1.  Creamos la clase `HashTable` de la misma manera que en el ejemplo anterior.
+
+2.  Solicitamos al usuario que ingrese el tamaño deseado para la tabla hash utilizando `input("Ingresa el tamaño de la tabla hash: ")`.
+
+3.  Creamos una instancia de `HashTable` con el tamaño especificado por el usuario.
+
+4.  Utilizamos un bucle `while` para permitir al usuario ingresar claves y valores para agregar a la tabla hash. El bucle se rompe cuando el usuario ingresa "salir" como clave.
+
+5.  En cada iteración del bucle, solicitamos al usuario una clave utilizando `input("Ingresa una clave (o 'salir' para terminar): ")` y un valor utilizando `input("Ingresa un valor: ")`.
+
+6.  Utilizamos el método `insert` de la tabla hash para agregar el par clave-valor ingresado por el usuario.
+
+7.  Solicitamos al usuario una clave para realizar la búsqueda utilizando `int(input("Ingresa una clave para buscar en la tabla hash: "))`.
+
+8.  Utilizamos el método `search` de la tabla hash para buscar el valor asociado a la clave ingresada por el usuario.
+
+9.  Verificamos si el resultado de la búsqueda no es `None`, lo que significa que se encontró un valor para la clave. En ese caso, imprimimos un mensaje indicando el valor encontrado.
+
+10. Si el resultado es `None`, imprimimos un mensaje indicando que la clave no se encuentra en la tabla hash.
