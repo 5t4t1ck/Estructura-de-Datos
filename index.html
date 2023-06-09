@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Lic. Diego Medardo Saavedra García Mg. Sc.">
-  <meta name="dcterms.date" content="2023-05-24">
-  <title>Unidad 1: Colas - Estructura de Datos</title>
+  <meta name="dcterms.date" content="2023-06-09">
+  <title>Algoritmos de Ordenamiento</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -394,7 +394,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Unidad 1: Colas - Estructura de Datos</h1>
+  <h1 class="title">Algoritmos de Ordenamiento</h1>
   <p class="subtitle">Introducción a la Lógica</p>
 
 <div class="quarto-title-authors">
@@ -405,419 +405,1012 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 </div>
 </div>
 
-  <p class="date">2023-05-24</p>
+  <p class="date">2023-06-09</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Tabla de contenidos</h2>
 <ul>
-<li><a href="#/colas" id="/toc-colas">Colas</a>
+<li><a href="#/algoritmos-de-ordenamiento." id="/toc-algoritmos-de-ordenamiento.">Algoritmos de Ordenamiento.</a>
 <ul>
-<li><a href="#/introducción-a-colas." id="/toc-introducción-a-colas.">Introducción a Colas.</a></li>
-<li><a href="#/representación-en-memoria-estática-y-dinámica." id="/toc-representación-en-memoria-estática-y-dinámica.">Representación en Memoria Estática y Dinámica.</a></li>
-<li><a href="#/tipos-de-colas" id="/toc-tipos-de-colas">Tipos de Colas</a></li>
-<li><a href="#/operaciones-con-colas" id="/toc-operaciones-con-colas">Operaciones con Colas</a></li>
-<li><a href="#/aplicaciones-colas-de-prioridad" id="/toc-aplicaciones-colas-de-prioridad">Aplicaciones: Colas de Prioridad</a></li>
-<li><a href="#/implementación-en-c" id="/toc-implementación-en-c">Implementación en C++</a></li>
-<li><a href="#/implementación-en-python" id="/toc-implementación-en-python">Implementación en Python</a></li>
-<li><a href="#/implementación-en-java" id="/toc-implementación-en-java">Implementación en Java</a></li>
+<li><a href="#/burbuja" id="/toc-burbuja">Burbuja</a></li>
+<li><a href="#/código-de-ejemplo-en-python" id="/toc-código-de-ejemplo-en-python">Código de ejemplo en Python:</a></li>
+<li><a href="#/intercambio" id="/toc-intercambio"><strong>Intercambio</strong></a></li>
+<li><a href="#/quicksort" id="/toc-quicksort"><strong>Quicksort</strong></a></li>
+<li><a href="#/shellsort" id="/toc-shellsort"><strong>ShellSort</strong></a></li>
+<li><a href="#/ordenación-por-distribución." id="/toc-ordenación-por-distribución.">Ordenación por Distribución.</a></li>
+<li><a href="#/ordenación-por-radix" id="/toc-ordenación-por-radix"><strong>Ordenación por Radix</strong></a></li>
 </ul></li>
-<li><a href="#/ejercicios." id="/toc-ejercicios.">Ejercicios.</a>
+<li><a href="#/algoritmos-de-ordenación-externa." id="/toc-algoritmos-de-ordenación-externa.">Algoritmos de Ordenación Externa.</a>
 <ul>
-<li><a href="#/ejercicio-1-sumar-los-elementos-de-una-lista." id="/toc-ejercicio-1-sumar-los-elementos-de-una-lista.">Ejercicio 1: Sumar los elementos de una lista.</a></li>
-<li><a href="#/ejercicio-2-verificar-si-una-palabra-es-un-palíndromo" id="/toc-ejercicio-2-verificar-si-una-palabra-es-un-palíndromo">Ejercicio 2: Verificar si una palabra es un palíndromo</a></li>
-<li><a href="#/ejercicio-3-invertir-una-lista-utilizando-una-pila." id="/toc-ejercicio-3-invertir-una-lista-utilizando-una-pila.">Ejercicio 3: Invertir una lista utilizando una pila.</a></li>
-<li><a href="#/ejercicio-4-convertir-una-expresión-infija-a-postfija." id="/toc-ejercicio-4-convertir-una-expresión-infija-a-postfija.">Ejercicio 4: Convertir una expresión infija a postfija.</a></li>
-<li><a href="#/ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada" id="/toc-ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada">Ejercicio 5: Verificar si una expresión con paréntesis está balanceada</a></li>
-<li><a href="#/ejercicio-6-implementar-una-cola-utilizando-dos-pilas" id="/toc-ejercicio-6-implementar-una-cola-utilizando-dos-pilas">Ejercicio 6: Implementar una cola utilizando dos pilas</a></li>
-<li><a href="#/ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola" id="/toc-ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola">Ejercicio 7: Verificar si una lista es simétrica utilizando una cola</a></li>
-<li><a href="#/ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola" id="/toc-ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola">Ejercicio 8: Eliminar elementos duplicados de una lista utilizando una cola</a></li>
-<li><a href="#/ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria." id="/toc-ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria.">Ejercicio 10: Realizar una búsqueda en una lista ordenada utilizando búsqueda binaria.</a></li>
-<li><a href="#/conclusión" id="/toc-conclusión">Conclusión</a></li>
-<li><a href="#/recapitulación" id="/toc-recapitulación">Recapitulación</a></li>
-<li><a href="#/gracias" id="/toc-gracias">¡Gracias!</a></li>
-<li><a href="#/bibliografía" id="/toc-bibliografía">Bibliografía</a></li>
-<li><a href="#/tarea-listas-pilas-y-colas" id="/toc-tarea-listas-pilas-y-colas">Tarea: Listas, Pilas y Colas</a></li>
+<li><a href="#/mezcla-directa" id="/toc-mezcla-directa"><strong>Mezcla Directa</strong></a></li>
+<li><a href="#/mezcla-natural" id="/toc-mezcla-natural"><strong>Mezcla Natural</strong></a></li>
+</ul></li>
+<li><a href="#/algoritmos-de-búsqueda." id="/toc-algoritmos-de-búsqueda.">Algoritmos de Búsqueda.</a>
+<ul>
+<li><a href="#/búsqueda-binaria." id="/toc-búsqueda-binaria."><strong>Búsqueda Binaria.</strong></a></li>
+<li><a href="#/búsqueda-hash" id="/toc-búsqueda-hash"><strong>Búsqueda Hash</strong></a></li>
 </ul></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="colas" class="title-slide slide level1 center">
-<h1>Colas</h1>
+<section id="algoritmos-de-ordenamiento." class="title-slide slide level1 center">
+<h1>Algoritmos de Ordenamiento.</h1>
 
 </section>
-<section id="introducción-a-colas." class="slide level2">
-<h2>Introducción a Colas.</h2>
-<ul>
-<li>Las colas son una estructura de datos lineal.</li>
-<li>Siguen el principio FIFO)First In, Fist Out). Siguen el principio de FIFO (First In, First Out). Elementos se agregan por un extremo, llamado “final” de la cola, y se eliminan por el otro extremo, llamado “frente” de la cola.</li>
-</ul>
+<section id="burbuja" class="slide level2">
+<h2>Burbuja</h2>
+<p><strong>Ejemplo de ejercicio:</strong> Implementaremos el algoritmo de ordenación Burbuja en Python. El algoritmo Burbuja compara pares de elementos adyacentes y los intercambia si están en el orden incorrecto. Continúa haciendo esto hasta que la lista esté ordenada.</p>
 </section>
-<section id="representación-en-memoria-estática-y-dinámica." class="slide level2">
-<h2>Representación en Memoria Estática y Dinámica.</h2>
-<ul>
-<li>Las colas pueden ser representadas en memoria estática utilizando arreglos de tamaño fijo.</li>
-<li>También se pueden representar en memoria dinámica utilizando estructuras enlazadas, como listas enlazadas.</li>
-</ul>
-</section>
-<section id="tipos-de-colas" class="slide level2">
-<h2>Tipos de Colas</h2>
-<ul>
-<li>Cola estándar: Agregar elementos al final y eliminar del frente.</li>
-<li>Cola de prioridad: Los elementos tienen una prioridad asociada y se manejan en función de ella.</li>
-<li>Cola circular: Los extremos de la cola están conectados, permitiendo un ciclo continuo de operaciones de encolar y desencolar.</li>
-</ul>
-</section>
-<section id="operaciones-con-colas" class="slide level2">
-<h2>Operaciones con Colas</h2>
-<ul>
-<li>Enqueue (Encolar): Agregar elementos al final de la cola.</li>
-<li>Dequeue (Desencolar): Eliminar el elemento del frente de la cola.</li>
-<li>Front (Frente): Obtener el elemento del frente sin eliminarlo.</li>
-<li>IsEmpty (Está vacía): Verificar si la cola está vacía.</li>
-<li>Size (Tamaño): Obtener el número de elementos en la cola.</li>
-</ul>
-</section>
-<section id="aplicaciones-colas-de-prioridad" class="slide level2">
-<h2>Aplicaciones: Colas de Prioridad</h2>
-<ul>
-<li>Planificación de procesos en un sistema operativo.</li>
-<li>Gestión de interrupciones en tiempo real.</li>
-<li>Algoritmos de búsqueda y ordenamiento.</li>
-</ul>
-</section>
-<section id="implementación-en-c" class="slide level2">
-<h2>Implementación en C++</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {c++} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>#include &lt;iostream&gt;</span>
-<span id="cb1-2"><a href="#cb1-2"></a>#include &lt;queue&gt;</span>
+<section id="código-de-ejemplo-en-python" class="slide level2">
+<h2>Código de ejemplo en Python:</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> bubble_sort(arr): </span>
+<span id="cb1-2"><a href="#cb1-2"></a>  n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>int main() {</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    std::queue&lt;int&gt; cola;</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    cola.push(10);</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    cola.push(20);</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    cola.push(30);</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>    while (!cola.empty()) {</span>
-<span id="cb1-12"><a href="#cb1-12"></a>        std::cout &lt;&lt; cola.front() &lt;&lt; " ";</span>
-<span id="cb1-13"><a href="#cb1-13"></a>        cola.pop();</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    }</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a>    return 0;</span>
-<span id="cb1-17"><a href="#cb1-17"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n<span class="op">-</span>i<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        <span class="cf">if</span> arr[j] <span class="op">&gt;</span> arr[j<span class="op">+</span><span class="dv">1</span>]:</span>
+<span id="cb1-7"><a href="#cb1-7"></a>            arr[j], arr[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> arr[j<span class="op">+</span><span class="dv">1</span>], arr[j]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Ejemplo de uso</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>array <span class="op">=</span> [<span class="dv">64</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">11</span>, <span class="dv">90</span>] </span>
+<span id="cb2-2"><a href="#cb2-2"></a>bubble_sort(array) </span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada bubble_sort que toma un arreglo como parámetro.</p></li>
+<li><p>Obtenemos la longitud del arreglo utilizando len(arr), que almacenamos en la variable n.</p></li>
+<li><p>Utilizamos un bucle for para iterar sobre el arreglo arr, que ejecutará n veces.</p></li>
+<li><p>Dentro del bucle for, utilizamos otro bucle for anidado para iterar sobre los elementos del arreglo.</p></li>
+<li><p>Comparamos cada par de elementos adyacentes arr[j] y arr[j+1]. Si están en el orden incorrecto (el elemento actual es mayor que el siguiente), los intercambiamos utilizando la sintaxis arr[j], arr[j+1] = arr[j+1], arr[j].</p></li>
+<li><p>Repetimos este proceso hasta que todo el arreglo esté ordenado.</p></li>
+<li><p>Después de que los bucles finalicen, el arreglo estará ordenado y podemos imprimirlo en la consola.</p></li>
+</ol>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos la búsqueda binaria en Python. La búsqueda binaria es un algoritmo eficiente para encontrar un elemento específico en una lista ordenada.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> binary_search(arr, target):</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    right <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    </span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">while</span> left <span class="op">&lt;=</span> right:</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>        </span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="cf">if</span> arr[mid] <span class="op">==</span> target:</span>
+<span id="cb3-9"><a href="#cb3-9"></a>            <span class="cf">return</span> mid</span>
+<span id="cb3-10"><a href="#cb3-10"></a>        <span class="cf">elif</span> arr[mid] <span class="op">&lt;</span> target:</span>
+<span id="cb3-11"><a href="#cb3-11"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-13"><a href="#cb3-13"></a>            right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>    </span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>array <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>]</span>
+<span id="cb3-19"><a href="#cb3-19"></a>target <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>result <span class="op">=</span> binary_search(array, target)</span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="cf">if</span> result <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="bu">print</span>(<span class="st">"El elemento"</span>, target, <span class="st">"se encuentra en la posición"</span>, result)</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="cf">else</span>:</span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="bu">print</span>(<span class="st">"El elemento"</span>, target, <span class="st">"no se encontró en el arreglo."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>binary_search</code> que toma un arreglo ordenado <code>arr</code> y un objetivo <code>target</code> como parámetros.</p></li>
+<li><p>Inicializamos dos variables, <code>left</code> y <code>right</code>, para marcar el rango de búsqueda inicial. <code>left</code> se establece en el índice 0 y <code>right</code> se establece en el índice final del arreglo (<code>len(arr) - 1</code>).</p></li>
+<li><p>Utilizamos un bucle <code>while</code> que se ejecuta mientras <code>left</code> sea menor o igual que <code>right</code>.</p></li>
+<li><p>En cada iteración del bucle, calculamos el índice medio del rango actual utilizando la fórmula <code>(left + right) // 2</code>. Lo almacenamos en la variable <code>mid</code>.</p></li>
+<li><p>Comparamos el valor en <code>arr[mid]</code> con el objetivo <code>target</code>. Si son iguales, hemos encontrado el elemento y devolvemos <code>mid</code>.</p></li>
+<li><p>Si <code>arr[mid]</code> es menor que <code>target</code>, ajustamos <code>left</code> a <code>mid + 1</code> para buscar en la mitad derecha del rango.</p></li>
+<li><p>Si <code>arr[mid]</code> es mayor que <code>target</code>, ajustamos <code>right</code> a <code>mid - 1</code> para buscar en la mitad izquierda del rango.</p></li>
+<li><p>Repetimos los pasos 4-7 hasta que encontremos el objetivo o hasta que <code>left</code> sea mayor que <code>right</code>, lo que indica que el objetivo no está presente en el arreglo.</p></li>
+<li><p>Si salimos del bucle y no hemos encontrado el objetivo, devolvemos <code>-1</code> para indicar que no se encontró.</p></li>
+<li><p>En el ejemplo de uso, creamos un arreglo ordenado y un objetivo. Llamamos a la función <code>binary_search</code> con el arreglo y el objetivo, y almacenamos el resultado en la variable <code>result</code>.</p></li>
+<li><p>Comprobamos si el resultado es diferente de <code>-1</code>. Si es así, imprimimos un mensaje indicando que se encontró el elemento y su posición. De lo contrario, imprimimos un mensaje indicando que el elemento no se encontró en el arreglo.</p></li>
+</ol>
 </section>
-<section id="implementación-en-python" class="slide level2">
-<h2>Implementación en Python</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>cola <span class="op">=</span> []</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>cola.append(<span class="dv">10</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>cola.append(<span class="dv">20</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>cola.append(<span class="dv">30</span>)</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="cf">while</span> <span class="bu">len</span>(cola) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="bu">print</span>(cola[<span class="dv">0</span>], end<span class="op">=</span><span class="st">" "</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>    cola.pop(<span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="intercambio" class="slide level2">
+<h2><strong>Intercambio</strong></h2>
+<p><strong>Ejemplo de ejercicio:</strong> Implementaremos el algoritmo de ordenación por intercambio en Python. Este algoritmo compara cada elemento con los elementos restantes y realiza intercambios si es necesario hasta que el arreglo esté ordenado.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> exchange_sort(arr):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb4-5"><a href="#cb4-5"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i <span class="op">+</span> <span class="dv">1</span>, n):</span>
+<span id="cb4-6"><a href="#cb4-6"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[j]:</span>
+<span id="cb4-7"><a href="#cb4-7"></a>                arr[i], arr[j] <span class="op">=</span> arr[j], arr[i]</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>array <span class="op">=</span> [<span class="dv">64</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">11</span>, <span class="dv">90</span>]</span>
+<span id="cb4-11"><a href="#cb4-11"></a>exchange_sort(array)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="bu">print</span>(array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>exchange_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Obtenemos la longitud del arreglo utilizando <code>len(arr)</code>, que almacenamos en la variable <code>n</code>.</p></li>
+<li><p>Utilizamos un bucle <code>for</code> para iterar sobre el arreglo <code>arr</code> hasta el penúltimo elemento, ya que en cada iteración comparamos con los elementos restantes.</p></li>
+<li><p>Dentro del primer bucle <code>for</code>, utilizamos otro bucle <code>for</code> anidado para iterar sobre los elementos restantes en el arreglo.</p></li>
+<li><p>Comparamos el elemento actual <code>arr[i]</code> con cada elemento restante <code>arr[j]</code>. Si el elemento actual es mayor que el elemento restante, realizamos un intercambio utilizando la sintaxis <code>arr[i], arr[j] = arr[j], arr[i]</code>.</p></li>
+<li><p>Repetimos este proceso hasta que se haya comparado el elemento actual con todos los elementos restantes.</p></li>
+<li><p>Después de que los bucles finalicen, el arreglo estará ordenado y podemos imprimirlo en la consola.</p></li>
+</ol>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo de ordenación por intercambio en Python utilizando una función llamada <code>exchange_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de intercambio.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> exchange_sort(arr):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i <span class="op">+</span> <span class="dv">1</span>, n):</span>
+<span id="cb5-6"><a href="#cb5-6"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[j]:</span>
+<span id="cb5-7"><a href="#cb5-7"></a>                arr[i], arr[j] <span class="op">=</span> arr[j], arr[i]</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb5-11"><a href="#cb5-11"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># Ordenar la lista utilizando el algoritmo de intercambio</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>exchange_sort(numbers)</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="bu">print</span>(numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>exchange_sort</code> que toma un arreglo como parámetro. Esta función implementa el algoritmo de ordenación por intercambio, que hemos explicado en el ejemplo anterior.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>exchange_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo de intercambio.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(numbers)</code>.</p></li>
+</ol>
 </section>
-<section id="implementación-en-java" class="slide level2">
-<h2>Implementación en Java</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {java} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>import java.util.Queue;</span>
-<span id="cb3-2"><a href="#cb3-2"></a>import java.util.LinkedList;</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>public class ColaExample {</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    public static void main(String[] args) {</span>
-<span id="cb3-6"><a href="#cb3-6"></a>        Queue&lt;Integer&gt; cola = new LinkedList&lt;&gt;();</span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a>        cola.add(10);</span>
-<span id="cb3-9"><a href="#cb3-9"></a>        cola.add(20);</span>
-<span id="cb3-10"><a href="#cb3-10"></a>        cola.add(30);</span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a>        while (!cola.isEmpty()) {</span>
-<span id="cb3-13"><a href="#cb3-13"></a>            System.out.print(cola.peek() + " ");</span>
-<span id="cb3-14"><a href="#cb3-14"></a>            cola.remove();</span>
-<span id="cb3-15"><a href="#cb3-15"></a>        }</span>
-<span id="cb3-16"><a href="#cb3-16"></a>    }</span>
-<span id="cb3-17"><a href="#cb3-17"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="ejercicios." class="title-slide slide level1 center">
-<h1>Ejercicios.</h1>
-<p>A continuación se presenta algunos ejemplos del uso de código python para la aplicación de listas, pilas y colas.</p>
-</section>
-<section id="ejercicio-1-sumar-los-elementos-de-una-lista." class="slide level2">
-<h2>Ejercicio 1: Sumar los elementos de una lista.</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> sumar_elementos(lista):</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    suma <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
-<span id="cb4-4"><a href="#cb4-4"></a>        suma <span class="op">+=</span> elemento</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> suma</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb4-9"><a href="#cb4-9"></a>resultado <span class="op">=</span> sumar_elementos(lista)</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: 15</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> Este ejercicio muestra cómo sumar todos los elementos de una lista utilizando un bucle for y la operación de acumulación.</p>
-</section>
-<section id="ejercicio-2-verificar-si-una-palabra-es-un-palíndromo" class="slide level2">
-<h2>Ejercicio 2: Verificar si una palabra es un palíndromo</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> es_palindromo(palabra):</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    palabra <span class="op">=</span> palabra.lower()</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    lista <span class="op">=</span> <span class="bu">list</span>(palabra)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    pila <span class="op">=</span> []</span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="cf">for</span> letra <span class="kw">in</span> lista:</span>
-<span id="cb5-7"><a href="#cb5-7"></a>        <span class="cf">if</span> letra.isalpha():</span>
-<span id="cb5-8"><a href="#cb5-8"></a>            pila.append(letra)</span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a>    inversa <span class="op">=</span> <span class="st">''</span>.join(pila[::<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb5-11"><a href="#cb5-11"></a></span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">return</span> palabra <span class="op">==</span> inversa</span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>palabra <span class="op">=</span> <span class="st">"reconocer"</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a>resultado <span class="op">=</span> es_palindromo(palabra)</span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se crea una función que verifica si una palabra es un palíndromo. Se utiliza una pila para almacenar las letras de la palabra y luego se compara con su inversa.</p>
-</section>
-<section id="ejercicio-3-invertir-una-lista-utilizando-una-pila." class="slide level2">
-<h2>Ejercicio 3: Invertir una lista utilizando una pila.</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> invertir_lista(lista):</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    pila <span class="op">=</span> []</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
-<span id="cb6-4"><a href="#cb6-4"></a>        pila.append(elemento)</span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a>    lista_invertida <span class="op">=</span> []</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="cf">while</span> pila:</span>
-<span id="cb6-8"><a href="#cb6-8"></a>        lista_invertida.append(pila.pop())</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a>    <span class="cf">return</span> lista_invertida</span>
+<section id="quicksort" class="slide level2">
+<h2><strong>Quicksort</strong></h2>
+<p><strong>Ejemplo de ejercicio:</strong> Implementaremos el algoritmo Quicksort en Python. Quicksort es un algoritmo de ordenación eficiente que utiliza la técnica de “divide y vencerás”. Divide el arreglo en dos subarreglos alrededor de un pivote y luego ordena recursivamente los subarreglos.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> quicksort(arr):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(arr) <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="cf">return</span> arr</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5"></a>    pivot <span class="op">=</span> arr[<span class="bu">len</span>(arr) <span class="op">//</span> <span class="dv">2</span>]</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    left <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">&lt;</span> pivot]</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    middle <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">==</span> pivot]</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    right <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">&gt;</span> pivot]</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    </span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="cf">return</span> quicksort(left) <span class="op">+</span> middle <span class="op">+</span> quicksort(right)</span>
 <span id="cb6-11"><a href="#cb6-11"></a></span>
 <span id="cb6-12"><a href="#cb6-12"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb6-14"><a href="#cb6-14"></a>resultado <span class="op">=</span> invertir_lista(lista)</span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: [5, 4, 3, 2, 1]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se utiliza una pila para invertir una lista. Se añaden los elementos de la lista a una pila y luego se van extrayendo de la pila para construir una nueva lista invertida.</p>
-</section>
-<section id="ejercicio-4-convertir-una-expresión-infija-a-postfija." class="slide level2">
-<h2>Ejercicio 4: Convertir una expresión infija a postfija.</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> infija_a_postfija(expresion):</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    precedencia <span class="op">=</span> {<span class="st">'+'</span>: <span class="dv">1</span>, <span class="st">'-'</span>: <span class="dv">1</span>, <span class="st">'*'</span>: <span class="dv">2</span>, <span class="st">'/'</span>: <span class="dv">2</span>, <span class="st">'^'</span>: <span class="dv">3</span>}</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    pila <span class="op">=</span> []</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    resultado <span class="op">=</span> []</span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a>    <span class="cf">for</span> caracter <span class="kw">in</span> expresion:</span>
-<span id="cb7-7"><a href="#cb7-7"></a>        <span class="cf">if</span> caracter.isalnum():</span>
-<span id="cb7-8"><a href="#cb7-8"></a>            resultado.append(caracter)</span>
-<span id="cb7-9"><a href="#cb7-9"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">'('</span>:</span>
-<span id="cb7-10"><a href="#cb7-10"></a>            pila.append(caracter)</span>
-<span id="cb7-11"><a href="#cb7-11"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">')'</span>:</span>
-<span id="cb7-12"><a href="#cb7-12"></a>            <span class="cf">while</span> pila <span class="kw">and</span> pila[<span class="op">-</span><span class="dv">1</span>] <span class="op">!=</span> <span class="st">'('</span>:</span>
-<span id="cb7-13"><a href="#cb7-13"></a>                resultado.append(pila.pop())</span>
-<span id="cb7-14"><a href="#cb7-14"></a>            pila.pop()</span>
-<span id="cb7-15"><a href="#cb7-15"></a>        <span class="cf">else</span>:</span>
-<span id="cb7-16"><a href="#cb7-16"></a>            <span class="cf">while</span> pila <span class="kw">and</span> precedencia.get(caracter, <span class="dv">0</span>) <span class="op">&lt;=</span> precedencia.get(pila[<span class="op">-</span><span class="dv">1</span>], <span class="dv">0</span>):</span>
-<span id="cb7-17"><a href="#cb7-17"></a>                resultado.append(pila.pop())</span>
-<span id="cb7-18"><a href="#cb7-18"></a>            pila.append(caracter)</span>
-<span id="cb7-19"><a href="#cb7-19"></a></span>
-<span id="cb7-20"><a href="#cb7-20"></a>    <span class="cf">while</span> pila:</span>
-<span id="cb7-21"><a href="#cb7-21"></a>        resultado.append(pila.pop())</span>
-<span id="cb7-22"><a href="#cb7-22"></a></span>
-<span id="cb7-23"><a href="#cb7-23"></a>    <span class="cf">return</span> <span class="st">''</span>.join(resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>En este código, se define un diccionario llamado precedencia que asigna a cada operador su nivel de precedencia. Luego, se crea una pila vacía pila y una lista vacía resultado que almacenará la expresión postfija.</p>
-<p>A continuación, se recorre cada caracter de la expresión de entrada. Si el caracter es un alfanumérico, es decir, un dígito o una letra, se agrega directamente al resultado. Si el caracter es un paréntesis de apertura ‘(’, se añade a la pila.</p>
-<p>Si el caracter es un paréntesis de cierre ‘)’, se extraen los operadores de la pila y se agregan al resultado hasta encontrar un paréntesis de apertura en la pila.</p>
-<p>Si el caracter es un operador, se compara su precedencia con la del operador en el tope de la pila. Si la precedencia del operador en la pila es mayor o igual, se extrae de la pila y se agrega al resultado. Luego, se agrega el operador actual a la pila.</p>
-<p>Después de recorrer todos los caracteres de la expresión, se extraen los operadores restantes de la pila y se agregan al resultado.</p>
-<p>Finalmente, se retorna el resultado como una cadena de caracteres que representa la expresión en notación postfija.</p>
-</section>
-<section id="ejercicio-5-verificar-si-una-expresión-con-paréntesis-está-balanceada" class="slide level2">
-<h2>Ejercicio 5: Verificar si una expresión con paréntesis está balanceada</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> verificar_balance(expresion):</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    pila <span class="op">=</span> []</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">for</span> caracter <span class="kw">in</span> expresion:</span>
-<span id="cb8-5"><a href="#cb8-5"></a>        <span class="cf">if</span> caracter <span class="op">==</span> <span class="st">'('</span>:</span>
-<span id="cb8-6"><a href="#cb8-6"></a>            pila.append(caracter)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>        <span class="cf">elif</span> caracter <span class="op">==</span> <span class="st">')'</span>:</span>
-<span id="cb8-8"><a href="#cb8-8"></a>            <span class="cf">if</span> <span class="kw">not</span> pila:</span>
-<span id="cb8-9"><a href="#cb8-9"></a>                <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a>            pila.pop()</span>
-<span id="cb8-11"><a href="#cb8-11"></a></span>
-<span id="cb8-12"><a href="#cb8-12"></a>    <span class="cf">return</span> <span class="bu">len</span>(pila) <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a>expresion <span class="op">=</span> <span class="st">"(a + b) * (c - d)"</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a>resultado <span class="op">=</span> verificar_balance(expresion)</span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se utiliza una pila para verificar si una expresión con paréntesis está balanceada. Se recorre la expresión y se añaden los paréntesis de apertura a la pila. Si se encuentra un paréntesis de cierre y la pila no está vacía, se retira un paréntesis de apertura de la pila. Al final, se verifica si la pila está vacía para determinar si la expresión está balanceada.</p>
-</section>
-<section id="ejercicio-6-implementar-una-cola-utilizando-dos-pilas" class="slide level2">
-<h2>Ejercicio 6: Implementar una cola utilizando dos pilas</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> ColaConPilas:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.pila_entrada <span class="op">=</span> []</span>
-<span id="cb9-4"><a href="#cb9-4"></a>        <span class="va">self</span>.pila_salida <span class="op">=</span> []</span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a>    <span class="kw">def</span> encolar(<span class="va">self</span>, elemento):</span>
-<span id="cb9-7"><a href="#cb9-7"></a>        <span class="va">self</span>.pila_entrada.append(elemento)</span>
-<span id="cb9-8"><a href="#cb9-8"></a></span>
-<span id="cb9-9"><a href="#cb9-9"></a>    <span class="kw">def</span> desencolar(<span class="va">self</span>):</span>
-<span id="cb9-10"><a href="#cb9-10"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.pila_salida:</span>
-<span id="cb9-11"><a href="#cb9-11"></a>            <span class="cf">while</span> <span class="va">self</span>.pila_entrada:</span>
-<span id="cb9-12"><a href="#cb9-12"></a>                <span class="va">self</span>.pila_salida.append(<span class="va">self</span>.pila_entrada.pop())</span>
-<span id="cb9-13"><a href="#cb9-13"></a></span>
-<span id="cb9-14"><a href="#cb9-14"></a>        <span class="cf">if</span> <span class="va">self</span>.pila_salida:</span>
-<span id="cb9-15"><a href="#cb9-15"></a>            <span class="cf">return</span> <span class="va">self</span>.pila_salida.pop()</span>
-<span id="cb9-16"><a href="#cb9-16"></a></span>
-<span id="cb9-17"><a href="#cb9-17"></a>    <span class="kw">def</span> esta_vacia(<span class="va">self</span>):</span>
-<span id="cb9-18"><a href="#cb9-18"></a>        <span class="cf">return</span> <span class="kw">not</span> <span class="va">self</span>.pila_entrada <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.pila_salida</span>
-<span id="cb9-19"><a href="#cb9-19"></a></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb9-21"><a href="#cb9-21"></a>cola <span class="op">=</span> ColaConPilas()</span>
-<span id="cb9-22"><a href="#cb9-22"></a>cola.encolar(<span class="dv">1</span>)</span>
-<span id="cb9-23"><a href="#cb9-23"></a>cola.encolar(<span class="dv">2</span>)</span>
-<span id="cb9-24"><a href="#cb9-24"></a>cola.encolar(<span class="dv">3</span>)</span>
-<span id="cb9-25"><a href="#cb9-25"></a><span class="bu">print</span>(cola.desencolar())  <span class="co"># Salida: 1</span></span>
-<span id="cb9-26"><a href="#cb9-26"></a><span class="bu">print</span>(cola.desencolar())  <span class="co"># Salida: 2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se implementa una cola utilizando dos pilas. Los elementos se añaden a la pila de entrada y se desencolan de la pila de salida. Si la pila de salida está vacía, se transfieren los elementos de la pila de entrada a la pila de salida en orden inverso.</p>
-</section>
-<section id="ejercicio-7-verificar-si-una-lista-es-simétrica-utilizando-una-cola" class="slide level2">
-<h2>Ejercicio 7: Verificar si una lista es simétrica utilizando una cola</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> es_simetrica(lista):</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    cola <span class="op">=</span> []</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
-<span id="cb10-4"><a href="#cb10-4"></a>        cola.append(elemento)</span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">while</span> <span class="bu">len</span>(cola) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb10-7"><a href="#cb10-7"></a>        <span class="cf">if</span> cola.pop(<span class="dv">0</span>) <span class="op">!=</span> cola.pop():</span>
-<span id="cb10-8"><a href="#cb10-8"></a>            <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10"></a>    <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
-<span id="cb10-14"><a href="#cb10-14"></a>resultado <span class="op">=</span> es_simetrica(lista)</span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="bu">print</span>(resultado)  <span class="co"># Salida: True</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se utiliza una cola para verificar si una lista es simétrica. Los elementos de la lista se añaden a la cola y luego se comparan los elementos del frente de la cola con los del final. Si en algún momento no coinciden, la lista no es simétrica.</p>
-</section>
-<section id="ejercicio-8-eliminar-elementos-duplicados-de-una-lista-utilizando-una-cola" class="slide level2">
-<h2>Ejercicio 8: Eliminar elementos duplicados de una lista utilizando una cola</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> eliminar_duplicados(lista):</span>
-<span id="cb11-2"><a href="#cb11-2"></a>    cola <span class="op">=</span> []</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    lista_resultado <span class="op">=</span> []</span>
-<span id="cb11-4"><a href="#cb11-4"></a></span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
-<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">if</span> elemento <span class="kw">not</span> <span class="kw">in</span> cola:</span>
-<span id="cb11-7"><a href="#cb11-7"></a>            cola.append(elemento)</span>
-<span id="cb11-8"><a href="#cb11-8"></a>            lista</span>
-<span id="cb11-9"><a href="#cb11-9"></a>            </span>
-<span id="cb11-10"><a href="#cb11-10"></a>    <span class="cf">return</span> lista_resultado</span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#Ejemplo de uso</span></span>
-<span id="cb11-12"><a href="#cb11-12"></a></span>
-<span id="cb11-13"><a href="#cb11-13"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb11-14"><a href="#cb11-14"></a>resultado <span class="op">=</span> eliminar_duplicados(lista)</span>
-<span id="cb11-15"><a href="#cb11-15"></a><span class="bu">print</span>(resultado) <span class="co"># Salida: [1, 2, 3, 4, 5]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se implementa una cola de prioridad utilizando la biblioteca heapq. Los elementos se encolan con un valor de prioridad y un contador único. La biblioteca heapq se encarga de mantener la cola ordenada por prioridad, permitiendo extraer siempre el elemento de mayor prioridad.</p>
-</section>
-<section id="ejercicio-10-realizar-una-búsqueda-en-una-lista-ordenada-utilizando-búsqueda-binaria." class="slide level2">
-<h2>Ejercicio 10: Realizar una búsqueda en una lista ordenada utilizando búsqueda binaria.</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> busqueda_binaria(lista, elemento):</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    izquierda <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>    derecha <span class="op">=</span> <span class="bu">len</span>(lista) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="cf">while</span> izquierda <span class="op">&lt;=</span> derecha:</span>
-<span id="cb12-6"><a href="#cb12-6"></a>        medio <span class="op">=</span> (izquierda <span class="op">+</span> derecha) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a>        <span class="cf">if</span> lista[medio] <span class="op">==</span> elemento:</span>
-<span id="cb12-9"><a href="#cb12-9"></a>            <span class="cf">return</span> medio</span>
-<span id="cb12-10"><a href="#cb12-10"></a>        <span class="cf">elif</span> lista[medio] <span class="op">&lt;</span> elemento:</span>
-<span id="cb12-11"><a href="#cb12-11"></a>            izquierda <span class="op">=</span> medio <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a>        <span class="cf">else</span>:</span>
-<span id="cb12-13"><a href="#cb12-13"></a>            derecha <span class="op">=</span> medio <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a></span>
-<span id="cb12-15"><a href="#cb12-15"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb12-16"><a href="#cb12-16"></a></span>
-<span id="cb12-17"><a href="#cb12-17"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb12-18"><a href="#cb12-18"></a>lista <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb12-19"><a href="#cb12-19"></a>elemento <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb12-20"><a href="#cb12-20"></a>indice <span class="op">=</span> busqueda_binaria(lista, elemento)</span>
-<span id="cb12-21"><a href="#cb12-21"></a><span class="bu">print</span>(indice)  <span class="co"># Salida: 2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Explicación:</strong> En este ejercicio, se realiza una búsqueda binaria en una lista ordenada para encontrar un elemento específico. La búsqueda se realiza dividiendo el rango de búsqueda a la mitad en cada iteración, comparando el elemento medio con el objetivo y ajustando los límites de búsqueda en consecuencia.</p>
-</section>
-<section id="conclusión" class="slide level2">
-<h2>Conclusión</h2>
-<ul>
-<li>Las colas son una estructura de datos importante en Estructura de Datos.</li>
-<li>Sigue el principio de FIFO y permite un manejo ordenado de elementos.</li>
-<li>Existen diferentes tipos de colas y operaciones que se pueden realizar.</li>
-<li>Las colas de prioridad son útiles en situaciones donde senecesita establecer un orden basado en la prioridad de los elementos.</li>
-</ul>
-</section>
-<section id="recapitulación" class="slide level2">
-<h2>Recapitulación</h2>
-<ul>
-<li>Las colas son estructuras de datos lineales con el principio FIFO.</li>
-<li>Pueden ser representadas en memoria estática o dinámica.</li>
-<li>Existen diferentes tipos de colas, como la cola estándar y la cola de prioridad.</li>
-<li>Las operaciones comunes en colas incluyen encolar, desencolar, obtener el frente, verificar si está vacía y obtener el tamaño.</li>
-<li>Las colas de prioridad son especialmente útiles cuando se necesita establecer un orden basado en prioridades.</li>
-</ul>
-</section>
-<section id="gracias" class="slide level2">
-<h2>¡Gracias!</h2>
-<ul>
-<li>Esperamos que esta presentación haya sido útil para comprender las colas en la asignatura de Estructura de Datos.</li>
-<li>¡Explora más sobre las colas y disfruta de su aplicación en el desarrollo de software!</li>
-<li>¿Tienes alguna pregunta?</li>
-</ul>
-</section>
-<section id="bibliografía" class="slide level2">
-<h2>Bibliografía</h2>
-<p>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (Año de publicación). Introduction to Algorithms (3rd ed.). The MIT Press. Tutorialspoint. (s. f.). Data Structures and Algorithms - Queue. Recuperado el día de mes de año, de [enlace URL] GeeksforGeeks. (s. f.). Queue Data Structure. Recuperado el día de mes de año, de [enlace URL]</p>
-<p>¡Gracias por su atención!</p>
-</section>
-<section id="tarea-listas-pilas-y-colas" class="slide level2">
-<h2>Tarea: Listas, Pilas y Colas</h2>
+<span id="cb6-13"><a href="#cb6-13"></a>array <span class="op">=</span> [<span class="dv">64</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">11</span>, <span class="dv">90</span>]</span>
+<span id="cb6-14"><a href="#cb6-14"></a>sorted_array <span class="op">=</span> quicksort(array)</span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="bu">print</span>(sorted_array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
 <ol type="1">
-<li><strong>Ejercicio 1:</strong> Verificar si una lista está ordenada de forma ascendente</li>
+<li><p>Creamos una función llamada <code>quicksort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>En el caso base, si la longitud del arreglo es menor o igual a 1, simplemente lo devolvemos tal cual.</p></li>
+<li><p>Si el arreglo tiene más de un elemento, seleccionamos un elemento del arreglo como pivote. En este ejemplo, elegimos el elemento en la posición <code>len(arr) // 2</code> como pivote.</p></li>
+<li><p>Creamos tres listas vacías: <code>left</code>, <code>middle</code> y <code>right</code>.</p></li>
+<li><p>Iteramos sobre cada elemento <code>x</code> en el arreglo. Si <code>x</code> es menor que el pivote, lo agregamos a la lista <code>left</code>. Si <code>x</code> es igual al pivote, lo agregamos a la lista <code>middle</code>. Si <code>x</code> es mayor que el pivote, lo agregamos a la lista <code>right</code>.</p></li>
+<li><p>Luego, realizamos llamadas recursivas a la función <code>quicksort</code> con las listas <code>left</code> y <code>right</code> para ordenarlos de manera recursiva.</p></li>
+<li><p>Finalmente, concatenamos <code>quicksort(left)</code>, <code>middle</code> y <code>quicksort(right)</code> para obtener el arreglo ordenado completo y lo devolvemos.</p></li>
 </ol>
-<p>1.1. <strong>Explicación:</strong> En este ejercicio, se recorre la lista y se compara cada elemento con el siguiente. Si en algún momento se encuentra un elemento mayor que su siguiente, la lista no está ordenada de forma ascendente.</p>
-<ol start="2" type="1">
-<li><strong>Ejercicio 2:</strong> Implementar una pila utilizando una lista</li>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo Quicksort en Python utilizando una función llamada <code>quicksort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo Quicksort.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> quicksort(arr):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(arr) <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="cf">return</span> arr</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    </span>
+<span id="cb7-5"><a href="#cb7-5"></a>    pivot <span class="op">=</span> arr[<span class="bu">len</span>(arr) <span class="op">//</span> <span class="dv">2</span>]</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    left <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">&lt;</span> pivot]</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    middle <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">==</span> pivot]</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    right <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> arr <span class="cf">if</span> x <span class="op">&gt;</span> pivot]</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    </span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="cf">return</span> quicksort(left) <span class="op">+</span> middle <span class="op">+</span> quicksort(right)</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb7-14"><a href="#cb7-14"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># Ordenar la lista utilizando el algoritmo Quicksort</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>sorted_numbers <span class="op">=</span> quicksort(numbers)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="bu">print</span>(sorted_numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>quicksort</code> que toma un arreglo como parámetro. Esta función implementa el algoritmo Quicksort, que hemos explicado en el ejemplo anterior.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>quicksort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo Quicksort.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(sorted_numbers)</code>.</p></li>
 </ol>
-<p>2.1. <strong>Explicación:</strong> En este ejercicio, se implementa una pila utilizando una lista. Los elementos se añaden al final de la lista y se retiran del final utilizando el método pop().</p>
-<ol start="3" type="1">
-<li><strong>Ejercicio 3:</strong> Verificar si una palabra es un palíndromo utilizando una pila</li>
+</section>
+<section id="shellsort" class="slide level2">
+<h2><strong>ShellSort</strong></h2>
+<p>Ejemplo de ejercicio: Implementaremos el algoritmo ShellSort en Python. ShellSort es un algoritmo de ordenación que mejora el algoritmo de inserción directa al comparar y mover elementos distantes en lugar de adyacentes, utilizando una secuencia incremental de brechas.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> shell_sort(arr):</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    gap <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>    </span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="cf">while</span> gap <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb8-6"><a href="#cb8-6"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(gap, n):</span>
+<span id="cb8-7"><a href="#cb8-7"></a>            temp <span class="op">=</span> arr[i]</span>
+<span id="cb8-8"><a href="#cb8-8"></a>            j <span class="op">=</span> i</span>
+<span id="cb8-9"><a href="#cb8-9"></a>            </span>
+<span id="cb8-10"><a href="#cb8-10"></a>            <span class="cf">while</span> j <span class="op">&gt;=</span> gap <span class="kw">and</span> arr[j <span class="op">-</span> gap] <span class="op">&gt;</span> temp:</span>
+<span id="cb8-11"><a href="#cb8-11"></a>                arr[j] <span class="op">=</span> arr[j <span class="op">-</span> gap]</span>
+<span id="cb8-12"><a href="#cb8-12"></a>                j <span class="op">-=</span> gap</span>
+<span id="cb8-13"><a href="#cb8-13"></a>            </span>
+<span id="cb8-14"><a href="#cb8-14"></a>            arr[j] <span class="op">=</span> temp</span>
+<span id="cb8-15"><a href="#cb8-15"></a>        </span>
+<span id="cb8-16"><a href="#cb8-16"></a>        gap <span class="op">//=</span> <span class="dv">2</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>array <span class="op">=</span> [<span class="dv">64</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">11</span>, <span class="dv">90</span>]</span>
+<span id="cb8-20"><a href="#cb8-20"></a>shell_sort(array)</span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="bu">print</span>(array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>shell_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Obtenemos la longitud del arreglo utilizando <code>len(arr)</code>, que almacenamos en la variable <code>n</code>.</p></li>
+<li><p>Inicializamos la brecha <code>gap</code> como la mitad del tamaño del arreglo utilizando <code>n // 2</code>.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> que se ejecuta mientras <code>gap</code> sea mayor que 0.</p></li>
+<li><p>Dentro del bucle <code>while</code>, utilizamos un bucle <code>for</code> para iterar sobre los elementos desde <code>gap</code> hasta <code>n</code>.</p></li>
+<li><p>Almacenamos el valor del elemento actual en la variable <code>temp</code>.</p></li>
+<li><p>Inicializamos la variable <code>j</code> con el valor del índice actual <code>i</code>.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> que se ejecuta mientras <code>j</code> sea mayor o igual que <code>gap</code> y el elemento en la posición <code>j - gap</code> sea mayor que <code>temp</code>.</p></li>
+<li><p>En cada iteración del bucle <code>while</code>, movemos los elementos hacia adelante en la brecha utilizando <code>arr[j] = arr[j - gap]</code> y disminuimos el valor de <code>j</code> en <code>gap</code>.</p></li>
+<li><p>Después de salir del bucle <code>while</code>, asignamos el valor de <code>temp</code> al elemento en la posición <code>j</code>.</p></li>
+<li><p>Reducimos la brecha <code>gap</code> dividiéndola por 2 utilizando <code>gap //= 2</code>.</p></li>
+<li><p>Repetimos los pasos 4-11 hasta que <code>gap</code> sea igual a 0, lo que indica que hemos realizado una pasada completa por todas las brechas posibles.</p></li>
+<li><p>Después de que el bucle <code>while</code> finalice, el arreglo estará ordenado y podemos imprimirlo en la consola.</p></li>
 </ol>
-<p>3.1. <strong>Explicación:</strong> En este ejercicio, se utiliza una pila para invertir una palabra y luego se compara con la palabra original para determinar si es un palíndromo.</p>
-<ol start="4" type="1">
-<li><strong>Ejercicio 4:</strong> Implementar una cola utilizando una lista</li>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo ShellSort en Python utilizando una función llamada <code>shell_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo ShellSort.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> shell_sort(arr):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    gap <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    </span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="cf">while</span> gap <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb9-6"><a href="#cb9-6"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(gap, n):</span>
+<span id="cb9-7"><a href="#cb9-7"></a>            temp <span class="op">=</span> arr[i]</span>
+<span id="cb9-8"><a href="#cb9-8"></a>            j <span class="op">=</span> i</span>
+<span id="cb9-9"><a href="#cb9-9"></a>            </span>
+<span id="cb9-10"><a href="#cb9-10"></a>            <span class="cf">while</span> j <span class="op">&gt;=</span> gap <span class="kw">and</span> arr[j <span class="op">-</span> gap] <span class="op">&gt;</span> temp:</span>
+<span id="cb9-11"><a href="#cb9-11"></a>                arr[j] <span class="op">=</span> arr[j <span class="op">-</span> gap]</span>
+<span id="cb9-12"><a href="#cb9-12"></a>                j <span class="op">-=</span> gap</span>
+<span id="cb9-13"><a href="#cb9-13"></a>            </span>
+<span id="cb9-14"><a href="#cb9-14"></a>            arr[j] <span class="op">=</span> temp</span>
+<span id="cb9-15"><a href="#cb9-15"></a>        </span>
+<span id="cb9-16"><a href="#cb9-16"></a>        gap <span class="op">//=</span> <span class="dv">2</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb9-20"><a href="#cb9-20"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb9-21"><a href="#cb9-21"></a></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="co"># Ordenar la lista utilizando el algoritmo ShellSort</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a>shell_sort(numbers)</span>
+<span id="cb9-24"><a href="#cb9-24"></a></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="bu">print</span>(numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>shell_sort</code> que toma un arreglo como parámetro. Esta función implementa el algoritmo ShellSort, que hemos explicado en el ejemplo anterior.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>shell_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo ShellSort.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(numbers)</code>.</p></li>
 </ol>
-<p>4.1. <strong>Explicación:</strong> En este ejercicio, se implementa una cola utilizando una lista. Los elementos se añaden al final de la lista utilizando el método append() y se retiran del inicio utilizando el método pop(0).</p>
-<ol start="5" type="1">
-<li><strong>Ejercicio 5:</strong> Verificar si una lista es simétrica</li>
+</section>
+<section id="ordenación-por-distribución." class="slide level2">
+<h2>Ordenación por Distribución.</h2>
+<p>Ejemplo de ejercicio: Implementaremos el algoritmo de Ordenación por Distribución en Python. La Ordenación por Distribución es un algoritmo de ordenación que distribuye los elementos en diferentes baldes o cubetas según ciertos criterios y luego los combina para obtener la lista ordenada.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> distribution_sort(arr):</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    min_val <span class="op">=</span> <span class="bu">min</span>(arr)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    max_val <span class="op">=</span> <span class="bu">max</span>(arr)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    range_val <span class="op">=</span> max_val <span class="op">-</span> min_val <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    count <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> range_val</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">for</span> num <span class="kw">in</span> arr:</span>
+<span id="cb10-9"><a href="#cb10-9"></a>        count[num <span class="op">-</span> min_val] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a>    output <span class="op">=</span> []</span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(range_val):</span>
+<span id="cb10-13"><a href="#cb10-13"></a>        output.extend([i <span class="op">+</span> min_val] <span class="op">*</span> count[i])</span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a>    <span class="cf">return</span> output</span>
+<span id="cb10-16"><a href="#cb10-16"></a></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a>array <span class="op">=</span> [<span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>]</span>
+<span id="cb10-19"><a href="#cb10-19"></a>sorted_array <span class="op">=</span> distribution_sort(array)</span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="bu">print</span>(sorted_array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>distribution_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Encontramos el valor mínimo y máximo en el arreglo utilizando <code>min(arr)</code> y <code>max(arr)</code>, respectivamente, y los almacenamos en las variables <code>min_val</code> y <code>max_val</code>.</p></li>
+<li><p>Calculamos el rango de valores sumando 1 al resultado de la diferencia entre <code>max_val</code> y <code>min_val</code>, y lo almacenamos en la variable <code>range_val</code>.</p></li>
+<li><p>Creamos un arreglo de conteo <code>count</code> de tamaño <code>range_val</code>, inicializado con ceros.</p></li>
+<li><p>Utilizamos un bucle <code>for</code> para iterar sobre los elementos del arreglo <code>arr</code> y contamos la frecuencia de cada elemento en el arreglo <code>count</code>, ajustando el índice utilizando <code>num - min_val</code>.</p></li>
+<li><p>Creamos una lista vacía <code>output</code>.</p></li>
+<li><p>Utilizamos otro bucle <code>for</code> para iterar sobre los índices en el rango <code>range_val</code>.</p></li>
+<li><p>Extendemos la lista <code>output</code> con elementos repetidos <code>i + min_val</code> según la frecuencia almacenada en <code>count[i]</code>.</p></li>
+<li><p>Retornamos la lista <code>output</code>, que contiene los elementos ordenados.</p></li>
 </ol>
-<p>5.1. <strong>Explicación:</strong> En este ejercicio, se utiliza una pila para comparar los elementos de la primera mitad de la lista con los elementos de la segunda mitad. Si los elementos coinciden en orden inverso, la lista es simétrica.</p>
-<p><strong>¡Estos ejercicios te ayudarán a reforzar tus conocimientos sobre listas, pilas y colas en Python! Puedes modificar los ejercicios para practicar aún más y explorar diferentes escenarios. ¡Diviértete programando!</strong></p>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo de Ordenación por Distribución en Python utilizando una función llamada <code>distribution_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Ordenación por Distribución.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> distribution_sort(arr):</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    min_val <span class="op">=</span> <span class="bu">min</span>(arr)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    max_val <span class="op">=</span> <span class="bu">max</span>(arr)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    range_val <span class="op">=</span> max_val <span class="op">-</span> min_val <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    count <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> range_val</span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="cf">for</span> num <span class="kw">in</span> arr:</span>
+<span id="cb11-9"><a href="#cb11-9"></a>        count[num <span class="op">-</span> min_val] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a></span>
+<span id="cb11-11"><a href="#cb11-11"></a>    output <span class="op">=</span> []</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(range_val):</span>
+<span id="cb11-13"><a href="#cb11-13"></a>        output.extend([i <span class="op">+</span> min_val] <span class="op">*</span> count[i])</span>
+<span id="cb11-14"><a href="#cb11-14"></a></span>
+<span id="cb11-15"><a href="#cb11-15"></a>    <span class="cf">return</span> output</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb11-19"><a href="#cb11-19"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb11-20"><a href="#cb11-20"></a></span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="co"># Ordenar la lista utilizando el algoritmo de Ordenación por Distribución</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>sorted_numbers <span class="op">=</span> distribution_sort(numbers)</span>
+<span id="cb11-23"><a href="#cb11-23"></a></span>
+<span id="cb11-24"><a href="#cb11-24"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb11-25"><a href="#cb11-25"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb11-26"><a href="#cb11-26"></a><span class="bu">print</span>(sorted_numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>distribution_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Encontramos el valor mínimo y máximo en el arreglo utilizando <code>min(arr)</code> y <code>max(arr)</code>, respectivamente, y los almacenamos en las variables <code>min_val</code> y <code>max_val</code>.</p></li>
+<li><p>Calculamos el rango de valores sumando 1 al resultado de la diferencia entre <code>max_val</code> y <code>min_val</code>, y lo almacenamos en la variable <code>range_val</code>.</p></li>
+<li><p>Creamos un arreglo de conteo <code>count</code> de tamaño <code>range_val</code>, inicializado con ceros.</p></li>
+<li><p>Utilizamos un bucle <code>for</code> para iterar sobre los elementos del arreglo <code>arr</code> y contamos la frecuencia de cada elemento en el arreglo <code>count</code>, ajustando el índice utilizando <code>num - min_val</code>.</p></li>
+<li><p>Creamos una lista vacía <code>output</code>.</p></li>
+<li><p>Utilizamos otro bucle <code>for</code> para iterar sobre los índices en el rango <code>range_val</code>.</p></li>
+<li><p>Extendemos la lista <code>output</code> con elementos repetidos <code>i + min_val</code> según la frecuencia almacenada en <code>count[i]</code>.</p></li>
+<li><p>Retornamos la lista <code>output</code>, que contiene los elementos ordenados.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>distribution_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Ordenación por Distribución.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(sorted_numbers)</code>.</p></li>
+</ol>
+</section>
+<section id="ordenación-por-radix" class="slide level2">
+<h2><strong>Ordenación por Radix</strong></h2>
+<p>Ejemplo de ejercicio: Implementaremos el algoritmo de Ordenación por Radix en Python. La Ordenación por Radix es un algoritmo de ordenación que utiliza la representación en base de los elementos para realizar comparaciones y distribuirlos en diferentes baldes o cubetas. Se realiza una serie de pasadas basadas en la cantidad de dígitos del número más grande.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> counting_sort(arr, exp):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    output <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    count <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb12-7"><a href="#cb12-7"></a>        index <span class="op">=</span> arr[i] <span class="op">//</span> exp</span>
+<span id="cb12-8"><a href="#cb12-8"></a>        count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
+<span id="cb12-11"><a href="#cb12-11"></a>        count[i] <span class="op">+=</span> count[i <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb12-12"><a href="#cb12-12"></a></span>
+<span id="cb12-13"><a href="#cb12-13"></a>    i <span class="op">=</span> n <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a>    <span class="cf">while</span> i <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
+<span id="cb12-15"><a href="#cb12-15"></a>        index <span class="op">=</span> arr[i] <span class="op">//</span> exp</span>
+<span id="cb12-16"><a href="#cb12-16"></a>        output[count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> arr[i]</span>
+<span id="cb12-17"><a href="#cb12-17"></a>        count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb12-18"><a href="#cb12-18"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb12-19"><a href="#cb12-19"></a></span>
+<span id="cb12-20"><a href="#cb12-20"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb12-21"><a href="#cb12-21"></a>        arr[i] <span class="op">=</span> output[i]</span>
+<span id="cb12-22"><a href="#cb12-22"></a></span>
+<span id="cb12-23"><a href="#cb12-23"></a></span>
+<span id="cb12-24"><a href="#cb12-24"></a><span class="kw">def</span> radix_sort(arr):</span>
+<span id="cb12-25"><a href="#cb12-25"></a>    max_num <span class="op">=</span> <span class="bu">max</span>(arr)</span>
+<span id="cb12-26"><a href="#cb12-26"></a>    exp <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-27"><a href="#cb12-27"></a></span>
+<span id="cb12-28"><a href="#cb12-28"></a>    <span class="cf">while</span> max_num <span class="op">//</span> exp <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb12-29"><a href="#cb12-29"></a>        counting_sort(arr, exp)</span>
+<span id="cb12-30"><a href="#cb12-30"></a>        exp <span class="op">*=</span> <span class="dv">10</span></span>
+<span id="cb12-31"><a href="#cb12-31"></a></span>
+<span id="cb12-32"><a href="#cb12-32"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb12-33"><a href="#cb12-33"></a>array <span class="op">=</span> [<span class="dv">170</span>, <span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">802</span>, <span class="dv">24</span>, <span class="dv">2</span>, <span class="dv">66</span>]</span>
+<span id="cb12-34"><a href="#cb12-34"></a>radix_sort(array)</span>
+<span id="cb12-35"><a href="#cb12-35"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb12-36"><a href="#cb12-36"></a><span class="bu">print</span>(array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>counting_sort</code> que toma un arreglo y un exponente <code>exp</code> como parámetros. Esta función implementa el algoritmo de ordenación por conteo para un dígito específico del número.</p></li>
+<li><p>Creamos un arreglo de salida <code>output</code> con el mismo tamaño que el arreglo de entrada <code>arr</code> y un arreglo de conteo <code>count</code> de tamaño 10, inicializado con ceros.</p></li>
+<li><p>Utilizamos un bucle <code>for</code> para iterar sobre el arreglo <code>arr</code> y contar la frecuencia de cada dígito en el arreglo <code>count</code>.</p></li>
+<li><p>Utilizamos otro bucle <code>for</code> para calcular las posiciones finales de cada dígito en el arreglo de salida <code>output</code> utilizando el arreglo <code>count</code>.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> para distribuir los elementos en el arreglo de salida <code>output</code> de acuerdo a las posiciones calculadas y actualizamos el arreglo <code>count</code>.</p></li>
+<li><p>Finalmente, copiamos los elementos del arreglo de salida <code>output</code> al arreglo de entrada <code>arr</code>.</p></li>
+<li><p>Creamos una función llamada <code>radix_sort</code> que toma un arreglo como parámetro. Esta función implementa el algoritmo de Ordenación por Radix, que hemos explicado en el ejemplo anterior.</p></li>
+<li><p>Encontramos el número máximo en el arreglo <code>arr</code> utilizando <code>max(arr)</code> y lo almacenamos en la variable <code>max_num</code>.</p></li>
+<li><p>Inicializamos el exponente <code>exp</code> como 1.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> que se ejecuta mientras <code>max_num // exp</code> sea mayor que 0.</p></li>
+<li><p>En cada iteración del bucle <code>while</code>, llamamos a la función <code>counting_sort</code> pasando el arreglo <code>arr</code> y el exponente <code>exp</code> para ordenar los elementos según el dígito correspondiente.</p></li>
+<li><p>Multiplicamos el exponente <code>exp</code> por 10 en cada iteración para mover al siguiente dígito.</p></li>
+<li><p>Después de salir del bucle <code>while</code>, el arreglo estará ordenado y podemos imprimirlo en la consola.</p></li>
+</ol>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo de Ordenación por Radix en Python utilizando una función llamada <code>radix_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Ordenación por Radix.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> counting_sort(arr, exp):</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    output <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    count <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb13-7"><a href="#cb13-7"></a>        index <span class="op">=</span> arr[i] <span class="op">//</span> exp</span>
+<span id="cb13-8"><a href="#cb13-8"></a>        count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a></span>
+<span id="cb13-10"><a href="#cb13-10"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
+<span id="cb13-11"><a href="#cb13-11"></a>        count[i] <span class="op">+=</span> count[i <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb13-12"><a href="#cb13-12"></a></span>
+<span id="cb13-13"><a href="#cb13-13"></a>    i <span class="op">=</span> n <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>    <span class="cf">while</span> i <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
+<span id="cb13-15"><a href="#cb13-15"></a>        index <span class="op">=</span> arr[i] <span class="op">//</span> exp</span>
+<span id="cb13-16"><a href="#cb13-16"></a>        output[count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> arr[i]</span>
+<span id="cb13-17"><a href="#cb13-17"></a>        count[index <span class="op">%</span> <span class="dv">10</span>] <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb13-18"><a href="#cb13-18"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb13-19"><a href="#cb13-19"></a></span>
+<span id="cb13-20"><a href="#cb13-20"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb13-21"><a href="#cb13-21"></a>        arr[i] <span class="op">=</span> output[i]</span>
+<span id="cb13-22"><a href="#cb13-22"></a></span>
+<span id="cb13-23"><a href="#cb13-23"></a></span>
+<span id="cb13-24"><a href="#cb13-24"></a><span class="kw">def</span> radix_sort(arr):</span>
+<span id="cb13-25"><a href="#cb13-25"></a>    max_num <span class="op">=</span> <span class="bu">max</span>(arr)</span>
+<span id="cb13-26"><a href="#cb13-26"></a>    exp <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-27"><a href="#cb13-27"></a></span>
+<span id="cb13-28"><a href="#cb13-28"></a>    <span class="cf">while</span> max_num <span class="op">//</span> exp <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb13-29"><a href="#cb13-29"></a>        counting_sort(arr, exp)</span>
+<span id="cb13-30"><a href="#cb13-30"></a>        exp <span class="op">*=</span> <span class="dv">10</span></span>
+<span id="cb13-31"><a href="#cb13-31"></a></span>
+<span id="cb13-32"><a href="#cb13-32"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb13-33"><a href="#cb13-33"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb13-34"><a href="#cb13-34"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb13-35"><a href="#cb13-35"></a></span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="co"># Ordenar la lista utilizando el algoritmo de Ordenación por Radix</span></span>
+<span id="cb13-37"><a href="#cb13-37"></a>radix_sort(numbers)</span>
+<span id="cb13-38"><a href="#cb13-38"></a></span>
+<span id="cb13-39"><a href="#cb13-39"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb13-40"><a href="#cb13-40"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb13-41"><a href="#cb13-41"></a><span class="bu">print</span>(numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>counting_sort</code> que toma un arreglo y un exponente <code>exp</code> como parámetros. Esta función implementa el algoritmo de ordenación por conteo para un dígito específico del número. Esta función es similar a la explicada en el ejemplo anterior.</p></li>
+<li><p>Creamos una función llamada <code>radix_sort</code> que toma un arreglo como parámetro. Esta función implementa el algoritmo de Ordenación por Radix, que hemos explicado en el ejemplo anterior.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>radix_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Ordenación por Radix.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(numbers)</code>.</p></li>
+</ol>
+</section></section>
+<section>
+<section id="algoritmos-de-ordenación-externa." class="title-slide slide level1 center">
+<h1>Algoritmos de Ordenación Externa.</h1>
+
+</section>
+<section id="mezcla-directa" class="slide level2">
+<h2><strong>Mezcla Directa</strong></h2>
+<p><strong>Ejemplo de ejercicio:</strong> Implementaremos el algoritmo de Mezcla Directa en Python. La Mezcla Directa es un algoritmo de ordenación externa que divide el archivo original en subarchivos más pequeños, los ordena y luego los combina para obtener el archivo ordenado final.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> merge_sort(arr):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(arr) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        mid <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>        left_half <span class="op">=</span> arr[:mid]</span>
+<span id="cb14-5"><a href="#cb14-5"></a>        right_half <span class="op">=</span> arr[mid:]</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a>        merge_sort(left_half)</span>
+<span id="cb14-8"><a href="#cb14-8"></a>        merge_sort(right_half)</span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a>        i <span class="op">=</span> j <span class="op">=</span> k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(left_half) <span class="kw">and</span> j <span class="op">&lt;</span> <span class="bu">len</span>(right_half):</span>
+<span id="cb14-13"><a href="#cb14-13"></a>            <span class="cf">if</span> left_half[i] <span class="op">&lt;</span> right_half[j]:</span>
+<span id="cb14-14"><a href="#cb14-14"></a>                arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb14-15"><a href="#cb14-15"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-16"><a href="#cb14-16"></a>            <span class="cf">else</span>:</span>
+<span id="cb14-17"><a href="#cb14-17"></a>                arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb14-18"><a href="#cb14-18"></a>                j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-19"><a href="#cb14-19"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-20"><a href="#cb14-20"></a></span>
+<span id="cb14-21"><a href="#cb14-21"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(left_half):</span>
+<span id="cb14-22"><a href="#cb14-22"></a>            arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb14-23"><a href="#cb14-23"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-24"><a href="#cb14-24"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-25"><a href="#cb14-25"></a></span>
+<span id="cb14-26"><a href="#cb14-26"></a>        <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(right_half):</span>
+<span id="cb14-27"><a href="#cb14-27"></a>            arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb14-28"><a href="#cb14-28"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-29"><a href="#cb14-29"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb14-30"><a href="#cb14-30"></a></span>
+<span id="cb14-31"><a href="#cb14-31"></a></span>
+<span id="cb14-32"><a href="#cb14-32"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb14-33"><a href="#cb14-33"></a>array <span class="op">=</span> [<span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>]</span>
+<span id="cb14-34"><a href="#cb14-34"></a>merge_sort(array)</span>
+<span id="cb14-35"><a href="#cb14-35"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb14-36"><a href="#cb14-36"></a><span class="bu">print</span>(array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>merge_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Verificamos si la longitud del arreglo es mayor que 1. Si es así, dividimos el arreglo en mitades llamadas <code>left_half</code> y <code>right_half</code>.</p></li>
+<li><p>Llamamos recursivamente a la función <code>merge_sort</code> para ordenar cada mitad del arreglo.</p></li>
+<li><p>Inicializamos tres variables <code>i</code>, <code>j</code> y <code>k</code> como índices para las sublistas <code>left_half</code>, <code>right_half</code> y el arreglo original <code>arr</code>, respectivamente.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> para comparar y fusionar los elementos de <code>left_half</code> y <code>right_half</code> en el arreglo <code>arr</code>. Comparamos los elementos correspondientes en ambas sublistas y colocamos el menor en el arreglo <code>arr</code>. Luego, incrementamos los índices correspondientes y el índice <code>k</code> del arreglo final.</p></li>
+<li><p>Si hay elementos restantes en <code>left_half</code> o <code>right_half</code> después de que se haya completado la fusión, los colocamos en el arreglo <code>arr</code>.</p></li>
+<li><p>Una vez que se completa el proceso de mezcla, el arreglo <code>arr</code> estará ordenado.</p></li>
+</ol>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo de Mezcla Directa en Python utilizando una función llamada <code>merge_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Mezcla Directa.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> merge_sort(arr):</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(arr) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb15-3"><a href="#cb15-3"></a>        mid <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>        left_half <span class="op">=</span> arr[:mid]</span>
+<span id="cb15-5"><a href="#cb15-5"></a>        right_half <span class="op">=</span> arr[mid:]</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a>        merge_sort(left_half)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>        merge_sort(right_half)</span>
+<span id="cb15-9"><a href="#cb15-9"></a></span>
+<span id="cb15-10"><a href="#cb15-10"></a>        i <span class="op">=</span> j <span class="op">=</span> k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a></span>
+<span id="cb15-12"><a href="#cb15-12"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(left_half) <span class="kw">and</span> j <span class="op">&lt;</span> <span class="bu">len</span>(right_half):</span>
+<span id="cb15-13"><a href="#cb15-13"></a>            <span class="cf">if</span> left_half[i] <span class="op">&lt;</span> right_half[j]:</span>
+<span id="cb15-14"><a href="#cb15-14"></a>                arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb15-15"><a href="#cb15-15"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a>            <span class="cf">else</span>:</span>
+<span id="cb15-17"><a href="#cb15-17"></a>                arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb15-18"><a href="#cb15-18"></a>                j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-19"><a href="#cb15-19"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a></span>
+<span id="cb15-21"><a href="#cb15-21"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(left_half):</span>
+<span id="cb15-22"><a href="#cb15-22"></a>            arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb15-23"><a href="#cb15-23"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-25"><a href="#cb15-25"></a></span>
+<span id="cb15-26"><a href="#cb15-26"></a>        <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(right_half):</span>
+<span id="cb15-27"><a href="#cb15-27"></a>            arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb15-28"><a href="#cb15-28"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-29"><a href="#cb15-29"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-30"><a href="#cb15-30"></a></span>
+<span id="cb15-31"><a href="#cb15-31"></a></span>
+<span id="cb15-32"><a href="#cb15-32"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb15-33"><a href="#cb15-33"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb15-34"><a href="#cb15-34"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb15-35"><a href="#cb15-35"></a></span>
+<span id="cb15-36"><a href="#cb15-36"></a><span class="co"># Ordenar la lista utilizando el algoritmo de Mezcla Directa</span></span>
+<span id="cb15-37"><a href="#cb15-37"></a>merge_sort(numbers)</span>
+<span id="cb15-38"><a href="#cb15-38"></a></span>
+<span id="cb15-39"><a href="#cb15-39"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb15-40"><a href="#cb15-40"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb15-41"><a href="#cb15-41"></a><span class="bu">print</span>(numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>merge_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Verificamos si la longitud del arreglo es mayor que 1. Si es así, dividimos el arreglo en mitades llamadas <code>left_half</code> y <code>right_half</code>.</p></li>
+<li><p>Llamamos recursivamente a la función <code>merge_sort</code> para ordenar cada mitad del arreglo.</p></li>
+<li><p>Inicializamos tres variables <code>i</code>, <code>j</code> y <code>k</code> como índices para las sublistas <code>left_half</code>, <code>right_half</code> y el arreglo original <code>arr</code>, respectivamente.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> para comparar y fusionar los elementos de <code>left_half</code> y <code>right_half</code> en el arreglo <code>arr</code>. Comparamos los elementos correspondientes en ambas sublistas y colocamos el menor en el arreglo <code>arr</code>. Luego, incrementamos los índices correspondientes y el índice <code>k</code> del arreglo final.</p></li>
+<li><p>Si hay elementos restantes en <code>left_half</code> o <code>right_half</code> después de que se haya completado la fusión, los colocamos en el arreglo <code>arr</code>.</p></li>
+<li><p>Una vez que se completa el proceso de mezcla, el arreglo <code>arr</code> estará ordenado.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>merge_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Mezcla Directa.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(numbers)</code>.</p></li>
+</ol>
+</section>
+<section id="mezcla-natural" class="slide level2">
+<h2><strong>Mezcla Natural</strong></h2>
+<p>Ejemplo de ejercicio: Implementaremos el algoritmo de Mezcla Natural en Python. La Mezcla Natural es un algoritmo de ordenación externa que combina la funcionalidad de la Mezcla Directa y la Mezcla Equilibrada para ordenar un archivo.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> merge(arr, left, mid, right):</span>
+<span id="cb16-2"><a href="#cb16-2"></a>    n1 <span class="op">=</span> mid <span class="op">-</span> left <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>    n2 <span class="op">=</span> right <span class="op">-</span> mid</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>    left_half <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n1</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    right_half <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n2</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n1):</span>
+<span id="cb16-9"><a href="#cb16-9"></a>        left_half[i] <span class="op">=</span> arr[left <span class="op">+</span> i]</span>
+<span id="cb16-10"><a href="#cb16-10"></a></span>
+<span id="cb16-11"><a href="#cb16-11"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n2):</span>
+<span id="cb16-12"><a href="#cb16-12"></a>        right_half[j] <span class="op">=</span> arr[mid <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> j]</span>
+<span id="cb16-13"><a href="#cb16-13"></a></span>
+<span id="cb16-14"><a href="#cb16-14"></a>    i <span class="op">=</span> j <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a>    k <span class="op">=</span> left</span>
+<span id="cb16-16"><a href="#cb16-16"></a></span>
+<span id="cb16-17"><a href="#cb16-17"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n1 <span class="kw">and</span> j <span class="op">&lt;</span> n2:</span>
+<span id="cb16-18"><a href="#cb16-18"></a>        <span class="cf">if</span> left_half[i] <span class="op">&lt;=</span> right_half[j]:</span>
+<span id="cb16-19"><a href="#cb16-19"></a>            arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb16-20"><a href="#cb16-20"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-21"><a href="#cb16-21"></a>        <span class="cf">else</span>:</span>
+<span id="cb16-22"><a href="#cb16-22"></a>            arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb16-23"><a href="#cb16-23"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a></span>
+<span id="cb16-26"><a href="#cb16-26"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n1:</span>
+<span id="cb16-27"><a href="#cb16-27"></a>        arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb16-28"><a href="#cb16-28"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-29"><a href="#cb16-29"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-30"><a href="#cb16-30"></a></span>
+<span id="cb16-31"><a href="#cb16-31"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> n2:</span>
+<span id="cb16-32"><a href="#cb16-32"></a>        arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb16-33"><a href="#cb16-33"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-34"><a href="#cb16-34"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-35"><a href="#cb16-35"></a></span>
+<span id="cb16-36"><a href="#cb16-36"></a></span>
+<span id="cb16-37"><a href="#cb16-37"></a><span class="kw">def</span> natural_merge_sort(arr):</span>
+<span id="cb16-38"><a href="#cb16-38"></a>    size <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb16-39"><a href="#cb16-39"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-40"><a href="#cb16-40"></a>    right <span class="op">=</span> size <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb16-41"><a href="#cb16-41"></a>    temp_arr <span class="op">=</span> arr.copy()</span>
+<span id="cb16-42"><a href="#cb16-42"></a></span>
+<span id="cb16-43"><a href="#cb16-43"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb16-44"><a href="#cb16-44"></a>        mid <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb16-45"><a href="#cb16-45"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(left, right):</span>
+<span id="cb16-46"><a href="#cb16-46"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[i <span class="op">+</span> <span class="dv">1</span>]:</span>
+<span id="cb16-47"><a href="#cb16-47"></a>                mid <span class="op">=</span> i</span>
+<span id="cb16-48"><a href="#cb16-48"></a>                <span class="cf">break</span></span>
+<span id="cb16-49"><a href="#cb16-49"></a></span>
+<span id="cb16-50"><a href="#cb16-50"></a>        <span class="cf">if</span> mid <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb16-51"><a href="#cb16-51"></a>            <span class="cf">break</span></span>
+<span id="cb16-52"><a href="#cb16-52"></a></span>
+<span id="cb16-53"><a href="#cb16-53"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(mid <span class="op">+</span> <span class="dv">1</span>, right):</span>
+<span id="cb16-54"><a href="#cb16-54"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[i <span class="op">+</span> <span class="dv">1</span>]:</span>
+<span id="cb16-55"><a href="#cb16-55"></a>                right <span class="op">=</span> i</span>
+<span id="cb16-56"><a href="#cb16-56"></a></span>
+<span id="cb16-57"><a href="#cb16-57"></a>        merge(arr, left, mid, right)</span>
+<span id="cb16-58"><a href="#cb16-58"></a></span>
+<span id="cb16-59"><a href="#cb16-59"></a>        <span class="cf">if</span> temp_arr <span class="op">==</span> arr:</span>
+<span id="cb16-60"><a href="#cb16-60"></a>            <span class="cf">break</span></span>
+<span id="cb16-61"><a href="#cb16-61"></a></span>
+<span id="cb16-62"><a href="#cb16-62"></a>    <span class="cf">return</span> arr</span>
+<span id="cb16-63"><a href="#cb16-63"></a></span>
+<span id="cb16-64"><a href="#cb16-64"></a></span>
+<span id="cb16-65"><a href="#cb16-65"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb16-66"><a href="#cb16-66"></a>array <span class="op">=</span> [<span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>]</span>
+<span id="cb16-67"><a href="#cb16-67"></a>sorted_array <span class="op">=</span> natural_merge_sort(array)</span>
+<span id="cb16-68"><a href="#cb16-68"></a><span class="bu">print</span>(<span class="st">"Array ordenado:"</span>)</span>
+<span id="cb16-69"><a href="#cb16-69"></a><span class="bu">print</span>(sorted_array)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>merge</code> que toma un arreglo, los índices de las subarreglos izquierdo (<code>left</code>), medio (<code>mid</code>) y derecho (<code>right</code>).</p></li>
+<li><p>Calculamos el tamaño de los subarreglos izquierdo y derecho utilizando las variables <code>n1</code> y <code>n2</code>, respectivamente.</p></li>
+<li><p>Creamos los subarreglos <code>left_half</code> y <code>right_half</code> de tamaño <code>n1</code> y <code>n2</code> respectivamente, para almacenar temporalmente los elementos correspondientes.</p></li>
+<li><p>Copiamos los elementos del arreglo original <code>arr</code> a los subarreglos <code>left_half</code> y <code>right_half</code>.</p></li>
+<li><p>Utilizamos índices (<code>i</code>, <code>j</code>) y un índice general (<code>k</code>) para realizar la mezcla de los subarreglos <code>left_half</code> y <code>right_half</code> en el arreglo original <code>arr</code>. Comparamos los elementos correspondientes de los subarreglos y colocamos el menor en el arreglo original.</p></li>
+<li><p>Si hay elementos restantes en <code>left_half</code> o <code>right_half</code> después de que se haya completado la fusión, los colocamos en el arreglo original <code>arr</code>.</p></li>
+<li><p>Creamos una función llamada <code>natural_merge_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Inicializamos las variables <code>size</code>, <code>left</code> y <code>right</code> con el tamaño del arreglo, y creamos una copia temporal del arreglo original llamada <code>temp_arr</code>.</p></li>
+<li><p>Iteramos hasta que no haya inversiones en el arreglo.</p></li>
+<li><p>Encontramos el índice medio (<code>mid</code>) donde se produce la primera inversión en el arreglo y actualizamos el valor de <code>right</code> al índice donde termina la segunda secuencia ordenada.</p></li>
+<li><p>Llamamos a la función <code>merge</code> para fusionar las dos secuencias ordenadas en el arreglo original.</p></li>
+<li><p>Comprobamos si el arreglo original <code>arr</code> es igual a la copia temporal <code>temp_arr</code>. Si son iguales, significa que el arreglo está completamente ordenado y podemos salir del bucle.</p></li>
+<li><p>Retornamos el arreglo ordenado <code>arr</code>.</p></li>
+</ol>
+<p><strong>Ejercicio de práctica:</strong></p>
+<p>Implementaremos el algoritmo de Mezcla Natural en Python utilizando una función llamada <code>natural_merge_sort</code>. Además, solicitaremos al usuario que ingrese una lista de números y ordenaremos esa lista utilizando el algoritmo de Mezcla Natural.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">def</span> merge(arr, left, mid, right):</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    n1 <span class="op">=</span> mid <span class="op">-</span> left <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>    n2 <span class="op">=</span> right <span class="op">-</span> mid</span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a>    left_half <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n1</span>
+<span id="cb17-6"><a href="#cb17-6"></a>    right_half <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n2</span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n1):</span>
+<span id="cb17-9"><a href="#cb17-9"></a>        left_half[i] <span class="op">=</span> arr[left <span class="op">+</span> i]</span>
+<span id="cb17-10"><a href="#cb17-10"></a></span>
+<span id="cb17-11"><a href="#cb17-11"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n2):</span>
+<span id="cb17-12"><a href="#cb17-12"></a>        right_half[j] <span class="op">=</span> arr[mid <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> j]</span>
+<span id="cb17-13"><a href="#cb17-13"></a></span>
+<span id="cb17-14"><a href="#cb17-14"></a>    i <span class="op">=</span> j <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-15"><a href="#cb17-15"></a>    k <span class="op">=</span> left</span>
+<span id="cb17-16"><a href="#cb17-16"></a></span>
+<span id="cb17-17"><a href="#cb17-17"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n1 <span class="kw">and</span> j <span class="op">&lt;</span> n2:</span>
+<span id="cb17-18"><a href="#cb17-18"></a>        <span class="cf">if</span> left_half[i] <span class="op">&lt;=</span> right_half[j]:</span>
+<span id="cb17-19"><a href="#cb17-19"></a>            arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb17-20"><a href="#cb17-20"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a>        <span class="cf">else</span>:</span>
+<span id="cb17-22"><a href="#cb17-22"></a>            arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb17-23"><a href="#cb17-23"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-24"><a href="#cb17-24"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-25"><a href="#cb17-25"></a></span>
+<span id="cb17-26"><a href="#cb17-26"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n1:</span>
+<span id="cb17-27"><a href="#cb17-27"></a>        arr[k] <span class="op">=</span> left_half[i]</span>
+<span id="cb17-28"><a href="#cb17-28"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-29"><a href="#cb17-29"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-30"><a href="#cb17-30"></a></span>
+<span id="cb17-31"><a href="#cb17-31"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> n2:</span>
+<span id="cb17-32"><a href="#cb17-32"></a>        arr[k] <span class="op">=</span> right_half[j]</span>
+<span id="cb17-33"><a href="#cb17-33"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-34"><a href="#cb17-34"></a>        k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-35"><a href="#cb17-35"></a></span>
+<span id="cb17-36"><a href="#cb17-36"></a></span>
+<span id="cb17-37"><a href="#cb17-37"></a><span class="kw">def</span> natural_merge_sort(arr):</span>
+<span id="cb17-38"><a href="#cb17-38"></a>    size <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb17-39"><a href="#cb17-39"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-40"><a href="#cb17-40"></a>    right <span class="op">=</span> size <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb17-41"><a href="#cb17-41"></a>    temp_arr <span class="op">=</span> arr.copy()</span>
+<span id="cb17-42"><a href="#cb17-42"></a></span>
+<span id="cb17-43"><a href="#cb17-43"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb17-44"><a href="#cb17-44"></a>        mid <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb17-45"><a href="#cb17-45"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(left, right):</span>
+<span id="cb17-46"><a href="#cb17-46"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[i <span class="op">+</span> <span class="dv">1</span>]:</span>
+<span id="cb17-47"><a href="#cb17-47"></a>                mid <span class="op">=</span> i</span>
+<span id="cb17-48"><a href="#cb17-48"></a>                <span class="cf">break</span></span>
+<span id="cb17-49"><a href="#cb17-49"></a></span>
+<span id="cb17-50"><a href="#cb17-50"></a>        <span class="cf">if</span> mid <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb17-51"><a href="#cb17-51"></a>            <span class="cf">break</span></span>
+<span id="cb17-52"><a href="#cb17-52"></a></span>
+<span id="cb17-53"><a href="#cb17-53"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(mid <span class="op">+</span> <span class="dv">1</span>, right):</span>
+<span id="cb17-54"><a href="#cb17-54"></a>            <span class="cf">if</span> arr[i] <span class="op">&gt;</span> arr[i <span class="op">+</span> <span class="dv">1</span>]:</span>
+<span id="cb17-55"><a href="#cb17-55"></a>                right <span class="op">=</span> i</span>
+<span id="cb17-56"><a href="#cb17-56"></a></span>
+<span id="cb17-57"><a href="#cb17-57"></a>        merge(arr, left, mid, right)</span>
+<span id="cb17-58"><a href="#cb17-58"></a></span>
+<span id="cb17-59"><a href="#cb17-59"></a>        <span class="cf">if</span> temp_arr <span class="op">==</span> arr:</span>
+<span id="cb17-60"><a href="#cb17-60"></a>            <span class="cf">break</span></span>
+<span id="cb17-61"><a href="#cb17-61"></a></span>
+<span id="cb17-62"><a href="#cb17-62"></a>    <span class="cf">return</span> arr</span>
+<span id="cb17-63"><a href="#cb17-63"></a></span>
+<span id="cb17-64"><a href="#cb17-64"></a></span>
+<span id="cb17-65"><a href="#cb17-65"></a><span class="co"># Solicitar al usuario una lista de números</span></span>
+<span id="cb17-66"><a href="#cb17-66"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números separados por espacios: "</span>).split()</span>
+<span id="cb17-67"><a href="#cb17-67"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb17-68"><a href="#cb17-68"></a></span>
+<span id="cb17-69"><a href="#cb17-69"></a><span class="co"># Ordenar la lista utilizando el algoritmo de Mezcla Natural</span></span>
+<span id="cb17-70"><a href="#cb17-70"></a>sorted_numbers <span class="op">=</span> natural_merge_sort(numbers)</span>
+<span id="cb17-71"><a href="#cb17-71"></a></span>
+<span id="cb17-72"><a href="#cb17-72"></a><span class="co"># Imprimir la lista ordenada</span></span>
+<span id="cb17-73"><a href="#cb17-73"></a><span class="bu">print</span>(<span class="st">"Lista ordenada:"</span>)</span>
+<span id="cb17-74"><a href="#cb17-74"></a><span class="bu">print</span>(sorted_numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>merge</code> que toma un arreglo, los índices de las subarreglos izquierdo (<code>left</code>), medio (<code>mid</code>) y derecho (<code>right</code>), y realiza la mezcla de los subarreglos.</p></li>
+<li><p>Creamos los subarreglos <code>left_half</code> y <code>right_half</code> para almacenar temporalmente los elementos correspondientes de los subarreglos izquierdo y derecho.</p></li>
+<li><p>Copiamos los elementos del arreglo original <code>arr</code> a los subarreglos <code>left_half</code> y <code>right_half</code>.</p></li>
+<li><p>Utilizamos índices (<code>i</code>, <code>j</code>) y un índice general (<code>k</code>) para realizar la mezcla de los subarreglos <code>left_half</code> y <code>right_half</code> en el arreglo original <code>arr</code>. Comparamos los elementos correspondientes de los subarreglos y colocamos el menor en el arreglo original.</p></li>
+<li><p>Si hay elementos restantes en <code>left_half</code> o <code>right_half</code> después de que se haya completado la fusión, los colocamos en el arreglo original <code>arr</code>.</p></li>
+<li><p>Creamos una función llamada <code>natural_merge_sort</code> que toma un arreglo como parámetro.</p></li>
+<li><p>Inicializamos las variables <code>size</code>, <code>left</code> y <code>right</code> con el tamaño del arreglo, y creamos una copia temporal del arreglo original llamada <code>temp_arr</code>.</p></li>
+<li><p>Iteramos hasta que no haya inversiones en el arreglo.</p></li>
+<li><p>Encontramos el índice medio (<code>mid</code>) donde se produce la primera inversión en el arreglo y actualizamos el valor de <code>right</code> al índice donde termina la segunda secuencia ordenada.</p></li>
+<li><p>Llamamos a la función <code>merge</code> para fusionar las dos secuencias ordenadas en el arreglo original.</p></li>
+<li><p>Comprobamos si el arreglo original <code>arr</code> es igual a la copia temporal <code>temp_arr</code>. Si son iguales, significa que el arreglo está completamente ordenado y podemos salir del bucle.</p></li>
+<li><p>Retornamos el arreglo ordenado <code>arr</code>.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números separados por espacios utilizando <code>input("Ingresa una lista de números separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Llamamos a la función <code>natural_merge_sort</code> pasando la lista de números como argumento para ordenarla utilizando el algoritmo de Mezcla Natural.</p></li>
+<li><p>Imprimimos la lista ordenada utilizando <code>print("Lista ordenada:")</code> seguido de <code>print(sorted_numbers)</code>.</p></li>
+</ol>
+</section></section>
+<section>
+<section id="algoritmos-de-búsqueda." class="title-slide slide level1 center">
+<h1>Algoritmos de Búsqueda.</h1>
+
+</section>
+<section id="búsqueda-binaria." class="slide level2">
+<h2><strong>Búsqueda Binaria.</strong></h2>
+<p>Ejemplo de ejercicio: Implementaremos el algoritmo de Búsqueda Binaria en Python. La Búsqueda Binaria es un algoritmo de búsqueda eficiente que encuentra la posición de un elemento en una lista ordenada dividiendo repetidamente a la mitad la porción de la lista donde podría encontrarse el elemento.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> binary_search(arr, target):</span>
+<span id="cb18-2"><a href="#cb18-2"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>    right <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="cf">while</span> left <span class="op">&lt;=</span> right:</span>
+<span id="cb18-6"><a href="#cb18-6"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a>        <span class="cf">if</span> arr[mid] <span class="op">==</span> target:</span>
+<span id="cb18-9"><a href="#cb18-9"></a>            <span class="cf">return</span> mid</span>
+<span id="cb18-10"><a href="#cb18-10"></a>        <span class="cf">elif</span> arr[mid] <span class="op">&lt;</span> target:</span>
+<span id="cb18-11"><a href="#cb18-11"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a>        <span class="cf">else</span>:</span>
+<span id="cb18-13"><a href="#cb18-13"></a>            right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a></span>
+<span id="cb18-15"><a href="#cb18-15"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a></span>
+<span id="cb18-17"><a href="#cb18-17"></a></span>
+<span id="cb18-18"><a href="#cb18-18"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb18-19"><a href="#cb18-19"></a>array <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>]</span>
+<span id="cb18-20"><a href="#cb18-20"></a>target <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb18-21"><a href="#cb18-21"></a></span>
+<span id="cb18-22"><a href="#cb18-22"></a>result <span class="op">=</span> binary_search(array, target)</span>
+<span id="cb18-23"><a href="#cb18-23"></a></span>
+<span id="cb18-24"><a href="#cb18-24"></a><span class="cf">if</span> result <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb18-25"><a href="#cb18-25"></a>    <span class="bu">print</span>(<span class="st">"El elemento"</span>, target, <span class="st">"se encuentra en la posición"</span>, result)</span>
+<span id="cb18-26"><a href="#cb18-26"></a><span class="cf">else</span>:</span>
+<span id="cb18-27"><a href="#cb18-27"></a>    <span class="bu">print</span>(<span class="st">"El elemento"</span>, target, <span class="st">"no se encuentra en la lista."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una función llamada <code>binary_search</code> que toma una lista ordenada <code>arr</code> y un objetivo <code>target</code> como parámetros.</p></li>
+<li><p>Inicializamos los índices <code>left</code> y <code>right</code> para representar el rango de búsqueda en la lista. <code>left</code> se establece al principio de la lista (índice 0) y <code>right</code> se establece al final de la lista (índice <code>len(arr) - 1</code>).</p></li>
+<li><p>Utilizamos un bucle <code>while</code> que se ejecuta mientras <code>left</code> sea menor o igual a <code>right</code>, lo que significa que aún hay elementos en el rango de búsqueda.</p></li>
+<li><p>Calculamos el índice medio (<code>mid</code>) utilizando la fórmula <code>(left + right) // 2</code>.</p></li>
+<li><p>Comparamos el elemento en la posición <code>mid</code> de la lista con el objetivo <code>target</code>.</p></li>
+<li><p>Si son iguales, significa que hemos encontrado el elemento y retornamos el índice <code>mid</code>.</p></li>
+<li><p>Si el elemento en <code>arr[mid]</code> es menor que el objetivo <code>target</code>, actualizamos <code>left</code> a <code>mid + 1</code>, ya que el objetivo debe estar en la mitad derecha de la lista.</p></li>
+<li><p>Si el elemento en <code>arr[mid]</code> es mayor que el objetivo <code>target</code>, actualizamos <code>right</code> a <code>mid - 1</code>, ya que el objetivo debe estar en la mitad izquierda de la lista.</p></li>
+<li><p>Si el objetivo no se encuentra en la lista, es decir, el bucle <code>while</code> termina sin encontrar una coincidencia, retornamos <code>-1</code> para indicar que el elemento no se encontró.</p></li>
+<li><p>En el ejemplo de uso, creamos una lista ordenada <code>array</code> y establecemos un objetivo <code>target</code> como 7.</p></li>
+<li><p>Llamamos a la función <code>binary_search</code> pasando la lista y el objetivo como argumentos.</p></li>
+<li><p>Verificamos si el resultado no es <code>-1</code>, lo que significa que se encontró el elemento. En ese caso, imprimimos un mensaje indicando la posición en la que se encuentra el elemento.</p></li>
+<li><p>Si el resultado es <code>-1</code>, imprimimos un mensaje indicando que el elemento no se encuentra en la lista.</p></li>
+</ol>
+<p>Este fue un ejemplo de ejercicio que muestra cómo implementar y utilizar la Búsqueda Binaria en Python.</p>
+<p>Ahora, pasemos al ejercicio de práctica. Implementaremos un programa que solicite al usuario ingresar una lista de números ordenados y un número objetivo, y luego utilice la Búsqueda Binaria para determinar si el número objetivo se encuentra en la lista y en qué posición.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">def</span> binary_search(arr, target):</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>    right <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="cf">while</span> left <span class="op">&lt;=</span> right:</span>
+<span id="cb19-6"><a href="#cb19-6"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a>        <span class="cf">if</span> arr[mid] <span class="op">==</span> target:</span>
+<span id="cb19-9"><a href="#cb19-9"></a>            <span class="cf">return</span> mid</span>
+<span id="cb19-10"><a href="#cb19-10"></a>        <span class="cf">elif</span> arr[mid] <span class="op">&lt;</span> target:</span>
+<span id="cb19-11"><a href="#cb19-11"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>        <span class="cf">else</span>:</span>
+<span id="cb19-13"><a href="#cb19-13"></a>            right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a></span>
+<span id="cb19-15"><a href="#cb19-15"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a></span>
+<span id="cb19-17"><a href="#cb19-17"></a></span>
+<span id="cb19-18"><a href="#cb19-18"></a><span class="co"># Solicitar al usuario una lista de números ordenados</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a>numbers <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una lista de números ordenados separados por espacios: "</span>).split()</span>
+<span id="cb19-20"><a href="#cb19-20"></a>numbers <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb19-21"><a href="#cb19-21"></a></span>
+<span id="cb19-22"><a href="#cb19-22"></a><span class="co"># Solicitar al usuario un número objetivo</span></span>
+<span id="cb19-23"><a href="#cb19-23"></a>target <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Ingresa un número objetivo: "</span>))</span>
+<span id="cb19-24"><a href="#cb19-24"></a></span>
+<span id="cb19-25"><a href="#cb19-25"></a><span class="co"># Realizar la búsqueda binaria</span></span>
+<span id="cb19-26"><a href="#cb19-26"></a>result <span class="op">=</span> binary_search(numbers, target)</span>
+<span id="cb19-27"><a href="#cb19-27"></a></span>
+<span id="cb19-28"><a href="#cb19-28"></a><span class="cf">if</span> result <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb19-29"><a href="#cb19-29"></a>    <span class="bu">print</span>(<span class="st">"El número"</span>, target, <span class="st">"se encuentra en la posición"</span>, result)</span>
+<span id="cb19-30"><a href="#cb19-30"></a><span class="cf">else</span>:</span>
+<span id="cb19-31"><a href="#cb19-31"></a>    <span class="bu">print</span>(<span class="st">"El número"</span>, target, <span class="st">"no se encuentra en la lista."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Utilizamos la función <code>binary_search</code> que implementamos previamente para realizar la Búsqueda Binaria.</p></li>
+<li><p>Solicitamos al usuario que ingrese una lista de números ordenados separados por espacios utilizando <code>input("Ingresa una lista de números ordenados separados por espacios: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>split()</code> para dividir la cadena ingresada en una lista de cadenas.</p></li>
+<li><p>Utilizamos una comprensión de lista <code>[int(num) for num in numbers]</code> para convertir cada cadena de números en la lista en un entero.</p></li>
+<li><p>Solicitamos al usuario que ingrese un número objetivo utilizando <code>int(input("Ingresa un número objetivo: "))</code>.</p></li>
+<li><p>Llamamos a la función <code>binary_search</code> pasando la lista de números y el número objetivo como argumentos para realizar la búsqueda binaria.</p></li>
+<li><p>Verificamos si el resultado no es <code>-1</code>, lo que significa que se encontró el número objetivo. En ese caso, imprimimos un mensaje indicando la posición en la que se encuentra el número objetivo.</p></li>
+<li><p>Si el resultado es <code>-1</code>, imprimimos un mensaje indicando que el número objetivo no se encuentra en la lista.</p></li>
+</ol>
+</section>
+<section id="búsqueda-hash" class="slide level2">
+<h2><strong>Búsqueda Hash</strong></h2>
+<p><strong>Ejemplo de ejercicio:</strong> Implementaremos el algoritmo de búsqueda Hash en Python. La búsqueda Hash es un algoritmo eficiente que utiliza una función hash para mapear claves a índices de una tabla hash, lo que permite una búsqueda rápida de valores asociados a esas claves.</p>
+<p><strong>Código de ejemplo en Python:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> HashTable:</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, size):</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        <span class="va">self</span>.size <span class="op">=</span> size</span>
+<span id="cb20-4"><a href="#cb20-4"></a>        <span class="va">self</span>.table <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> size</span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a>    <span class="kw">def</span> hash_function(<span class="va">self</span>, key):</span>
+<span id="cb20-7"><a href="#cb20-7"></a>        <span class="cf">return</span> key <span class="op">%</span> <span class="va">self</span>.size</span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a>    <span class="kw">def</span> insert(<span class="va">self</span>, key, value):</span>
+<span id="cb20-10"><a href="#cb20-10"></a>        index <span class="op">=</span> <span class="va">self</span>.hash_function(key)</span>
+<span id="cb20-11"><a href="#cb20-11"></a>        <span class="va">self</span>.table[index] <span class="op">=</span> value</span>
+<span id="cb20-12"><a href="#cb20-12"></a></span>
+<span id="cb20-13"><a href="#cb20-13"></a>    <span class="kw">def</span> search(<span class="va">self</span>, key):</span>
+<span id="cb20-14"><a href="#cb20-14"></a>        index <span class="op">=</span> <span class="va">self</span>.hash_function(key)</span>
+<span id="cb20-15"><a href="#cb20-15"></a>        <span class="cf">if</span> <span class="va">self</span>.table[index] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb20-16"><a href="#cb20-16"></a>            <span class="cf">return</span> <span class="va">self</span>.table[index]</span>
+<span id="cb20-17"><a href="#cb20-17"></a>        <span class="cf">else</span>:</span>
+<span id="cb20-18"><a href="#cb20-18"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a></span>
+<span id="cb20-20"><a href="#cb20-20"></a></span>
+<span id="cb20-21"><a href="#cb20-21"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb20-22"><a href="#cb20-22"></a>hash_table <span class="op">=</span> HashTable(<span class="dv">10</span>)</span>
+<span id="cb20-23"><a href="#cb20-23"></a></span>
+<span id="cb20-24"><a href="#cb20-24"></a>hash_table.insert(<span class="dv">5</span>, <span class="st">"Manzana"</span>)</span>
+<span id="cb20-25"><a href="#cb20-25"></a>hash_table.insert(<span class="dv">10</span>, <span class="st">"Naranja"</span>)</span>
+<span id="cb20-26"><a href="#cb20-26"></a>hash_table.insert(<span class="dv">15</span>, <span class="st">"Plátano"</span>)</span>
+<span id="cb20-27"><a href="#cb20-27"></a></span>
+<span id="cb20-28"><a href="#cb20-28"></a><span class="bu">print</span>(hash_table.search(<span class="dv">10</span>))  <span class="co"># Imprime "Naranja"</span></span>
+<span id="cb20-29"><a href="#cb20-29"></a><span class="bu">print</span>(hash_table.search(<span class="dv">20</span>))  <span class="co"># Imprime None</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos una clase llamada <code>HashTable</code> que representa una tabla hash.</p></li>
+<li><p>En el método <code>__init__</code>, inicializamos la tabla con un tamaño específico y llenamos cada posición con <code>None</code>.</p></li>
+<li><p>Definimos una función de hash llamada <code>hash_function</code> que toma una clave como parámetro y devuelve el índice correspondiente en la tabla hash utilizando una función hash simple.</p></li>
+<li><p>En el método <code>insert</code>, calculamos el índice utilizando la función de hash y asignamos el valor asociado a la clave en esa posición de la tabla.</p></li>
+<li><p>En el método <code>search</code>, calculamos el índice utilizando la función de hash y verificamos si el valor en esa posición de la tabla no es <code>None</code>. Si es así, retornamos el valor asociado a la clave. De lo contrario, retornamos <code>None</code>.</p></li>
+<li><p>En el ejemplo de uso, creamos una instancia de <code>HashTable</code> con un tamaño de 10.</p></li>
+<li><p>Utilizamos el método <code>insert</code> para agregar pares clave-valor a la tabla hash.</p></li>
+<li><p>Utilizamos el método <code>search</code> para buscar valores en la tabla hash utilizando las claves.</p></li>
+<li><p>Imprimimos los resultados de las búsquedas.</p></li>
+</ol>
+<p>Este fue un ejemplo de ejercicio que muestra cómo implementar y utilizar la búsqueda Hash en Python.</p>
+<p>Ahora, pasemos al ejercicio de práctica. Implementaremos un programa que solicite al usuario ingresar una serie de claves y valores, y luego permita realizar búsquedas en la tabla hash utilizando esas claves.</p>
+<p><strong>Código de práctica en Python:</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> HashTable:</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, size):</span>
+<span id="cb21-3"><a href="#cb21-3"></a>        <span class="va">self</span>.size <span class="op">=</span> size</span>
+<span id="cb21-4"><a href="#cb21-4"></a>        <span class="va">self</span>.table <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> size</span>
+<span id="cb21-5"><a href="#cb21-5"></a></span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="kw">def</span> hash_function(<span class="va">self</span>, key):</span>
+<span id="cb21-7"><a href="#cb21-7"></a>        <span class="cf">return</span> key <span class="op">%</span> <span class="va">self</span>.size</span>
+<span id="cb21-8"><a href="#cb21-8"></a></span>
+<span id="cb21-9"><a href="#cb21-9"></a>    <span class="kw">def</span> insert(<span class="va">self</span>, key, value):</span>
+<span id="cb21-10"><a href="#cb21-10"></a>        index <span class="op">=</span> <span class="va">self</span>.hash_function(key)</span>
+<span id="cb21-11"><a href="#cb21-11"></a>        <span class="va">self</span>.table[index] <span class="op">=</span> value</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a>    <span class="kw">def</span> search(<span class="va">self</span>, key):</span>
+<span id="cb21-14"><a href="#cb21-14"></a>        index <span class="op">=</span> <span class="va">self</span>.hash_function(key)</span>
+<span id="cb21-15"><a href="#cb21-15"></a>        <span class="cf">if</span> <span class="va">self</span>.table[index] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb21-16"><a href="#cb21-16"></a>            <span class="cf">return</span> <span class="va">self</span>.table[index]</span>
+<span id="cb21-17"><a href="#cb21-17"></a>        <span class="cf">else</span>:</span>
+<span id="cb21-18"><a href="#cb21-18"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb21-19"><a href="#cb21-19"></a></span>
+<span id="cb21-20"><a href="#cb21-20"></a></span>
+<span id="cb21-21"><a href="#cb21-21"></a><span class="co"># Solicitar al usuario el tamaño de la tabla hash</span></span>
+<span id="cb21-22"><a href="#cb21-22"></a>table_size <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Ingresa el tamaño de la tabla hash: "</span>))</span>
+<span id="cb21-23"><a href="#cb21-23"></a>hash_table <span class="op">=</span> HashTable(table_size)</span>
+<span id="cb21-24"><a href="#cb21-24"></a></span>
+<span id="cb21-25"><a href="#cb21-25"></a><span class="co"># Solicitar al usuario ingresar claves y valores</span></span>
+<span id="cb21-26"><a href="#cb21-26"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb21-27"><a href="#cb21-27"></a>    key <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa una clave (o 'salir' para terminar): "</span>)</span>
+<span id="cb21-28"><a href="#cb21-28"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"salir"</span>:</span>
+<span id="cb21-29"><a href="#cb21-29"></a>        <span class="cf">break</span></span>
+<span id="cb21-30"><a href="#cb21-30"></a></span>
+<span id="cb21-31"><a href="#cb21-31"></a>    value <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingresa un valor: "</span>)</span>
+<span id="cb21-32"><a href="#cb21-32"></a>    hash_table.insert(<span class="bu">int</span>(key), value)</span>
+<span id="cb21-33"><a href="#cb21-33"></a></span>
+<span id="cb21-34"><a href="#cb21-34"></a><span class="co"># Solicitar al usuario una clave para realizar la búsqueda</span></span>
+<span id="cb21-35"><a href="#cb21-35"></a>search_key <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Ingresa una clave para buscar en la tabla hash: "</span>))</span>
+<span id="cb21-36"><a href="#cb21-36"></a></span>
+<span id="cb21-37"><a href="#cb21-37"></a><span class="co"># Realizar la búsqueda</span></span>
+<span id="cb21-38"><a href="#cb21-38"></a>result <span class="op">=</span> hash_table.search(search_key)</span>
+<span id="cb21-39"><a href="#cb21-39"></a></span>
+<span id="cb21-40"><a href="#cb21-40"></a><span class="cf">if</span> result <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb21-41"><a href="#cb21-41"></a>    <span class="bu">print</span>(<span class="st">"El valor asociado a la clave"</span>, search_key, <span class="st">"es"</span>, result)</span>
+<span id="cb21-42"><a href="#cb21-42"></a><span class="cf">else</span>:</span>
+<span id="cb21-43"><a href="#cb21-43"></a>    <span class="bu">print</span>(<span class="st">"La clave"</span>, search_key, <span class="st">"no se encuentra en la tabla hash."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explicación paso a paso:</strong></p>
+<ol type="1">
+<li><p>Creamos la clase <code>HashTable</code> de la misma manera que en el ejemplo anterior.</p></li>
+<li><p>Solicitamos al usuario que ingrese el tamaño deseado para la tabla hash utilizando <code>input("Ingresa el tamaño de la tabla hash: ")</code>.</p></li>
+<li><p>Creamos una instancia de <code>HashTable</code> con el tamaño especificado por el usuario.</p></li>
+<li><p>Utilizamos un bucle <code>while</code> para permitir al usuario ingresar claves y valores para agregar a la tabla hash. El bucle se rompe cuando el usuario ingresa “salir” como clave.</p></li>
+<li><p>En cada iteración del bucle, solicitamos al usuario una clave utilizando <code>input("Ingresa una clave (o 'salir' para terminar): ")</code> y un valor utilizando <code>input("Ingresa un valor: ")</code>.</p></li>
+<li><p>Utilizamos el método <code>insert</code> de la tabla hash para agregar el par clave-valor ingresado por el usuario.</p></li>
+<li><p>Solicitamos al usuario una clave para realizar la búsqueda utilizando <code>int(input("Ingresa una clave para buscar en la tabla hash: "))</code>.</p></li>
+<li><p>Utilizamos el método <code>search</code> de la tabla hash para buscar el valor asociado a la clave ingresada por el usuario.</p></li>
+<li><p>Verificamos si el resultado de la búsqueda no es <code>None</code>, lo que significa que se encontró un valor para la clave. En ese caso, imprimimos un mensaje indicando el valor encontrado.</p></li>
+<li><p>Si el resultado es <code>None</code>, imprimimos un mensaje indicando que la clave no se encuentra en la tabla hash.</p></li>
+</ol>
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://espe.edu.ec" class="uri">https://espe.edu.ec</a></p>
