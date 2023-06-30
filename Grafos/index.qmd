@@ -65,8 +65,7 @@ grafo <- graph(relaciones, vertices = personas)
 
 ## Eliminar un vértice correspondiente a una persona que deja de ser parte de la red social.
 
-```{R}
-
+``` r
 grafo <- delete.vertices(grafo, "Juan")
 ```
 
@@ -74,8 +73,7 @@ grafo <- delete.vertices(grafo, "Juan")
 
 ## Insertar una arista entre dos personas que se conocieron en un evento.
 
-```{R}
-
+``` r
 grafo <- add.edges(grafo, c("Carlos", "Elena"))
 ```
 
@@ -83,8 +81,7 @@ grafo <- add.edges(grafo, c("Carlos", "Elena"))
 
 ## Eliminar una arista entre dos personas que dejaron de ser amigas.
 
-```{R}
-
+``` r
 grafo <- delete.edges(grafo, c("Carlos", "Elena"))
 ```
 
@@ -92,8 +89,7 @@ grafo <- delete.edges(grafo, c("Carlos", "Elena"))
 
 ## Insertar aristas dirigidas que representen el flujo de información en una red de colaboradores.
 
-```{R}
-
+``` r
 colaboradores <- c("Ana", "Carlos", "Elena", "Juan")
 flujo <- c("Ana", "Carlos", "Carlos", "Elena", "Elena", "Juan")
 grafo <- graph(flujo, vertices = colaboradores, directed = TRUE)
@@ -103,8 +99,7 @@ grafo <- graph(flujo, vertices = colaboradores, directed = TRUE)
 
 ## Eliminar un vértice correspondiente a un colaborador que se retiró del proyecto.
 
-```{R}
-
+``` r
 grafo <- delete.vertices(grafo, "Juan")
 ```
 
@@ -112,8 +107,7 @@ grafo <- delete.vertices(grafo, "Juan")
 
 ## Insertar una arista dirigida que representa la transferencia de conocimiento entre dos colaboradores.
 
-```{R}
-
+``` r
 grafo <- add.edges(grafo, c("Carlos", "Elena"), directed = TRUE)
 ```
 
@@ -121,8 +115,7 @@ grafo <- add.edges(grafo, c("Carlos", "Elena"), directed = TRUE)
 
 ## Insertar vértices que representen ciudades y aristas que representen conexiones de vuelos directos entre ellas.
 
-```{R}
-
+``` r
 ciudades <- c("Quito", "Bogotá", "Lima", "Santiago")
 vuelos_directos <- c("Quito", "Bogotá", "Quito", "Lima", "Quito", "Santiago")
 grafo <- graph(vuelos_directos, vertices = ciudades)
@@ -132,8 +125,7 @@ grafo <- graph(vuelos_directos, vertices = ciudades)
 
 ## Eliminar un vértice correspondiente a una ciudad que ya no tiene vuelos directos.
 
-```{R}
-
+``` r
 grafo <- delete.vertices(grafo, "Lima")
 ```
 
@@ -141,8 +133,7 @@ grafo <- delete.vertices(grafo, "Lima")
 
 ## Insertar una arista entre dos ciudades que ahora tienen una nueva ruta de vuelo directo.
 
-```{R}
-
+``` r
 grafo <- add.edges(grafo, c("Quito", "Santiago"))
 ```
 
@@ -150,8 +141,7 @@ grafo <- add.edges(grafo, c("Quito", "Santiago"))
 
 ## Eliminar una arista entre dos ciudades debido al cierre temporal de una ruta de vuelo.
 
-```{R}
-
+``` r
 grafo <- delete.edges(grafo, c("Quito", "Bogotá"))
 ```
 
@@ -159,8 +149,7 @@ grafo <- delete.edges(grafo, c("Quito", "Bogotá"))
 
 ## Insertar vértices que representen dispositivos electrónicos y aristas que representen conexiones de red entre ellos.
 
-```{R}
-
+``` r
 dispositivos <- c("PC", "Smartphone", "Tablet", "Smart TV")
 conexiones <- c("PC", "Smartphone", "PC", "Tablet", "PC", "Smart TV")
 grafo <- graph(conexiones, vertices = dispositivos)
@@ -170,8 +159,7 @@ grafo <- graph(conexiones, vertices = dispositivos)
 
 ## Eliminar un vértice correspondiente a un dispositivo que ya no se encuentra en la red.
 
-```{R}
-
+``` r
 grafo <- delete.vertices(grafo, "Smart TV")
 ```
 
@@ -179,8 +167,7 @@ grafo <- delete.vertices(grafo, "Smart TV")
 
 ## Insertar una arista entre dos dispositivos que establecieron una nueva conexión de red.
 
-```{R}
-
+``` r
 grafo <- add.edges(grafo, c("PC", "Tablet"))
 ```
 
@@ -188,8 +175,7 @@ grafo <- add.edges(grafo, c("PC", "Tablet"))
 
 ## Eliminar una arista entre dos dispositivos debido a un fallo en la conexión de red.
 
-```{R}
-
+``` r
 grafo <- delete.edges(grafo, c("PC", "Smartphone"))
 ```
 
@@ -197,8 +183,7 @@ grafo <- delete.edges(grafo, c("PC", "Smartphone"))
 
 ## Insertar vértices que representen usuarios de una red social y aristas que representen las interacciones entre ellos (me gusta, comentarios, etc.).
 
-```{R}
-
+``` r
 usuarios <- c("Ana", "Carlos", "Elena", "Juan")
 interacciones <- c("Ana", "Carlos", "Ana", "Elena", "Carlos", "Juan")
 grafo <- graph(interacciones, vertices = usuarios)
@@ -208,8 +193,7 @@ grafo <- graph(interacciones, vertices = usuarios)
 
 ## Eliminar un vértice correspondiente a un usuario que ha cerrado su cuenta en la red social.
 
-```{R}
-
+``` r
 grafo <- delete.vertices(grafo, "Juan")
 ```
 
@@ -217,8 +201,7 @@ grafo <- delete.vertices(grafo, "Juan")
 
 ## Insertar una arista entre dos usuarios que se han dado me gusta mutuamente.
 
-```{R}
-
+``` r
 grafo <- add.edges(grafo, c("Carlos", "Elena"))
 ```
 
@@ -226,8 +209,7 @@ grafo <- add.edges(grafo, c("Carlos", "Elena"))
 
 ## Eliminar una arista entre dos usuarios que han dejado de seguirse en la red social.
 
-```{R}
-
+``` r
 grafo <- delete.edges(grafo, c("Ana", "Elena"))
 ```
 

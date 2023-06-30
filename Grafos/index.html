@@ -457,74 +457,100 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 </section>
 <section id="eliminar-un-vértice-correspondiente-a-una-persona-que-deja-de-ser-parte-de-la-red-social." class="slide level2">
 <h2>Eliminar un vértice correspondiente a una persona que deja de ser parte de la red social.</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.vertices</span>(grafo, <span class="st">"Juan"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos el vértice correspondiente a la persona “Juan” del grafo, ya que dejó de ser parte de la red social.</p>
 </section>
 <section id="insertar-una-arista-entre-dos-personas-que-se-conocieron-en-un-evento." class="slide level2">
 <h2>Insertar una arista entre dos personas que se conocieron en un evento.</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">add.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Carlos"</span>, <span class="st">"Elena"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Agregamos una arista entre los vértices correspondientes a las personas “Carlos” y “Elena” para representar que se conocieron en un evento.</p>
 </section>
 <section id="eliminar-una-arista-entre-dos-personas-que-dejaron-de-ser-amigas." class="slide level2">
 <h2>Eliminar una arista entre dos personas que dejaron de ser amigas.</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Carlos"</span>, <span class="st">"Elena"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos la arista que representaba la amistad entre las personas “Carlos” y “Elena” debido a que dejaron de ser amigos.</p>
 </section>
 <section id="insertar-aristas-dirigidas-que-representen-el-flujo-de-información-en-una-red-de-colaboradores." class="slide level2">
 <h2>Insertar aristas dirigidas que representen el flujo de información en una red de colaboradores.</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>colaboradores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Carlos"</span>, <span class="st">"Elena"</span>, <span class="st">"Juan"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>flujo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Carlos"</span>, <span class="st">"Carlos"</span>, <span class="st">"Elena"</span>, <span class="st">"Elena"</span>, <span class="st">"Juan"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>grafo <span class="ot">&lt;-</span> <span class="fu">graph</span>(flujo, <span class="at">vertices =</span> colaboradores, <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Creamos un grafo dirigido donde los vértices representan colaboradores y las aristas dirigidas representan el flujo de información entre ellos.</p>
 </section>
 <section id="eliminar-un-vértice-correspondiente-a-un-colaborador-que-se-retiró-del-proyecto." class="slide level2">
 <h2>Eliminar un vértice correspondiente a un colaborador que se retiró del proyecto.</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.vertices</span>(grafo, <span class="st">"Juan"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos el vértice correspondiente al colaborador “Juan” del grafo, ya que se retiró del proyecto.</p>
 </section>
 <section id="insertar-una-arista-dirigida-que-representa-la-transferencia-de-conocimiento-entre-dos-colaboradores." class="slide level2">
 <h2>Insertar una arista dirigida que representa la transferencia de conocimiento entre dos colaboradores.</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">add.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Carlos"</span>, <span class="st">"Elena"</span>), <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Agregamos una arista dirigida desde el colaborador “Carlos” hacia el colaborador “Elena” para representar la transferencia de conocimiento entre ellos.</p>
 </section>
 <section id="insertar-vértices-que-representen-ciudades-y-aristas-que-representen-conexiones-de-vuelos-directos-entre-ellas." class="slide level2">
 <h2>Insertar vértices que representen ciudades y aristas que representen conexiones de vuelos directos entre ellas.</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>ciudades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Quito"</span>, <span class="st">"Bogotá"</span>, <span class="st">"Lima"</span>, <span class="st">"Santiago"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>vuelos_directos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Quito"</span>, <span class="st">"Bogotá"</span>, <span class="st">"Quito"</span>, <span class="st">"Lima"</span>, <span class="st">"Quito"</span>, <span class="st">"Santiago"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>grafo <span class="ot">&lt;-</span> <span class="fu">graph</span>(vuelos_directos, <span class="at">vertices =</span> ciudades)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Creamos un grafo donde los vértices representan ciudades y las aristas representan vuelos directos entre ellas.</p>
 </section>
 <section id="eliminar-un-vértice-correspondiente-a-una-ciudad-que-ya-no-tiene-vuelos-directos." class="slide level2">
 <h2>Eliminar un vértice correspondiente a una ciudad que ya no tiene vuelos directos.</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.vertices</span>(grafo, <span class="st">"Lima"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos el vértice correspondiente a la ciudad de “Lima” del grafo, ya que ya no hay vuelos directos hacia esa ciudad.</p>
 </section>
 <section id="insertar-una-arista-entre-dos-ciudades-que-ahora-tienen-una-nueva-ruta-de-vuelo-directo." class="slide level2">
 <h2>Insertar una arista entre dos ciudades que ahora tienen una nueva ruta de vuelo directo.</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">add.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Quito"</span>, <span class="st">"Santiago"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Agregamos una arista entre los vértices correspondientes a las ciudades de “Quito” y “Santiago” para representar una nueva ruta de vuelo directo entre ellas.</p>
 </section>
 <section id="eliminar-una-arista-entre-dos-ciudades-debido-al-cierre-temporal-de-una-ruta-de-vuelo." class="slide level2">
 <h2>Eliminar una arista entre dos ciudades debido al cierre temporal de una ruta de vuelo.</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Quito"</span>, <span class="st">"Bogotá"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos la arista que representaba el vuelo directo entre las ciudades de “Quito” y “Bogotá” debido al cierre temporal de esa ruta.</p>
 </section>
 <section id="insertar-vértices-que-representen-dispositivos-electrónicos-y-aristas-que-representen-conexiones-de-red-entre-ellos." class="slide level2">
 <h2>Insertar vértices que representen dispositivos electrónicos y aristas que representen conexiones de red entre ellos.</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dispositivos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PC"</span>, <span class="st">"Smartphone"</span>, <span class="st">"Tablet"</span>, <span class="st">"Smart TV"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>conexiones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PC"</span>, <span class="st">"Smartphone"</span>, <span class="st">"PC"</span>, <span class="st">"Tablet"</span>, <span class="st">"PC"</span>, <span class="st">"Smart TV"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>grafo <span class="ot">&lt;-</span> <span class="fu">graph</span>(conexiones, <span class="at">vertices =</span> dispositivos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Creamos un grafo donde los vértices representan dispositivos electrónicos y las aristas representan conexiones de red entre ellos.</p>
 </section>
 <section id="eliminar-un-vértice-correspondiente-a-un-dispositivo-que-ya-no-se-encuentra-en-la-red." class="slide level2">
 <h2>Eliminar un vértice correspondiente a un dispositivo que ya no se encuentra en la red.</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.vertices</span>(grafo, <span class="st">"Smart TV"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos el vértice correspondiente al dispositivo “Smart TV” del grafo, ya que ya no se encuentra en la red.</p>
 </section>
 <section id="insertar-una-arista-entre-dos-dispositivos-que-establecieron-una-nueva-conexión-de-red." class="slide level2">
 <h2>Insertar una arista entre dos dispositivos que establecieron una nueva conexión de red.</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">add.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"PC"</span>, <span class="st">"Tablet"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Agregamos una arista entre los vértices correspondientes a los dispositivos “PC” y “Tablet” para representar una nueva conexión de red entre ellos.</p>
 </section>
 <section id="eliminar-una-arista-entre-dos-dispositivos-debido-a-un-fallo-en-la-conexión-de-red." class="slide level2">
 <h2>Eliminar una arista entre dos dispositivos debido a un fallo en la conexión de red.</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"PC"</span>, <span class="st">"Smartphone"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos la arista que representaba la conexión de red entre los dispositivos “PC” y “Smartphone” debido a un fallo en la conexión.</p>
 </section>
 <section id="insertar-vértices-que-representen-usuarios-de-una-red-social-y-aristas-que-representen-las-interacciones-entre-ellos-me-gusta-comentarios-etc.." class="slide level2">
 <h2>Insertar vértices que representen usuarios de una red social y aristas que representen las interacciones entre ellos (me gusta, comentarios, etc.).</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>usuarios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Carlos"</span>, <span class="st">"Elena"</span>, <span class="st">"Juan"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>interacciones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Carlos"</span>, <span class="st">"Ana"</span>, <span class="st">"Elena"</span>, <span class="st">"Carlos"</span>, <span class="st">"Juan"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>grafo <span class="ot">&lt;-</span> <span class="fu">graph</span>(interacciones, <span class="at">vertices =</span> usuarios)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Creamos un grafo donde los vértices representan usuarios de una red social y las aristas representan las interacciones (me gusta, comentarios, etc.) entre ellos.</p>
 </section>
 <section id="eliminar-un-vértice-correspondiente-a-un-usuario-que-ha-cerrado-su-cuenta-en-la-red-social." class="slide level2">
 <h2>Eliminar un vértice correspondiente a un usuario que ha cerrado su cuenta en la red social.</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.vertices</span>(grafo, <span class="st">"Juan"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos el vértice correspondiente al usuario “Juan” del grafo, ya que ha cerrado su cuenta en la red social.</p>
 </section>
 <section id="insertar-una-arista-entre-dos-usuarios-que-se-han-dado-me-gusta-mutuamente." class="slide level2">
 <h2>Insertar una arista entre dos usuarios que se han dado me gusta mutuamente.</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">add.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Carlos"</span>, <span class="st">"Elena"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Agregamos una arista entre los vértices correspondientes a los usuarios “Carlos” y “Elena” para representar que se han dado me gusta mutuamente.</p>
 </section>
 <section id="eliminar-una-arista-entre-dos-usuarios-que-han-dejado-de-seguirse-en-la-red-social." class="slide level2">
 <h2>Eliminar una arista entre dos usuarios que han dejado de seguirse en la red social.</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Elena"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos la arista que representaba la conexión entre los usuarios “Ana” y “Elena” debido a que han dejado de seguirse en la red social.</p>
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -747,44 +773,6 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
