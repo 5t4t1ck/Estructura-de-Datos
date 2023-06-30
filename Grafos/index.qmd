@@ -215,186 +215,96 @@ grafo <- delete.edges(grafo, c("Ana", "Elena"))
 
 **Descripción:** Eliminamos la arista que representaba la conexión entre los usuarios "Ana" y "Elena" debido a que han dejado de seguirse en la red social.
 
-Actividad Grupal.
+# Actividad Grupal.
 
-Introducción: En esta serie de ejercicios prácticos, exploraremos operaciones comunes con grafos utilizando ejemplos típicos de situaciones en Ecuador. Los ejercicios abarcarán la representación de grafos, la manipulación de vértices y aristas, así como el análisis de caminos y componentes del grafo. Utilizaremos la librería `igraph` en R para llevar a cabo estas operaciones.
+**Introducción:** En esta serie de ejercicios prácticos, exploraremos operaciones comunes con grafos utilizando ejemplos típicos de situaciones en Ecuador. Los ejercicios abarcarán la representación de grafos, la manipulación de vértices y aristas, así como el análisis de caminos y componentes del grafo. Utilizaremos la librería `igraph` en R para llevar a cabo estas operaciones.
 
-1.  Crear un grafo que represente las conexiones de transporte entre ciudades del Ecuador.
+## 1.  Crear un grafo que represente las conexiones de transporte entre ciudades del Ecuador.
 
-```         
-R
-```
+**Aquí ingrese el código.**
 
-```         
-library(igraph)  ciudades <- c("Quito", "Guayaquil", "Cuenca", "Ambato", "Manta") rutas <- c("Quito", "Guayaquil", "Guayaquil", "Cuenca", "Quito", "Ambato", "Guayaquil", "Manta") grafo <- graph(rutas, vertices = ciudades) 
-```
+**Descripción:** Creamos un grafo donde los vértices representan ciudades ecuatorianas y las aristas representan las conexiones de transporte entre ellas.
 
-Descripción: Creamos un grafo donde los vértices representan ciudades ecuatorianas y las aristas representan las conexiones de transporte entre ellas.
+## 2.  Obtener el número total de ciudades en el grafo.
 
-2.  Obtener el número total de ciudades en el grafo.
+**Aquí ingrese el código.**
 
-```         
-R
-```
+**Descripción:** Utilizamos la función `vcount()` para obtener el número total de vértices (ciudades) en el grafo.
 
-```         
-num_ciudades <- vcount(grafo) 
-```
+## 3.  Obtener el número total de rutas de transporte en el grafo.
 
-Descripción: Utilizamos la función `vcount()` para obtener el número total de vértices (ciudades) en el grafo.
+**Aquí ingrese el código.**
 
-3.  Obtener el número total de rutas de transporte en el grafo.
+**Descripción:** Utilizamos la función `ecount()` para obtener el número total de aristas (rutas) en el grafo.
 
-```         
-R
-```
+## 4.  Verificar si existe una conexión directa entre dos ciudades específicas.
 
-```         
-num_rutas <- ecount(grafo) 
-```
+**Aquí ingrese el código.**
 
-Descripción: Utilizamos la función `ecount()` para obtener el número total de aristas (rutas) en el grafo.
+**Descripción:** Utilizamos la función `are.connected()` para verificar si existe una conexión directa entre las ciudades "Quito" y "Guayaquil" en el grafo.
 
-4.  Verificar si existe una conexión directa entre dos ciudades específicas.
+## 5.  Obtener todas las ciudades vecinas a una ciudad específica.
 
-```         
-R
-```
+**Aquí ingrese el código.**
 
-```         
-existe_conexion <- are.connected(grafo, "Quito", "Guayaquil") 
-```
+**Descripción:** Utilizamos la función `neighbors()` para obtener todas las ciudades vecinas a la ciudad "Quito" en el grafo.
 
-Descripción: Utilizamos la función `are.connected()` para verificar si existe una conexión directa entre las ciudades "Quito" y "Guayaquil" en el grafo.
+## 6.  Agregar una nueva ciudad al grafo y establecer conexiones de transporte hacia otras ciudades existentes.
 
-5.  Obtener todas las ciudades vecinas a una ciudad específica.
+**Aquí ingrese el código.**
 
-```         
-R
-```
+**Descripción:** Agregamos un nuevo vértice (ciudad) al grafo llamado "Loja" y establecemos conexiones de transporte hacia las ciudades existentes "Cuenca" y "Guayaquil".
 
-```         
-vecinas <- neighbors(grafo, "Quito") 
-```
+## 7.  Eliminar una ciudad y todas sus conexiones de transporte del grafo.
 
-Descripción: Utilizamos la función `neighbors()` para obtener todas las ciudades vecinas a la ciudad "Quito" en el grafo.
+**Aquí ingrese el código.**
 
-6.  Agregar una nueva ciudad al grafo y establecer conexiones de transporte hacia otras ciudades existentes.
+**Descripción:** Eliminamos el vértice (ciudad) correspondiente a "Manta" y todas sus aristas (conexiones de transporte) asociadas del grafo.
 
-```         
-R
-```
+## 8.  Encontrar el camino más corto entre dos ciudades.
 
-```         
-grafo <- add.vertices(grafo, 1, name = "Loja") grafo <- add.edges(grafo, c("Loja", "Cuenca", "Loja", "Guayaquil")) 
-```
+**Aquí ingrese el código.**
 
-Descripción: Agregamos un nuevo vértice (ciudad) al grafo llamado "Loja" y establecemos conexiones de transporte hacia las ciudades existentes "Cuenca" y "Guayaquil".
+**Descripción:** Utilizamos la función `shortest_paths()` para encontrar el camino más corto entre las ciudades "Quito" y "Cuenca" en el grafo.
 
-7.  Eliminar una ciudad y todas sus conexiones de transporte del grafo.
+## 9.  Calcular la longitud del camino más corto entre dos ciudades.
 
-```         
-R
-```
+**Aquí ingrese el código.**
 
-```         
-grafo <- delete.vertices(grafo, "Manta") 
-```
+**Descripción:** Utilizamos la función `graph_distance()` para calcular la longitud del camino más corto entre las ciudades "Quito" y "Cuenca" en el grafo.
 
-Descripción: Eliminamos el vértice (ciudad) correspondiente a "Manta" y todas sus aristas (conexiones de transporte) asociadas del grafo.
+## 10. Obtener todos los caminos posibles entre dos ciudades.
 
-8.  Encontrar el camino más corto entre dos ciudades.
+**Aquí ingrese el código.**
 
-```         
-R
-```
+**Descripción:** Utilizamos la función `all_simple_paths()` para obtener todos los caminos posibles entre las ciudades "Quito" y "Cuenca" en el grafo.
 
-```         
-camino_mas_corto <- shortest_paths(grafo, "Quito", "Cuenca") 
-```
+## 11. Verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.
 
-Descripción: Utilizamos la función `shortest_paths()` para encontrar el camino más corto entre las ciudades "Quito" y "Cuenca" en el grafo.
+**Aquí ingrese el código.**
 
-9.  Calcular la longitud del camino más corto entre dos ciudades.
+**Descripción:** Utilizamos la función `is.connected()` para verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.
 
-```         
-R
-```
+## 12. Obtener el número de componentes conexas en el grafo.
 
-```         
-longitud_camino <- graph_distance(grafo, "Quito", "Cuenca") 
-```
+**Aquí ingrese el código.**
 
-Descripción: Utilizamos la función `graph_distance()` para calcular la longitud del camino más corto entre las ciudades "Quito" y "Cuenca" en el grafo.
+**Descripción:** Utilizamos la función `clusters()` para obtener el número de componentes conexas en el grafo.
 
-10. Obtener todos los caminos posibles entre dos ciudades.
+## 13. Encontrar todas las ciudades que pertenecen a la misma componente conexa que una ciudad específica.
 
-```         
-R
-```
+**Aquí ingrese el código.**
 
-```         
-caminos <- all_simple_paths(grafo, "Quito", "Cuenca") 
-```
+**Descripción:** Utilizamos la función `components()` para encontrar la componente conexa a la que pertenece la ciudad "Quito" y luego obtenemos todas las ciudades que pertenecen a la misma componente conexa.
 
-Descripción: Utilizamos la función `all_simple_paths()` para obtener todos los caminos posibles entre las ciudades "Quito" y "Cuenca" en el grafo.
+## 14. Obtener el subgrafo formado por las ciudades de una componente conexa específica.
 
-11. Verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.
+**Aquí ingrese el código.**
 
-```         
-R
-```
+**Descripción:** Utilizamos la función `induced_subgraph()` para obtener el subgrafo formado por las ciudades que pertenecen a la componente conexa número 1.
 
-```         
-es_conexo <- is.connected(grafo) 
-```
+## 15. Visualizar el grafo con todas las ciudades y conexiones de transporte.
 
-Descripción: Utilizamos la función `is.connected()` para verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.
+**Aquí ingrese el código.**
 
-12. Obtener el número de componentes conexas en el grafo.
-
-```         
-R
-```
-
-```         
-num_componentes <- clusters(grafo)$no 
-```
-
-Descripción: Utilizamos la función `clusters()` para obtener el número de componentes conexas en el grafo.
-
-13. Encontrar todas las ciudades que pertenecen a la misma componente conexa que una ciudad específica.
-
-```         
-R
-```
-
-```         
-componente_conexa <- components(grafo)$membership[which(V(grafo)$name == "Quito")] ciudades_componente <- names(V(grafo))[which(components(grafo)$membership == componente_conexa)] 
-```
-
-Descripción: Utilizamos la función `components()` para encontrar la componente conexa a la que pertenece la ciudad "Quito" y luego obtenemos todas las ciudades que pertenecen a la misma componente conexa.
-
-14. Obtener el subgrafo formado por las ciudades de una componente conexa específica.
-
-```         
-R
-```
-
-```         
-subgrafo <- induced_subgraph(grafo, which(components(grafo)$membership == 1)) 
-```
-
-Descripción: Utilizamos la función `induced_subgraph()` para obtener el subgrafo formado por las ciudades que pertenecen a la componente conexa número 1.
-
-15. Visualizar el grafo con todas las ciudades y conexiones de transporte.
-
-```         
-R
-```
-
-```         
-plot(grafo, vertex.label = V(grafo)$name, edge.arrow.size = 0.5) 
-```
-
-Descripción: Utilizamos la función `plot()` para visualizar el grafo con todas las ciudades como vértices y las conexiones de transporte como aristas. También agregamos etiquetas a los vértices y ajustamos el tamaño de las flechas en las aristas.
+**Descripción:** Utilizamos la función `plot()` para visualizar el grafo con todas las ciudades como vértices y las conexiones de transporte como aristas. También agregamos etiquetas a los vértices y ajustamos el tamaño de las flechas en las aristas.
