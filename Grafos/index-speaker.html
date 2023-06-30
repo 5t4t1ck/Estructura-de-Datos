@@ -552,6 +552,98 @@ Lic. Diego Medardo Saavedra García Mg. Sc.
 <h2>Eliminar una arista entre dos usuarios que han dejado de seguirse en la red social.</h2>
 <div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>grafo <span class="ot">&lt;-</span> <span class="fu">delete.edges</span>(grafo, <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Elena"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Descripción:</strong> Eliminamos la arista que representaba la conexión entre los usuarios “Ana” y “Elena” debido a que han dejado de seguirse en la red social.</p>
+<p>Actividad Grupal.</p>
+<p>Introducción: En esta serie de ejercicios prácticos, exploraremos operaciones comunes con grafos utilizando ejemplos típicos de situaciones en Ecuador. Los ejercicios abarcarán la representación de grafos, la manipulación de vértices y aristas, así como el análisis de caminos y componentes del grafo. Utilizaremos la librería <code>igraph</code> en R para llevar a cabo estas operaciones.</p>
+<ol type="1">
+<li>Crear un grafo que represente las conexiones de transporte entre ciudades del Ecuador.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>library(igraph)  ciudades &lt;- c("Quito", "Guayaquil", "Cuenca", "Ambato", "Manta") rutas &lt;- c("Quito", "Guayaquil", "Guayaquil", "Cuenca", "Quito", "Ambato", "Guayaquil", "Manta") grafo &lt;- graph(rutas, vertices = ciudades) </code></pre>
+<p>Descripción: Creamos un grafo donde los vértices representan ciudades ecuatorianas y las aristas representan las conexiones de transporte entre ellas.</p>
+<ol start="2" type="1">
+<li>Obtener el número total de ciudades en el grafo.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>num_ciudades &lt;- vcount(grafo) </code></pre>
+<p>Descripción: Utilizamos la función <code>vcount()</code> para obtener el número total de vértices (ciudades) en el grafo.</p>
+<ol start="3" type="1">
+<li>Obtener el número total de rutas de transporte en el grafo.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>num_rutas &lt;- ecount(grafo) </code></pre>
+<p>Descripción: Utilizamos la función <code>ecount()</code> para obtener el número total de aristas (rutas) en el grafo.</p>
+<ol start="4" type="1">
+<li>Verificar si existe una conexión directa entre dos ciudades específicas.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>existe_conexion &lt;- are.connected(grafo, "Quito", "Guayaquil") </code></pre>
+<p>Descripción: Utilizamos la función <code>are.connected()</code> para verificar si existe una conexión directa entre las ciudades “Quito” y “Guayaquil” en el grafo.</p>
+<ol start="5" type="1">
+<li>Obtener todas las ciudades vecinas a una ciudad específica.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>vecinas &lt;- neighbors(grafo, "Quito") </code></pre>
+<p>Descripción: Utilizamos la función <code>neighbors()</code> para obtener todas las ciudades vecinas a la ciudad “Quito” en el grafo.</p>
+<ol start="6" type="1">
+<li>Agregar una nueva ciudad al grafo y establecer conexiones de transporte hacia otras ciudades existentes.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>grafo &lt;- add.vertices(grafo, 1, name = "Loja") grafo &lt;- add.edges(grafo, c("Loja", "Cuenca", "Loja", "Guayaquil")) </code></pre>
+<p>Descripción: Agregamos un nuevo vértice (ciudad) al grafo llamado “Loja” y establecemos conexiones de transporte hacia las ciudades existentes “Cuenca” y “Guayaquil”.</p>
+<ol start="7" type="1">
+<li>Eliminar una ciudad y todas sus conexiones de transporte del grafo.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>grafo &lt;- delete.vertices(grafo, "Manta") </code></pre>
+<p>Descripción: Eliminamos el vértice (ciudad) correspondiente a “Manta” y todas sus aristas (conexiones de transporte) asociadas del grafo.</p>
+<ol start="8" type="1">
+<li>Encontrar el camino más corto entre dos ciudades.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>camino_mas_corto &lt;- shortest_paths(grafo, "Quito", "Cuenca") </code></pre>
+<p>Descripción: Utilizamos la función <code>shortest_paths()</code> para encontrar el camino más corto entre las ciudades “Quito” y “Cuenca” en el grafo.</p>
+<ol start="9" type="1">
+<li>Calcular la longitud del camino más corto entre dos ciudades.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>longitud_camino &lt;- graph_distance(grafo, "Quito", "Cuenca") </code></pre>
+<p>Descripción: Utilizamos la función <code>graph_distance()</code> para calcular la longitud del camino más corto entre las ciudades “Quito” y “Cuenca” en el grafo.</p>
+<ol start="10" type="1">
+<li>Obtener todos los caminos posibles entre dos ciudades.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>caminos &lt;- all_simple_paths(grafo, "Quito", "Cuenca") </code></pre>
+<p>Descripción: Utilizamos la función <code>all_simple_paths()</code> para obtener todos los caminos posibles entre las ciudades “Quito” y “Cuenca” en el grafo.</p>
+<ol start="11" type="1">
+<li>Verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>es_conexo &lt;- is.connected(grafo) </code></pre>
+<p>Descripción: Utilizamos la función <code>is.connected()</code> para verificar si el grafo es conexo, es decir, si existe un camino entre cada par de ciudades.</p>
+<ol start="12" type="1">
+<li>Obtener el número de componentes conexas en el grafo.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>num_componentes &lt;- clusters(grafo)$no </code></pre>
+<p>Descripción: Utilizamos la función <code>clusters()</code> para obtener el número de componentes conexas en el grafo.</p>
+<ol start="13" type="1">
+<li>Encontrar todas las ciudades que pertenecen a la misma componente conexa que una ciudad específica.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>componente_conexa &lt;- components(grafo)$membership[which(V(grafo)$name == "Quito")] ciudades_componente &lt;- names(V(grafo))[which(components(grafo)$membership == componente_conexa)] </code></pre>
+<p>Descripción: Utilizamos la función <code>components()</code> para encontrar la componente conexa a la que pertenece la ciudad “Quito” y luego obtenemos todas las ciudades que pertenecen a la misma componente conexa.</p>
+<ol start="14" type="1">
+<li>Obtener el subgrafo formado por las ciudades de una componente conexa específica.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>subgrafo &lt;- induced_subgraph(grafo, which(components(grafo)$membership == 1)) </code></pre>
+<p>Descripción: Utilizamos la función <code>induced_subgraph()</code> para obtener el subgrafo formado por las ciudades que pertenecen a la componente conexa número 1.</p>
+<ol start="15" type="1">
+<li>Visualizar el grafo con todas las ciudades y conexiones de transporte.</li>
+</ol>
+<pre><code>R</code></pre>
+<pre><code>plot(grafo, vertex.label = V(grafo)$name, edge.arrow.size = 0.5) </code></pre>
+<p>Descripción: Utilizamos la función <code>plot()</code> para visualizar el grafo con todas las ciudades como vértices y las conexiones de transporte como aristas. También agregamos etiquetas a los vértices y ajustamos el tamaño de las flechas en las aristas.</p>
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://espe.edu.ec" class="uri">https://espe.edu.ec</a></p>
