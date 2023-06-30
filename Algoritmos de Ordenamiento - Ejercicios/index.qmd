@@ -667,7 +667,7 @@ print(numbers)
 
 7.  Imprimimos la lista ordenada utilizando `print("Lista ordenada:")` seguido de `print(numbers)`.
 
-# Algoritmos de Ordenación Externa. 
+# Algoritmos de Ordenación Externa.
 
 ## **Mezcla Directa**
 

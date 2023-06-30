@@ -1,0 +1,234 @@
+---
+title: "Ejercicios de Grafos"
+subtitle: "Grafos"
+date: "today"
+author: "Lic. Diego Medardo Saavedra García Mg. Sc."
+lang: "es"
+format:
+  revealjs:
+    #chalkboard: 
+      #buttons: false
+    toc: true
+    incremental: false
+    slide-number: true
+    preview-links: auto
+    logo: img/logo.png
+    footer: <https://espe.edu.ec>
+    theme: dark
+    makeindex: true
+    multiplex: true
+    transition: fade
+    chalkboard: true #Pizarra
+    auto-stretch: false
+    smaller: false
+    scrollable: true
+    #presentation-title-slide-text-alig: left
+    presentation-slide-text-align: center
+    menu: true
+    codeBlock: {data-trim: true}
+    execute: false
+    executeCode: true
+  #html: 
+    
+    #code-fold: true
+    #html-math-method: katex
+    #multiplex: true
+    #transition: fade
+    #auto-stretch: false
+bibliography: Bibliografia.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Ejercicios de Grafos
+
+## Crear un grafo vacío.
+
+``` {.r .R}
+library(igraph)
+
+grafo <- graph.empty()
+```
+
+**Descripción:** Creamos un grafo vacío utilizando la función graph.empty() de la librería igraph.
+
+## Insertar personas como vértices y relaciones de amistad como aristas.
+
+``` r
+personas <- c("Ana", "Carlos", "Elena", "Juan")
+relaciones <- c("Ana", "Carlos", "Carlos", "Elena", "Elena", "Juan")
+grafo <- graph(relaciones, vertices = personas)
+```
+
+**Descripción:** Creamos un grafo donde los vértices representan personas y las aristas representan relaciones de amistad entre ellas.
+
+## Eliminar un vértice correspondiente a una persona que deja de ser parte de la red social.
+
+```{R}
+
+grafo <- delete.vertices(grafo, "Juan")
+```
+
+**Descripción:** Eliminamos el vértice correspondiente a la persona "Juan" del grafo, ya que dejó de ser parte de la red social.
+
+## Insertar una arista entre dos personas que se conocieron en un evento.
+
+```{R}
+
+grafo <- add.edges(grafo, c("Carlos", "Elena"))
+```
+
+**Descripción:** Agregamos una arista entre los vértices correspondientes a las personas "Carlos" y "Elena" para representar que se conocieron en un evento.
+
+## Eliminar una arista entre dos personas que dejaron de ser amigas.
+
+```{R}
+
+grafo <- delete.edges(grafo, c("Carlos", "Elena"))
+```
+
+**Descripción:** Eliminamos la arista que representaba la amistad entre las personas "Carlos" y "Elena" debido a que dejaron de ser amigos.
+
+## Insertar aristas dirigidas que representen el flujo de información en una red de colaboradores.
+
+```{R}
+
+colaboradores <- c("Ana", "Carlos", "Elena", "Juan")
+flujo <- c("Ana", "Carlos", "Carlos", "Elena", "Elena", "Juan")
+grafo <- graph(flujo, vertices = colaboradores, directed = TRUE)
+```
+
+**Descripción:** Creamos un grafo dirigido donde los vértices representan colaboradores y las aristas dirigidas representan el flujo de información entre ellos.
+
+## Eliminar un vértice correspondiente a un colaborador que se retiró del proyecto.
+
+```{R}
+
+grafo <- delete.vertices(grafo, "Juan")
+```
+
+**Descripción:** Eliminamos el vértice correspondiente al colaborador "Juan" del grafo, ya que se retiró del proyecto.
+
+## Insertar una arista dirigida que representa la transferencia de conocimiento entre dos colaboradores.
+
+```{R}
+
+grafo <- add.edges(grafo, c("Carlos", "Elena"), directed = TRUE)
+```
+
+**Descripción:** Agregamos una arista dirigida desde el colaborador "Carlos" hacia el colaborador "Elena" para representar la transferencia de conocimiento entre ellos.
+
+## Insertar vértices que representen ciudades y aristas que representen conexiones de vuelos directos entre ellas.
+
+```{R}
+
+ciudades <- c("Quito", "Bogotá", "Lima", "Santiago")
+vuelos_directos <- c("Quito", "Bogotá", "Quito", "Lima", "Quito", "Santiago")
+grafo <- graph(vuelos_directos, vertices = ciudades)
+```
+
+**Descripción:** Creamos un grafo donde los vértices representan ciudades y las aristas representan vuelos directos entre ellas.
+
+## Eliminar un vértice correspondiente a una ciudad que ya no tiene vuelos directos.
+
+```{R}
+
+grafo <- delete.vertices(grafo, "Lima")
+```
+
+**Descripción:** Eliminamos el vértice correspondiente a la ciudad de "Lima" del grafo, ya que ya no hay vuelos directos hacia esa ciudad.
+
+## Insertar una arista entre dos ciudades que ahora tienen una nueva ruta de vuelo directo.
+
+```{R}
+
+grafo <- add.edges(grafo, c("Quito", "Santiago"))
+```
+
+**Descripción:** Agregamos una arista entre los vértices correspondientes a las ciudades de "Quito" y "Santiago" para representar una nueva ruta de vuelo directo entre ellas.
+
+## Eliminar una arista entre dos ciudades debido al cierre temporal de una ruta de vuelo.
+
+```{R}
+
+grafo <- delete.edges(grafo, c("Quito", "Bogotá"))
+```
+
+**Descripción:** Eliminamos la arista que representaba el vuelo directo entre las ciudades de "Quito" y "Bogotá" debido al cierre temporal de esa ruta.
+
+## Insertar vértices que representen dispositivos electrónicos y aristas que representen conexiones de red entre ellos.
+
+```{R}
+
+dispositivos <- c("PC", "Smartphone", "Tablet", "Smart TV")
+conexiones <- c("PC", "Smartphone", "PC", "Tablet", "PC", "Smart TV")
+grafo <- graph(conexiones, vertices = dispositivos)
+```
+
+**Descripción:** Creamos un grafo donde los vértices representan dispositivos electrónicos y las aristas representan conexiones de red entre ellos.
+
+## Eliminar un vértice correspondiente a un dispositivo que ya no se encuentra en la red.
+
+```{R}
+
+grafo <- delete.vertices(grafo, "Smart TV")
+```
+
+**Descripción:** Eliminamos el vértice correspondiente al dispositivo "Smart TV" del grafo, ya que ya no se encuentra en la red.
+
+## Insertar una arista entre dos dispositivos que establecieron una nueva conexión de red.
+
+```{R}
+
+grafo <- add.edges(grafo, c("PC", "Tablet"))
+```
+
+**Descripción:** Agregamos una arista entre los vértices correspondientes a los dispositivos "PC" y "Tablet" para representar una nueva conexión de red entre ellos.
+
+## Eliminar una arista entre dos dispositivos debido a un fallo en la conexión de red.
+
+```{R}
+
+grafo <- delete.edges(grafo, c("PC", "Smartphone"))
+```
+
+**Descripción:** Eliminamos la arista que representaba la conexión de red entre los dispositivos "PC" y "Smartphone" debido a un fallo en la conexión.
+
+## Insertar vértices que representen usuarios de una red social y aristas que representen las interacciones entre ellos (me gusta, comentarios, etc.).
+
+```{R}
+
+usuarios <- c("Ana", "Carlos", "Elena", "Juan")
+interacciones <- c("Ana", "Carlos", "Ana", "Elena", "Carlos", "Juan")
+grafo <- graph(interacciones, vertices = usuarios)
+```
+
+**Descripción:** Creamos un grafo donde los vértices representan usuarios de una red social y las aristas representan las interacciones (me gusta, comentarios, etc.) entre ellos.
+
+## Eliminar un vértice correspondiente a un usuario que ha cerrado su cuenta en la red social.
+
+```{R}
+
+grafo <- delete.vertices(grafo, "Juan")
+```
+
+**Descripción:** Eliminamos el vértice correspondiente al usuario "Juan" del grafo, ya que ha cerrado su cuenta en la red social.
+
+## Insertar una arista entre dos usuarios que se han dado me gusta mutuamente.
+
+```{R}
+
+grafo <- add.edges(grafo, c("Carlos", "Elena"))
+```
+
+**Descripción:** Agregamos una arista entre los vértices correspondientes a los usuarios "Carlos" y "Elena" para representar que se han dado me gusta mutuamente.
+
+## Eliminar una arista entre dos usuarios que han dejado de seguirse en la red social.
+
+```{R}
+
+grafo <- delete.edges(grafo, c("Ana", "Elena"))
+```
+
+**Descripción:** Eliminamos la arista que representaba la conexión entre los usuarios "Ana" y "Elena" debido a que han dejado de seguirse en la red social.
